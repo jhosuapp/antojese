@@ -1,0 +1,22 @@
+//PALETA DE COLORES
+$palette:(
+  'white': #fff,
+  'black': #000,
+  'primary': red
+);
+
+//BREAKPOINTS
+
+$breakpoints: (
+  'desktop': 1440px,
+  'portatil': 1280px,
+  'portatil-pequeño': 1100px,
+  'ipad-grande': 992px,
+  'ipad-pequeña': 768px,
+  'celular': 576px
+);
+
+//OTHERS
+
+$transition-duration: 0.3s;
+$limit-width: 1500px;

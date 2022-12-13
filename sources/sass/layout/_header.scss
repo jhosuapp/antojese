@@ -1,0 +1,9 @@
+p{
+    color: color('primary');
+}
+
+@media(max-width: breakpoints('celular')){
+    p{
+        display: none;
+    }
+}
