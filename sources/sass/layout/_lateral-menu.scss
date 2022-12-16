@@ -1,0 +1,107 @@
+.lateralMenu{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 80px;
+    transition: .5s ease all;
+    z-index: 99;
+    &__container{
+        width: 100%;
+        height: 100%;
+        background-color: color('primary');
+        position: relative;
+        z-index: 9;
+        @include flex($ai: flex-start, $jc: flex-start);
+        gap: 20px;
+        flex-direction: column;
+        padding: 60px 10px;
+    }
+    &__background{
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        left: 0;
+        top: 0;
+        background-color: rgba(0, 0, 0, .85);
+        pointer-events: none;
+        opacity: 0;
+        @include transition($p: opacity, $td: .5s);
+    }
+    &__item{
+        @include flex($jc: flex-start);
+        gap: 20px;
+        transition: .4s ease background-color;
+        width: 100%;
+        border-radius: 8px;
+        padding: 10px;
+        min-height: 50px;
+        transition: .3s all ease;
+        div{
+            width: 30px;
+            display: flex;
+            justify-content: center;
+            min-width: 40px;
+        }
+        img{
+            position: relative;
+        }
+        p{
+            font-size: 1.6rem;
+            color: color('white');
+            font-weight: 400;
+            white-space: nowrap;
+            overflow: hidden;
+            opacity: 0;
+            transition: .3s ease opacity;
+        }
+        &.active,
+        &:hover{
+            background-color: color('secondary');
+        }
+        &:first-child,
+        &:last-child{
+            position: relative;
+            &::before{
+                position: absolute;
+                content: "";
+                width: 100%;
+                height: 1px;
+                background-color: color('white');
+                opacity: .2;
+                left: 0;
+            }
+        }
+        &:first-child{
+            margin-bottom: 30px;
+            &::before{
+                bottom: -27px;
+            }
+        }
+        &:last-child{
+            margin-top: 30px;
+            &::before{
+                top: -27px;
+            }
+        }
+    }
+    &:hover{
+        width: 300px;
+        .lateralMenu__background{
+            opacity: 1;
+        }
+        .lateralMenu__container{
+            overflow: auto;
+            &::-webkit-scrollbar-thumb {
+                background-color: color('secondary');
+            }
+        }
+        .lateralMenu__item{
+            padding: 10px 30px 10px 10px;
+            justify-content: flex-start;
+            p{
+                opacity: 1;
+            }
+        }
+    }
+}

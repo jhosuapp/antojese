@@ -6,8 +6,13 @@
         'base/mixin';
 
 //LAYOUT
-@import 'layout/header';
-@import 'layout/footer';
+@import 'layout/header',
+        'layout/footer',
+        'layout/lateral-menu';
 
 //TEMPLATES
 @import 'templates/thanks';
+
+//COMPONENTS
+
+@import 'components/scroll';

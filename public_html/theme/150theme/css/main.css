@@ -365,6 +365,116 @@ input[type=search]::-webkit-search-results-decoration {
     width: 320px;
   }
 }
+.lateralMenu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 80px;
+  transition: 0.5s ease all;
+  z-index: 99;
+}
+.lateralMenu__container {
+  width: 100%;
+  height: 100%;
+  background-color: #1A4A8C;
+  position: relative;
+  z-index: 9;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+  flex-direction: column;
+  padding: 60px 10px;
+}
+.lateralMenu__background {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.5s opacity ease;
+}
+.lateralMenu__item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  transition: 0.4s ease background-color;
+  width: 100%;
+  border-radius: 8px;
+  padding: 10px;
+  min-height: 50px;
+  transition: 0.3s all ease;
+}
+.lateralMenu__item div {
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  min-width: 40px;
+}
+.lateralMenu__item img {
+  position: relative;
+}
+.lateralMenu__item p {
+  font-size: 1.6rem;
+  color: #fff;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  opacity: 0;
+  transition: 0.3s ease opacity;
+}
+.lateralMenu__item.active, .lateralMenu__item:hover {
+  background-color: #00BDD6;
+}
+.lateralMenu__item:first-child, .lateralMenu__item:last-child {
+  position: relative;
+}
+.lateralMenu__item:first-child::before, .lateralMenu__item:last-child::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-color: #fff;
+  opacity: 0.2;
+  left: 0;
+}
+.lateralMenu__item:first-child {
+  margin-bottom: 30px;
+}
+.lateralMenu__item:first-child::before {
+  bottom: -27px;
+}
+.lateralMenu__item:last-child {
+  margin-top: 30px;
+}
+.lateralMenu__item:last-child::before {
+  top: -27px;
+}
+.lateralMenu:hover {
+  width: 300px;
+}
+.lateralMenu:hover .lateralMenu__background {
+  opacity: 1;
+}
+.lateralMenu:hover .lateralMenu__container {
+  overflow: auto;
+}
+.lateralMenu:hover .lateralMenu__container::-webkit-scrollbar-thumb {
+  background-color: #00BDD6;
+}
+.lateralMenu:hover .lateralMenu__item {
+  padding: 10px 30px 10px 10px;
+  justify-content: flex-start;
+}
+.lateralMenu:hover .lateralMenu__item p {
+  opacity: 1;
+}
+
 .header-thanks {
   position: relative;
   width: 100%;
@@ -506,6 +616,31 @@ input[type=search]::-webkit-search-results-decoration {
     justify-content: flex-start;
     gap: 50px;
   }
+}
+body::-webkit-scrollbar-thumb {
+  background: #1A4A8C;
+}
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  background: rgba(255, 255, 255, 0.8);
+}
+body::-webkit-scrollbar {
+  width: 8px;
+  height: 5px;
+}
+
+.lateralMenu__container::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 100px;
+}
+.lateralMenu__container::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px transparent;
+  background: transparent;
+  padding: 10px;
+}
+.lateralMenu__container::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
 }
 
 /*# sourceMappingURL=main.css.map*/
