@@ -1,25 +1,30 @@
 const Nav = function(){
 
     const Hamburger = ()=>{
-        let hola = document.querySelector('.div');
+        const menuIcon = document.getElementById('menuIcon');
+        const navMobile = document.getElementById('navMobile');
+        const navIconClose = document.getElementById('navMobileClose');
 
-        hola.classList.add('active');
-        console.log('hamburger');
-    }
+        menuIcon.addEventListener('click', handleMenu )
+        navIconClose.addEventListener('click', handleMenu )
 
-    const Loader = ()=>{
-        console.log('hola');
+        function handleMenu () {
+            if(navMobile.classList.contains('menuActive')){
+                navMobile.classList.remove('menuActive')
+            }else{
+                navMobile.classList.add('menuActive')
+            }
+        }
     }
-    
 
     return {
         getChildFunctions : function(){
             try {
                 Hamburger();
-            } catch (error) { }
-            try{
-                Loader();
-            }catch (error){ }
+            } catch (error) {
+                console.log(error);
+            }
+
         }
     }
 }();

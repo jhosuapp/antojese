@@ -1,0 +1,178 @@
+.header-thanks {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    background: black;
+    background-image: url('../../../public_html/theme/150theme/assets/thanks/bg-thanks-desk.png');
+    margin-bottom: 30px;
+
+    &__txt{
+        position: absolute;
+        left: 50px;
+        bottom: 50px;
+        color: color('white');
+
+        h1{
+            font-weight: 800;
+            font-size: 3.6rem;
+        }
+        p{
+            font-weight: 800;
+            font-size: 1.6rem;
+        }
+    }
+}
+
+.resume {
+    width: 100%;
+    @include flex();
+    color: color('primary');
+    margin-bottom: 20px;
+
+    &-cont {
+        width: 90%;
+        padding-top: 20px;
+
+        &__data {
+            width: 100%;
+            @include flex($jc: flex-start);
+            flex-wrap: wrap;
+            gap: 15vw;
+
+            &--item {
+                width: 240px;
+
+                p,
+                h3 {
+                    width: 100%;
+                }
+            }
+        }
+
+    }
+
+    h2:first-child {
+        margin-bottom: 20px;
+        font-weight: 800;
+        font-size: 2.0rem;
+    }
+
+    h2 {
+        font-weight: 800;
+        font-size: 2.0rem;
+    }
+
+    p {
+        font-weight: 500;
+        font-size: 1.6rem;
+    }
+}
+
+.more {
+    margin-top: 40px;
+    width: 100%;
+    @include flex();
+
+    &-cont {
+        width: 90%;
+        color: color('primary');
+        margin-bottom: 50px;
+
+
+        &__cards {
+            width: 100%;
+            @include flex($jc: space-between, $ai:flex-start);
+            flex-wrap: wrap;
+            margin-top: 20px;
+            text-align: left;
+
+            &--item {
+                width: 328px;
+            }
+        }
+
+
+
+        h2 {
+            font-weight: 800;
+            font-size: 2.4rem;
+        }
+
+        h3 {
+            margin: 10px 0px;
+            font-weight: 800;
+            font-size: 2.0rem;
+        }
+
+        p {
+            font-weight: 500;
+            font-size: 1.4rem;
+            line-height: 20px;
+        }
+    }
+}
+
+@media (max-width: breakpoints('portatil-pequeño')) {
+    .more {
+        &-cont {
+            &__cards {
+                justify-content: center;
+                gap: 20px;
+
+                &--item {
+                    width: 250px;
+                }
+
+                img {
+                    width: 250px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: breakpoints('ipad-grande')) {
+
+    .more {
+        text-align: center;
+    }
+
+    .resume {
+        &-cont {
+            text-align: left;
+
+            &__data {
+                justify-content: flex-start;
+                gap: 50px;
+            }
+        }
+    }
+}
+
+@media (max-width: breakpoints('celular')) {
+
+    .more {
+        text-align: center;
+
+        &-cont {
+            &__cards {
+                &--item {
+                    width: 335px;
+
+                    img {
+                        width: 335px;
+                    }
+                }
+            }
+        }
+    }
+
+    .resume {
+        &-cont {
+            &__data {
+                justify-content: flex-start;
+                gap: 50px;
+            }
+        }
+    }
+}
