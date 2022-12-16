@@ -10,6 +10,13 @@
 <body>
 
 <header>
+
+    <div id="loadScreen" class="preloader">
+        <span class="loader">
+            <img src="./assets/logo.svg" alt="">
+        </span>
+    </div>
+
     <nav class="nav-container">
         <div class="nav-container__logo">
             <a href="index.php">
