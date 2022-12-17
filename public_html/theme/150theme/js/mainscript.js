@@ -1901,6 +1901,38 @@ var Footer = function Footer() {
 
 /***/ }),
 
+/***/ "./sources/js/components/Header.js":
+/*!*****************************************!*\
+  !*** ./sources/js/components/Header.js ***!
+  \*****************************************/
+/*! exports provided: getChildsHeader */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getChildsHeader", function() { return getChildsHeader; });
+var Header = function () {
+  var Load = function Load() {
+    var preloader = document.getElementById("loadScreen");
+    preloader.style.display = "none";
+  };
+  return {
+    getChildFunctions: function getChildFunctions() {
+      try {
+        Load();
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+}();
+var getChildsHeader = function getChildsHeader() {
+  Header.getChildFunctions();
+};
+
+
+/***/ }),
+
 /***/ "./sources/js/components/Nav.js":
 /*!**************************************!*\
   !*** ./sources/js/components/Nav.js ***!
@@ -1957,14 +1989,17 @@ var getChildsNav = function getChildsNav() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Nav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Nav */ "./sources/js/components/Nav.js");
-/* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Footer */ "./sources/js/components/Footer.js");
+/* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Header */ "./sources/js/components/Header.js");
+/* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Footer */ "./sources/js/components/Footer.js");
+
 
 
 window.addEventListener('load', function () {
   Object(_components_Nav__WEBPACK_IMPORTED_MODULE_0__["getChildsNav"])();
+  Object(_components_Header__WEBPACK_IMPORTED_MODULE_1__["getChildsHeader"])();
 });
 window.addEventListener('DOMContentLoaded', function () {
-  Object(_components_Footer__WEBPACK_IMPORTED_MODULE_1__["Footer"])();
+  Object(_components_Footer__WEBPACK_IMPORTED_MODULE_2__["Footer"])();
 });
 
 /***/ }),
