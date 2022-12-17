@@ -102,7 +102,7 @@
                 height: 36px;
                 border-radius: 5px;
 
-                path {
+                img {
                     fill: color('primary') !important;
                 }
 
@@ -116,11 +116,11 @@
                     background: color('secondary');
                     color: color('white');
                     cursor: pointer;
-                    @include transition($td:0.5s);
+                    @include transition($td: 0.5s);
 
-                    path {
-                        @include transition($td:0.5s);
-                        fill: color('white') !important;
+                    img {
+                        @include transition($td: 0.5s);
+                        filter: hue-rotate(60deg) brightness(1000000%) !important;
                     }
                 }
             }
@@ -153,8 +153,8 @@
     background: color('secondary');
     color: color('white');
 
-    path {
-        fill: color('white') !important;
+    img {
+        filter: hue-rotate(60deg) brightness(1000000%) !important;
     }
 }
 
