@@ -28,6 +28,17 @@
     list-style: $ls;
 }
 
+@mixin before_hover($bg: color('white')){
+	content: "";
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 0;
+	background-color: $bg;
+	height: 2px;
+	@include transition($p: width);
+}
+
 // MEDIAQUERIES
 @mixin mq($media: mob, $type: max){
 	@if type-of($media) == number {

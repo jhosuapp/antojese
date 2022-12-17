@@ -1,7 +1,14 @@
-.container{
+.ctn{
     width: 90%;
     max-width: $limit-width;
     margin: auto;
     padding-left: 80px;
     position: relative;
+}
+
+
+@media(max-width: breakpoints('ipad-grande')){
+    .ctn{
+        padding-left: 0;
+    }
 }

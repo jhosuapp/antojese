@@ -9,88 +9,31 @@
 </head>
 <body>
 
-<header>
-    <nav class="nav-container">
-        <div class="nav-container__logo">
-            <a href="index.php">
-                <img src="./assets/logo-antojese.png" alt="logo">
-            </a>
-        </div>
-        <div class="nav-container__options">
+<header class="header" style="background-image: url('../150theme/assets/menu/bg-header.jpg')">
+    <div class="ctn">
+        <a href="#" class="header-logo">
+            <img src="../150theme/assets/menu/antojese.svg" alt="antojese">
+        </a>
+        <nav>
             <ul>
-                <li><a href="#">Vuelos</a></li>
-                <li><a href="#">Turisemana</a></li>
-                <li><a href="#">Hoteles</a></li>
-                <li><a href="#">Espectáculos</a></li>
+                <li>
+                    <a href="#">Vuelos</a>
+                </li>
+                <li>
+                    <a href="#">Turisemana</a>
+                </li>
+                <li>
+                    <a href="#">Espectaculos</a>
+                </li>
+                <li>
+                    <a href="#">Hoteles</a>
+                </li>
             </ul>
-        </div>
-        <div class="nav-container__menu" id="menuIcon">
-            <img class src="./assets/icons/menu.svg" alt="">
-        </div>
-    </nav>
-
-    <div class="nav-mobile" id="navMobile">
-        <div class="nav-mobile__container">
-            <div class="nav-mobile__container--close" id="navMobileClose">
-                <img src="./assets/icons/close.svg" alt="">
-            </div>
-            <div class="nav-mobile__container--user">
-                <img src="./assets/icons/user.svg" alt=""> <span>Iniciar sesión</span>
-            </div>
-            <hr>
-            <div class="nav-mobile__container--options">
-                <div class="nav-mobile__container--options_item">
-                    <img src="./assets/icons/vuelos.svg" alt="">
-                    <span>Vuelos</span>
-                </div>
-
-                <div class="nav-mobile__container--options_item">
-                    <img src="./assets/icons/hoteles.svg" alt="">
-                    <span>Hoteles</span>
-                </div>
-
-                <div class="nav-mobile__container--options_item">
-                    <img src="./assets/icons/autos.svg" alt="">
-                    <span>Autos</span>
-                </div>
-
-                <div class="nav-mobile__container--options_item">
-                    <img src="./assets/icons/salasvip.svg" alt="">
-                    <span>Salas VIP</span>
-                </div>
-
-                <div class=" itemActive nav-mobile__container--options_item">
-                    <img src="./assets/icons/turisemana.svg" alt="">
-
-                    <span>Turisemana</span>
-                </div>
-
-                <div class="nav-mobile__container--options_item">
-                    <img src="./assets/icons/espectaculos.svg" alt="">
-                    <span>Espectáculos</span>
-                </div> 
-
-                <div class="nav-mobile__container--options_item">
-                    <img src="./assets/icons/parques.svg" alt="">
-                    <span>Parques</span>
-                </div> 
-
-                <div class="nav-mobile__container--options_item">
-                    <img src="./assets/icons/buses.svg" alt="">
-                    <span>Buses</span>
-                </div> 
-
-                <div class="nav-mobile__container--options_item">
-                    <img src="./assets/icons/assist.svg" alt="">
-                    <span>Assist card</span>
-                </div> 
-            </div>
-
-            <hr>
-
-            <div class="nav-mobile__container--carrito">
-                <img src="./assets/icons/carrito.svg" alt=""> <span>Carrito de compras</span>
-            </div>
+        </nav>
+        <div class="header-hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
     </div>
 </header>

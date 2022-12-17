@@ -1,20 +1,17 @@
 const Nav = function(){
 
     const Hamburger = ()=>{
-        const menuIcon = document.getElementById('menuIcon');
-        const navMobile = document.getElementById('navMobile');
-        const navIconClose = document.getElementById('navMobileClose');
+        const getIconHamburguer = document.querySelectorAll('.header-hamburger');
+        const getLateralMenu = document.querySelector('.lateralMenu');
 
-        menuIcon.addEventListener('click', handleMenu )
-        navIconClose.addEventListener('click', handleMenu )
-
-        function handleMenu () {
-            if(navMobile.classList.contains('menuActive')){
-                navMobile.classList.remove('menuActive')
-            }else{
-                navMobile.classList.add('menuActive')
-            }
-        }
+        getIconHamburguer.forEach((data)=>{
+            data.addEventListener('click', ()=>{
+                getLateralMenu.classList.toggle('active');
+                getIconHamburguer.forEach((data)=>{
+                    data.classList.toggle('enable');
+                });
+            });
+        });
     }
 
     return {

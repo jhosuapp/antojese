@@ -1,4 +1,4 @@
-<?php include './template-part/header-two.php' ?>
+<?php include './template-part/header.php' ?>
 
 <?php include './template-part/menu-lateral.php'?>
 

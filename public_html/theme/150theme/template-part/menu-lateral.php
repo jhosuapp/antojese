@@ -1,4 +1,9 @@
 <aside class="lateralMenu">
+    <div class="header-hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
     <div class="lateralMenu__container">
         <a href="#" class="lateralMenu__item">
             <div>
