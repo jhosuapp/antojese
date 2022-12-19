@@ -14,6 +14,12 @@ const Nav = function(){
         });
     }
 
+    const ValidationHome = ()=>{
+        const getContainerValHome = document.querySelector('.enable-home');
+        const getBody = document.querySelector('body');
+        getContainerValHome ? getBody.classList.add('enable') : false;
+    }
+
     return {
         getChildFunctions : function(){
             try {
@@ -21,7 +27,9 @@ const Nav = function(){
             } catch (error) {
                 console.log(error);
             }
-
+            try{
+                ValidationHome();
+            }catch(error){ }
         }
     }
 }();

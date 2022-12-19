@@ -14525,6 +14525,11 @@ var Nav = function () {
       });
     });
   };
+  var ValidationHome = function ValidationHome() {
+    var getContainerValHome = document.querySelector('.enable-home');
+    var getBody = document.querySelector('body');
+    getContainerValHome ? getBody.classList.add('enable') : false;
+  };
   return {
     getChildFunctions: function getChildFunctions() {
       try {
@@ -14532,6 +14537,9 @@ var Nav = function () {
       } catch (error) {
         console.log(error);
       }
+      try {
+        ValidationHome();
+      } catch (error) {}
     }
   };
 }();

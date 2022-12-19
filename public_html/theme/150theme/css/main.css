@@ -648,6 +648,46 @@ body::-webkit-scrollbar {
 .swiper {
   height: 200px;
 }
+
+.ctm-block h1 {
+  font-size: 4rem;
+}
+.ctm-block h2 {
+  font-size: 3.4rem;
+}
+.ctm-block h3 {
+  font-size: 2.4rem;
+}
+.ctm-block h5 {
+  font-size: 1.6rem;
+}
+.ctm-block p {
+  font-size: 1.8rem;
+}
+.ctm-block h1, .ctm-block h2, .ctm-block h3, .ctm-block h4, .ctm-block h5, .ctm-block p {
+  color: #1A4A8C;
+}
+.ctm-block-white h1, .ctm-block-white h2, .ctm-block-white h3, .ctm-block-white h5, .ctm-block-white p {
+  color: #fff;
+}
+
+@media (max-width: 992px) {
+  .ctm-block h1 {
+    font-size: 3rem;
+  }
+  .ctm-block h2 {
+    font-size: 2.4rem;
+  }
+  .ctm-block h3 {
+    font-size: 2rem;
+  }
+  .ctm-block h5 {
+    font-size: 1.8rem;
+  }
+  .ctm-block p {
+    font-size: 1.6rem;
+  }
+}
 /**
  * Swiper 7.4.1
  * Most modern mobile touch slider and framework with hardware accelerated transitions
