@@ -1,0 +1,74 @@
+.aos-custom{
+    opacity: 0;
+    &-fade-up{
+        opacity: 0;
+        transform: translateY(40px);
+        transition: 1s ease;
+        transition-property: opacity, transform;
+    }
+    &-fade-left{
+        transform: translateX(-100px);
+        transition: 1s ease;
+        transition-property: opacity, transform;
+    }
+    &-fade-right{
+        transform: translateX(100px);
+        transition: 1s ease;
+        transition-property: opacity, transform;
+    }
+    &-scale{
+        transform: scaleX(0);
+        transition: 1s ease transform;
+    }
+    &-scaleX,
+    &-scaleXreverse{
+        transform: scale(0);
+        position: relative;
+        transition: 1s ease all;
+    }
+    &-scaleX{
+        left: -150px;
+    }
+    &-scaleXreverse{
+        right: -150px;
+    }
+    &-rotate{
+        transform: scale(.5);
+        opacity: 0;
+        transition: 1s ease all;
+    }
+    &.aos-animate{
+        opacity: 1;
+    }
+}
+
+//ACTIVACIÓN DE ANIMACIONES
+.aos-activate.aos-animate{
+    .aos-custom-scale{
+        transform: scale(100%);
+    }
+    .aos-custom-scaleX{
+        transform: scale(1);
+        left: 0;
+    }
+    .aos-custom-scaleXreverse{
+        transform: scale(1);
+        right: 0;
+    }
+    .aos-custom-fade-left,
+    .aos-custom-fade-right{
+        transform: translateX(0);
+    }
+    .aos-custom-fade-up{
+        transform: translateY(0);
+    }
+    .aos-custom-rotate{
+        transform: scale(1);
+        opacity: 1;
+    }
+    .aos-custom-fade-up,
+    .aos-custom-fade-left,
+    .aos-custom-fade-right{
+        opacity: 1;
+    }
+}

@@ -40,4 +40,11 @@
             <div></div>
         </div>
     </div>
+    <!-- CONTENIDO SOLO APLICABLE PARA EL HOME -->
+    <div class="ctm-block ctm-block-white home-welcome" data-aos="fade-up">
+        <h1>Te damos la bienvenida</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dis senectus habitant sapien tempor amet et purus amet. Nec.</p>
+    </div>
+    <!-- OPCIONES DINAMICAS DEL MENU LATERAL SOLO PARA EL HOME -->
+    <div class="header-options"></div>
 </header>

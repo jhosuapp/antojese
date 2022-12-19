@@ -1,10 +1,8 @@
 .header{
     width: 100%;
-    z-index: 99;
+    z-index: 9;
     position: relative;
     padding: 20px 0 80px 0;
-    background-size: cover;
-    background-repeat: no-repeat;
     &::after{
         content: "";
         position: absolute;
@@ -16,10 +14,12 @@
     }
     &-logo{
         transition: .3s opacity ease;
+        position: relative;
+        z-index: 9;
     }
     .ctn{
         position: relative;
-        z-index: 9;
+        z-index: 999;
         @include flex($jc: space-between);
     }
     nav{
@@ -87,12 +87,35 @@
             }
         }
     }
+    .ctm-block{
+        position: relative;
+        z-index: 99;
+        @include flex;
+        flex-direction: column;
+        top: calc(50% - 100px);
+        width: 90%;
+        max-width: 510px;
+        text-align: center;
+        margin: auto;
+        display: none;
+    }
+}
+
+//VALIDACION HEADER HOME
+
+body.enable{
+    .header{
+        height: 500px;
+        .ctm-block{
+            display: flex;
+        }
+    }
 }
 
 @media(max-width: breakpoints('ipad-grande')){
     .header{
         padding: 20px 0;
-        position: fixed;
+        min-height: 72px;
         nav{
             display: none;
         }
@@ -100,7 +123,44 @@
             display: flex;
         }
         &.scroll{
-            background-image: unset !important;
+            .ctn{
+                z-index: 999;
+                &::before{
+                    opacity: 1;
+                }
+            }    
+        }
+        .ctn{
+            position: fixed;
+            left: calc(50% - 45%);
+            &::before{
+                position: absolute;
+                content: "";
+                left: -25%;
+                top: -50px;
+                width: 150%;
+                height: 100px;
+                background: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.8) 30%, rgba(0,0,0,0.56) 55%, rgba(0,0,0,0.16) 85%, rgba(0,0,0,0) 100%);
+                transition: .3s opacity ease;
+                opacity: 0;
+            }  
         }
     }
+    body.enable{
+        .header{
+            .ctn{
+                justify-content: center;
+                position: relative;
+                left: unset;
+                &::before{
+                    width: 100%;
+                    opacity: 0 !important;
+                }
+            }
+            .header-hamburger{
+                display: none;
+            }
+        }
+    }
+    
 }

@@ -1,6 +1,7 @@
 .ctm-block{
     h1{
         font-size: 4rem;
+        font-weight: 800;
     }
     h2{
         font-size: 3.4rem;
@@ -15,7 +16,7 @@
         font-size: 1.8rem;
     }
     h1, h2, h3, h4, h5, p{
-        color: color('quartiary');
+        color: color('primary');
     }
     &-white{
         h1, h2, h3, h5, p{
