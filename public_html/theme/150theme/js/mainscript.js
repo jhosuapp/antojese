@@ -1638,15 +1638,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "width", function() { return width; });
 /* harmony import */ var ssr_window__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ssr-window */ "./node_modules/ssr-window/ssr-window.esm.js");
 /**
- * Dom7 4.0.4
+ * Dom7 4.0.1
  * Minimalistic JavaScript library for DOM manipulation, with a jQuery-compatible API
  * https://framework7.io/docs/dom7.html
  *
- * Copyright 2022, Vladimir Kharlampidi
+ * Copyright 2021, Vladimir Kharlampidi
  *
  * Licensed under MIT
  *
- * Released on: January 11, 2022
+ * Released on: October 27, 2021
  */
 
 
@@ -1667,12 +1667,8 @@ function makeReactive(obj) {
 
 class Dom7 extends Array {
   constructor(items) {
-    if (typeof items === 'number') {
-      super(items);
-    } else {
-      super(...(items || []));
-      makeReactive(this);
-    }
+    super(...(items || []));
+    makeReactive(this);
   }
 
 }
@@ -3171,7 +3167,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ssrDocument", function() { return ssrDocument; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ssrWindow", function() { return ssrWindow; });
 /**
- * SSR Window 4.0.2
+ * SSR Window 4.0.1
  * Better handling for window object in SSR environment
  * https://github.com/nolimits4web/ssr-window
  *
@@ -3179,7 +3175,7 @@ __webpack_require__.r(__webpack_exports__);
  *
  * Licensed under MIT
  *
- * Released on: December 13, 2021
+ * Released on: October 27, 2021
  */
 /* eslint-disable no-param-reassign */
 function isObject(obj) {
@@ -4663,8 +4659,6 @@ __webpack_require__.r(__webpack_exports__);
   loopedSlides: null,
   loopFillGroupWithBlank: false,
   loopPreventsSlide: true,
-  // rewind
-  rewind: false,
   // Swiping/no swiping
   allowSlidePrev: true,
   allowSlideNext: true,
@@ -6223,10 +6217,6 @@ function slideNext(speed = this.params.speed, runCallbacks = true, internal) {
     swiper._clientLeft = swiper.$wrapperEl[0].clientLeft;
   }
 
-  if (params.rewind && swiper.isEnd) {
-    return swiper.slideTo(0, speed, runCallbacks, internal);
-  }
-
   return swiper.slideTo(swiper.activeIndex + increment, speed, runCallbacks, internal);
 }
 
@@ -6297,10 +6287,6 @@ function slidePrev(speed = this.params.speed, runCallbacks = true, internal) {
       prevIndex = prevIndex - swiper.slidesPerViewDynamic('previous', true) + 1;
       prevIndex = Math.max(prevIndex, 0);
     }
-  }
-
-  if (params.rewind && swiper.isBeginning) {
-    return swiper.slideTo(swiper.slides.length - 1, speed, runCallbacks, internal);
   }
 
   return swiper.slideTo(prevIndex, speed, runCallbacks, internal);
@@ -6488,32 +6474,40 @@ function slideTo(index = 0, speed = this.params.speed, runCallbacks = true, inte
     return true;
   }
 
-  swiper.setTransition(speed);
-  swiper.setTranslate(translate);
-  swiper.updateActiveIndex(slideIndex);
-  swiper.updateSlidesClasses();
-  swiper.emit('beforeTransitionStart', speed, internal);
-  swiper.transitionStart(runCallbacks, direction);
-
   if (speed === 0) {
+    swiper.setTransition(0);
+    swiper.setTranslate(translate);
+    swiper.updateActiveIndex(slideIndex);
+    swiper.updateSlidesClasses();
+    swiper.emit('beforeTransitionStart', speed, internal);
+    swiper.transitionStart(runCallbacks, direction);
     swiper.transitionEnd(runCallbacks, direction);
-  } else if (!swiper.animating) {
-    swiper.animating = true;
+  } else {
+    swiper.setTransition(speed);
+    swiper.setTranslate(translate);
+    swiper.updateActiveIndex(slideIndex);
+    swiper.updateSlidesClasses();
+    swiper.emit('beforeTransitionStart', speed, internal);
+    swiper.transitionStart(runCallbacks, direction);
 
-    if (!swiper.onSlideToWrapperTransitionEnd) {
-      swiper.onSlideToWrapperTransitionEnd = function transitionEnd(e) {
-        if (!swiper || swiper.destroyed) return;
-        if (e.target !== this) return;
-        swiper.$wrapperEl[0].removeEventListener('transitionend', swiper.onSlideToWrapperTransitionEnd);
-        swiper.$wrapperEl[0].removeEventListener('webkitTransitionEnd', swiper.onSlideToWrapperTransitionEnd);
-        swiper.onSlideToWrapperTransitionEnd = null;
-        delete swiper.onSlideToWrapperTransitionEnd;
-        swiper.transitionEnd(runCallbacks, direction);
-      };
+    if (!swiper.animating) {
+      swiper.animating = true;
+
+      if (!swiper.onSlideToWrapperTransitionEnd) {
+        swiper.onSlideToWrapperTransitionEnd = function transitionEnd(e) {
+          if (!swiper || swiper.destroyed) return;
+          if (e.target !== this) return;
+          swiper.$wrapperEl[0].removeEventListener('transitionend', swiper.onSlideToWrapperTransitionEnd);
+          swiper.$wrapperEl[0].removeEventListener('webkitTransitionEnd', swiper.onSlideToWrapperTransitionEnd);
+          swiper.onSlideToWrapperTransitionEnd = null;
+          delete swiper.onSlideToWrapperTransitionEnd;
+          swiper.transitionEnd(runCallbacks, direction);
+        };
+      }
+
+      swiper.$wrapperEl[0].addEventListener('transitionend', swiper.onSlideToWrapperTransitionEnd);
+      swiper.$wrapperEl[0].addEventListener('webkitTransitionEnd', swiper.onSlideToWrapperTransitionEnd);
     }
-
-    swiper.$wrapperEl[0].addEventListener('transitionend', swiper.onSlideToWrapperTransitionEnd);
-    swiper.$wrapperEl[0].addEventListener('webkitTransitionEnd', swiper.onSlideToWrapperTransitionEnd);
   }
 
   return true;
@@ -7235,7 +7229,7 @@ function updateAutoHeight(speed) {
   } // Update Height
 
 
-  if (newHeight || newHeight === 0) swiper.$wrapperEl.css('height', `${newHeight}px`);
+  if (newHeight) swiper.$wrapperEl.css('height', `${newHeight}px`);
 }
 
 /***/ }),
@@ -8003,7 +7997,7 @@ function A11y({
   }
 
   function updateNavigation() {
-    if (swiper.params.loop || swiper.params.rewind || !swiper.navigation) return;
+    if (swiper.params.loop || !swiper.navigation) return;
     const {
       $nextEl,
       $prevEl
@@ -8031,34 +8025,23 @@ function A11y({
   }
 
   function hasPagination() {
-    return swiper.pagination && swiper.pagination.bullets && swiper.pagination.bullets.length;
-  }
-
-  function hasClickablePagination() {
-    return hasPagination() && swiper.params.pagination.clickable;
+    return swiper.pagination && swiper.params.pagination.clickable && swiper.pagination.bullets && swiper.pagination.bullets.length;
   }
 
   function updatePagination() {
     const params = swiper.params.a11y;
-    if (!hasPagination()) return;
-    swiper.pagination.bullets.each(bulletEl => {
-      const $bulletEl = Object(_shared_dom_js__WEBPACK_IMPORTED_MODULE_1__["default"])(bulletEl);
 
-      if (swiper.params.pagination.clickable) {
+    if (hasPagination()) {
+      swiper.pagination.bullets.each(bulletEl => {
+        const $bulletEl = Object(_shared_dom_js__WEBPACK_IMPORTED_MODULE_1__["default"])(bulletEl);
         makeElFocusable($bulletEl);
 
         if (!swiper.params.pagination.renderBullet) {
           addElRole($bulletEl, 'button');
           addElLabel($bulletEl, params.paginationBulletMessage.replace(/\{\{index\}\}/, $bulletEl.index() + 1));
         }
-      }
-
-      if ($bulletEl.is(`.${swiper.params.pagination.bulletActiveClass}`)) {
-        $bulletEl.attr('aria-current', 'true');
-      } else {
-        $bulletEl.removeAttr('aria-current');
-      }
-    });
+      });
+    }
   }
 
   const initNavEl = ($el, wrapperId, message) => {
@@ -8127,7 +8110,7 @@ function A11y({
     } // Pagination
 
 
-    if (hasClickablePagination()) {
+    if (hasPagination()) {
       swiper.pagination.$el.on('keydown', Object(_shared_classes_to_selector_js__WEBPACK_IMPORTED_MODULE_0__["default"])(swiper.params.pagination.bulletClass), onEnterOrSpaceKey);
     }
   }
@@ -8154,7 +8137,7 @@ function A11y({
     } // Pagination
 
 
-    if (hasClickablePagination()) {
+    if (hasPagination()) {
       swiper.pagination.$el.off('keydown', Object(_shared_classes_to_selector_js__WEBPACK_IMPORTED_MODULE_0__["default"])(swiper.params.pagination.bulletClass), onEnterOrSpaceKey);
     }
   }
@@ -11358,19 +11341,19 @@ function Navigation({
       $nextEl,
       $prevEl
     } = swiper.navigation;
-    toggleEl($prevEl, swiper.isBeginning && !swiper.params.rewind);
-    toggleEl($nextEl, swiper.isEnd && !swiper.params.rewind);
+    toggleEl($prevEl, swiper.isBeginning);
+    toggleEl($nextEl, swiper.isEnd);
   }
 
   function onPrevClick(e) {
     e.preventDefault();
-    if (swiper.isBeginning && !swiper.params.loop && !swiper.params.rewind) return;
+    if (swiper.isBeginning && !swiper.params.loop) return;
     swiper.slidePrev();
   }
 
   function onNextClick(e) {
     e.preventDefault();
-    if (swiper.isEnd && !swiper.params.loop && !swiper.params.rewind) return;
+    if (swiper.isEnd && !swiper.params.loop) return;
     swiper.slideNext();
   }
 
@@ -11598,7 +11581,7 @@ function Pagination({
         $el.css(swiper.isHorizontal() ? 'width' : 'height', `${bulletSize * (params.dynamicMainBullets + 4)}px`);
 
         if (params.dynamicMainBullets > 1 && swiper.previousIndex !== undefined) {
-          dynamicBulletIndex += current - (swiper.previousIndex - swiper.loopedSlides || 0);
+          dynamicBulletIndex += current - swiper.previousIndex;
 
           if (dynamicBulletIndex > params.dynamicMainBullets - 1) {
             dynamicBulletIndex = params.dynamicMainBullets - 1;
@@ -11607,7 +11590,7 @@ function Pagination({
           }
         }
 
-        firstIndex = Math.max(current - dynamicBulletIndex, 0);
+        firstIndex = current - dynamicBulletIndex;
         lastIndex = firstIndex + (Math.min(bullets.length, params.dynamicMainBullets) - 1);
         midIndex = (lastIndex + firstIndex) / 2;
       }
@@ -11651,7 +11634,7 @@ function Pagination({
           }
 
           if (swiper.params.loop) {
-            if (bulletIndex >= bullets.length) {
+            if (bulletIndex >= bullets.length - params.dynamicMainBullets) {
               for (let i = params.dynamicMainBullets; i >= 0; i -= 1) {
                 bullets.eq(bullets.length - i).addClass(`${params.bulletActiveClass}-main`);
               }
@@ -14329,7 +14312,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "EffectCards", function() { return _modules_effect_cards_effect_cards_js__WEBPACK_IMPORTED_MODULE_24__["default"]; });
 
 /**
- * Swiper 7.4.1
+ * Swiper 7.3.1
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * https://swiperjs.com
  *
@@ -14337,7 +14320,7 @@ __webpack_require__.r(__webpack_exports__);
  *
  * Released under the MIT License
  *
- * Released on: December 24, 2021
+ * Released on: November 24, 2021
  */
 
 
