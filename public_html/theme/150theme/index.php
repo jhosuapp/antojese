@@ -2,20 +2,12 @@
 
 <?php include './template-part/menu-lateral.php'?>
 
-<div class="swiper mySwiper swiperPay">
-    <div class="swiper-wrapper">
-    <div class="swiper-slide">Slide 1</div>
-    <div class="swiper-slide">Slide 2</div>
-    <div class="swiper-slide">Slide 3</div>
-    <div class="swiper-slide">Slide 4</div>
-    <div class="swiper-slide">Slide 5</div>
-    <div class="swiper-slide">Slide 6</div>
-    <div class="swiper-slide">Slide 7</div>
-    <div class="swiper-slide">Slide 8</div>
-    <div class="swiper-slide">Slide 9</div>
-    </div>
-    <div class="swiper-pagination"></div>
-</div>
+<!-- VALIDACION PARA PAGINA HOME-->
+<div class="enable-home"></div>
 
+
+<section class="home-header ctm-block">
+    <h1></h1>
+</section>
 
 <?php include './template-part/footer.php' ?>
