@@ -1,0 +1,27 @@
+.home-welcome{
+    h1, p{
+        opacity: 0;
+        transform: translateY(100px);
+        transition: 1s ease;
+        transition-property: opacity, transform;
+    }
+}
+
+.filters-block{
+    opacity: 0;
+    transition-delay: .5s;
+}
+
+.filters-block.aos-animate{
+    opacity: 1;
+}
+
+.home-welcome.aos-animate{
+    h1, p{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    p{
+        transition-delay: .25s;
+    }
+}

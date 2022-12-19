@@ -17,4 +17,11 @@
 @import 'components/scroll',
         'components/container',
         'components/carousel',
-        'components/custom-block';
+        'components/custom-block',
+        'components/filters',
+        'components/inputs',
+        'components/buttons',
+        'components/aos';
+
+//ANIMATIONS
+@import 'animations/aos-home';
