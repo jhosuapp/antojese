@@ -1,14 +1,13 @@
 import { getChildsNav } from './components/Nav';
-import { getChildsHeader } from './components/Header';
 import { Footer } from './components/Footer';
 import { getChildsSwiper } from './components/Swiper';
+import { getChildsAcordeon } from './components/Acordeon';
 import { getChildsAos } from './components/Aos';
  
 window.addEventListener('load', ()=>{
-    getChildsNav();
-    getChildsHeader();
-    getChildsSwiper();
-    getChildsAos();
+  getChildsNav();
+  getChildsSwiper();
+  getChildsAos();
 });
 
 window.addEventListener("DOMContentLoaded", () => {
