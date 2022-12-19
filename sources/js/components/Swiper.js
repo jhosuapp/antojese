@@ -1,36 +1,29 @@
-import {Swiper, Navigation, Pagination} from 'swiper';
-import 'swiper/swiper-bundle.min.css'
-import 'swiper/swiper.min.css'
+import { Swiper } from "swiper";
+import "swiper/swiper-bundle.min.css";
+import "swiper/swiper.min.css";
 
-const swiperExport = function(){
+const swiperExport = (function () {
+  const _SwiperCar = () => {
+    var SwiperCar = new Swiper(".swiper", {
+      spaceBetween: 60,
+      navigation: {
+        nextEl: ".next",
+        prevEl: ".prev",
+      },
+    });
+  };
 
-    const _SwiperTest = ()=>{
-        var SwiperTest = new Swiper(".mySwiper", {});
-    }
+  return {
+    getChildFunctions: function () {
+      try {
+        _SwiperCar();
+      } catch (error) {}
+    },
+  };
+})();
 
-    const _SwiperPay = ()=>{
-        var SwiperPay = new Swiper(".mySwiper", {
-            pagination: {
-                el: ".swiper-pagination",
-                dynamicBullets: true,
-            },
-        });
-    }
+const getChildsSwiper = () => {
+  swiperExport.getChildFunctions();
+};
 
-    return {
-        getChildFunctions : function(){
-            try {
-                _SwiperTest();
-            } catch (error) {}
-        }
-    }
-}();
-
-
-const getChildsSwiper = ()=>{
-    swiperExport.getChildFunctions();
-}
-
-export {
-    getChildsSwiper
-}
+export { getChildsSwiper };

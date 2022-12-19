@@ -14431,6 +14431,57 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./sources/js/components/Acordeon.js":
+/*!*******************************************!*\
+  !*** ./sources/js/components/Acordeon.js ***!
+  \*******************************************/
+/*! exports provided: getChildsAcordeon */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getChildsAcordeon", function() { return getChildsAcordeon; });
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.for-each */ "./node_modules/core-js/modules/es.array.for-each.js");
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var Acordeon = function () {
+  var acordeonFunc = function acordeonFunc() {
+    var acordeons = document.querySelectorAll(".acordeon");
+    acordeons.forEach(function (acordeon) {
+      var btn = acordeon.querySelector(".panel button");
+      var icon = acordeon.querySelector(".panel button i");
+      var data = acordeon.lastElementChild;
+      var datas = document.querySelectorAll(".acordeon .data");
+      btn.addEventListener("click", function () {
+        datas.forEach(function (ans) {
+          var ansIcon = ans.parentElement.querySelector("button i");
+          if (data !== ans) {
+            ans.classList.add("hideData");
+            ansIcon.className = "fas fa-plus-circle";
+          }
+        });
+        data.classList.toggle("hideData");
+      });
+    });
+  };
+  return {
+    getChildFunctions: function getChildFunctions() {
+      try {
+        acordeonFunc();
+      } catch (error) {}
+    }
+  };
+}();
+var getChildsAcordeon = function getChildsAcordeon() {
+  Acordeon.getChildFunctions();
+};
+
+
+/***/ }),
+
 /***/ "./sources/js/components/Footer.js":
 /*!*****************************************!*\
   !*** ./sources/js/components/Footer.js ***!
@@ -14497,21 +14548,21 @@ __webpack_require__.r(__webpack_exports__);
 
 var Nav = function () {
   var Hamburger = function Hamburger() {
-    var getIconHamburguer = document.querySelectorAll('.header-hamburger');
-    var getLateralMenu = document.querySelector('.lateralMenu');
+    var getIconHamburguer = document.querySelectorAll(".header-hamburger");
+    var getLateralMenu = document.querySelector(".lateralMenu");
     getIconHamburguer.forEach(function (data) {
-      data.addEventListener('click', function () {
-        getLateralMenu.classList.toggle('active');
+      data.addEventListener("click", function () {
+        getLateralMenu.classList.toggle("active");
         getIconHamburguer.forEach(function (data) {
-          data.classList.toggle('enable');
+          data.classList.toggle("enable");
         });
       });
     });
   };
   var ValidationHome = function ValidationHome() {
-    var getContainerValHome = document.querySelector('.enable-home');
-    var getBody = document.querySelector('body');
-    getContainerValHome ? getBody.classList.add('enable') : false;
+    var getContainerValHome = document.querySelector(".enable-home");
+    var getBody = document.querySelector("body");
+    getContainerValHome ? getBody.classList.add("enable") : false;
   };
   return {
     getChildFunctions: function getChildFunctions() {
@@ -14552,21 +14603,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var swiperExport = function () {
-  var _SwiperTest = function _SwiperTest() {
-    var SwiperTest = new swiper__WEBPACK_IMPORTED_MODULE_0__["Swiper"](".mySwiper", {});
-  };
-  var _SwiperPay = function _SwiperPay() {
-    var SwiperPay = new swiper__WEBPACK_IMPORTED_MODULE_0__["Swiper"](".mySwiper", {
-      pagination: {
-        el: ".swiper-pagination",
-        dynamicBullets: true
+  var _SwiperCar = function _SwiperCar() {
+    var SwiperCar = new swiper__WEBPACK_IMPORTED_MODULE_0__["Swiper"](".swiper", {
+      spaceBetween: 60,
+      navigation: {
+        nextEl: ".next",
+        prevEl: ".prev"
       }
     });
   };
   return {
     getChildFunctions: function getChildFunctions() {
       try {
-        _SwiperTest();
+        _SwiperCar();
       } catch (error) {}
     }
   };
@@ -14591,16 +14640,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Header */ "./sources/js/components/Header.js");
 /* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Footer */ "./sources/js/components/Footer.js");
 /* harmony import */ var _components_Swiper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Swiper */ "./sources/js/components/Swiper.js");
+/* harmony import */ var _components_Acordeon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Acordeon */ "./sources/js/components/Acordeon.js");
 
 
 
 
-window.addEventListener('load', function () {
+
+window.addEventListener("load", function () {
   Object(_components_Nav__WEBPACK_IMPORTED_MODULE_0__["getChildsNav"])();
   Object(_components_Header__WEBPACK_IMPORTED_MODULE_1__["getChildsHeader"])();
   Object(_components_Swiper__WEBPACK_IMPORTED_MODULE_3__["getChildsSwiper"])();
 });
-window.addEventListener('DOMContentLoaded', function () {
+window.addEventListener("DOMContentLoaded", function () {
+  Object(_components_Acordeon__WEBPACK_IMPORTED_MODULE_4__["getChildsAcordeon"])();
   Object(_components_Footer__WEBPACK_IMPORTED_MODULE_2__["Footer"])();
 });
 

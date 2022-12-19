@@ -12,10 +12,12 @@
         'layout/loader';
 
 //TEMPLATES
-@import 'templates/thanks';
+@import 'templates/thanks',
+        'templates/page-cars-filter';
 
 //COMPONENTS
 @import 'components/scroll',
         'components/container',
         'components/carousel',
-        'components/custom-block';
+        'components/custom-block',
+        'components/acordeon';

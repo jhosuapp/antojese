@@ -657,6 +657,179 @@ input[type=search]::-webkit-search-results-decoration {
     gap: 50px;
   }
 }
+.cars-search {
+  width: 100%;
+  height: 100px;
+  background: #1A4A8C;
+  border-radius: 0px 0px 20px 20px;
+}
+
+.convenciones {
+  width: 100%;
+  min-height: 113px;
+  background: #F7F7F7;
+  margin-bottom: 10px;
+}
+.convenciones-cont {
+  padding: 10px 0px;
+}
+.convenciones-cont h5 {
+  margin-bottom: 7px;
+  font-weight: 500;
+}
+.convenciones-cont__data {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.convenciones-cont__data span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2px 9px 2px 6px;
+  gap: 5px;
+  min-width: 100px;
+  height: 28px;
+  background: #B5D3E3;
+  border: 1px solid #1A4A8C;
+  border-radius: 100px;
+  font-size: 1.2rem;
+  color: #1A4A8C;
+  font-weight: 500;
+}
+
+.cars-filter .acordeon {
+  background-color: #F7F7F7;
+}
+.cars-filter .acordeon .panel {
+  padding: 10px 0px;
+}
+.cars-filter .acordeon .panel h5 {
+  font-weight: 500;
+}
+.cars-filter .acordeon .panel button {
+  outline: inherit;
+  border: none;
+}
+.cars-filter__left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+}
+.cars-filter__data {
+  width: 100%;
+}
+.cars-filter__data .swiperCar {
+  width: 100%;
+  height: auto;
+  padding: 10px 4vw;
+}
+.cars-filter__data .swiperCar-wrapper__slide {
+  width: 326px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cars-filter .card-car {
+  width: 95%;
+  margin: 0px auto;
+  min-height: 300px;
+  border: 1px solid #DEF3FF;
+  border-radius: 5px;
+}
+.cars-filter .card-car__img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cars-filter .card-car__name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
+}
+.cars-filter .card-car__items {
+  padding: 0px 10px;
+  width: 100%;
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.5px;
+}
+.cars-filter .card-car__items span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 3px;
+  gap: 5px;
+  min-width: 52px;
+  height: 28px;
+  background: #B5D3E3;
+  border: 1px solid #1A4A8C;
+  border-radius: 100px;
+  font-size: 1.2rem;
+  color: #1A4A8C;
+  font-weight: 500;
+}
+.cars-filter .card-car__data {
+  padding: 15px 10px;
+  margin-top: 16px;
+  background: #DEF3FF;
+}
+.cars-filter .card-car__data h4 {
+  opacity: 0.6;
+}
+.cars-filter .card-car__data h2 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+  margin: 5px 0px 10px 0px;
+  font-weight: 800;
+}
+.cars-filter .card-car__data h2 span {
+  color: #1A4A8C;
+  font-size: 1.2rem;
+  opacity: 0.3;
+}
+.cars-filter .card-car__data--actions {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cars-filter .card-car__data--actions button:first-child {
+  padding: 10px 20px;
+  background: #00BDD6;
+  outline: none;
+  border: none;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+.cars-filter .card-car__data--actions button:first-child h5 {
+  color: #fff;
+  font-weight: 700;
+}
+.cars-filter .card-car__data--actions button:last-child {
+  padding: 10px 25px;
+  background: #00BDD6;
+  outline: none;
+  border: 2px solid #1A4A8C;
+  -webkit-filter: drop-shadow(0px 3px 10px rgba(0, 0, 0, 0.3));
+          filter: drop-shadow(0px 3px 10px rgba(0, 0, 0, 0.3));
+  border-radius: 10px;
+  background: #DEF3FF;
+}
+.cars-filter .card-car__data--actions button:last-child h5 {
+  font-weight: 700;
+  color: #1A4A8C;
+}
+
 body::-webkit-scrollbar-thumb {
   background: #1A4A8C;
 }
@@ -737,6 +910,41 @@ body::-webkit-scrollbar {
   }
   .ctm-block p {
     font-size: 1.6rem;
+  }
+}
+.acordeon .panel {
+  display: flex;
+  justify-content: space-between;
+}
+
+.acordeon .data {
+  -webkit-animation: animate 0.7s;
+          animation: animate 0.7s;
+}
+
+.hideData {
+  display: none;
+}
+
+@-webkit-keyframes animate {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes animate {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 /**
