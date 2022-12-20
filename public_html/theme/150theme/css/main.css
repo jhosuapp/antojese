@@ -709,6 +709,121 @@ body.enable .header .ctm-block {
     gap: 50px;
   }
 }
+.vip-search {
+  width: 100%;
+  height: 100px;
+  background: #1A4A8C;
+  border-radius: 0px 0px 20px 20px;
+}
+
+.vip-result {
+  padding: 7px 25px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  background: #F7F7F7;
+}
+
+.vip-select {
+  width: 100%;
+  padding: 0px 20px;
+  margin: 7px 0px 25px 0px;
+}
+.vip-select__cont {
+  width: 90%;
+  margin: 0px auto;
+  height: 50px;
+  border: 1px solid #DEF3FF;
+  border-radius: 5px;
+}
+
+.vip-salas {
+  width: 100%;
+}
+.vip-salas__cont--card {
+  width: 336px;
+  border: 1px solid #DEF3FF;
+  border-radius: 5px;
+}
+.vip-salas__cont--card .vipSwiper {
+  width: 100%;
+  border-radius: 5px;
+}
+.vip-salas__cont--card .vipSwiper__wrapper--slide {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.vip-salas__cont--card .vipSwiper__wrapper--slide img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.vip-salas__cont--card .vipSwiper .vipSwiper-next,
+.vip-salas__cont--card .vipSwiper .vipSwiper-prev {
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+.vip-salas__cont--card .vipSwiper .vipSwiper-next:after,
+.vip-salas__cont--card .vipSwiper .vipSwiper-prev:after {
+  display: none;
+}
+.vip-salas__cont--card h5 {
+  margin-left: 10px;
+  font-weight: 800;
+  line-height: 20px;
+}
+.vip-salas__cont--card_location {
+  padding: 0px 0px 0px 10px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+.vip-salas__cont--card_location p {
+  font-weight: 500;
+  margin-left: 2px;
+  font-size: 1.4rem !important;
+  line-height: 20px;
+  color: #1A4A8C;
+}
+.vip-salas__cont--card_icons {
+  padding: 10px 10px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+.vip-salas__cont--card_icons span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 9px;
+  width: 42px;
+  height: 28px;
+  background: #B5D3E3;
+  border: 1px solid #1A4A8C;
+  border-radius: 100px;
+}
+.vip-salas__cont--card_tarifas {
+  width: 100%;
+  background: #DEF3FF;
+}
+.vip-salas__cont--card_tarifas span {
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #1A4A8C;
+  opacity: 0.6;
+}
+
 .cars-search {
   width: 100%;
   height: 100px;
@@ -753,6 +868,9 @@ body.enable .header .ctm-block {
   font-weight: 500;
 }
 
+.cars-filter {
+  margin: 30px 0px;
+}
 .cars-filter .acordeon {
   background-color: #F7F7F7;
 }
@@ -765,6 +883,11 @@ body.enable .header .ctm-block {
 .cars-filter .acordeon .panel button {
   outline: inherit;
   border: none;
+  background-color: transparent;
+  transition: all 0.5s ease;
+}
+.cars-filter .acordeon .panel .rotate {
+  transform: rotate(180deg);
 }
 .cars-filter__left {
   display: flex;
@@ -785,6 +908,19 @@ body.enable .header .ctm-block {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.cars-filter__data .swiperCar .btn-next-car,
+.cars-filter__data .swiperCar .btn-prev-car {
+  width: 30px;
+  height: 30px;
+  padding: 10px;
+  background: #00BDD6;
+  box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.2), 0px 1px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+.cars-filter__data .swiperCar .btn-next-car::after,
+.cars-filter__data .swiperCar .btn-prev-car::after {
+  display: none;
 }
 .cars-filter .card-car {
   width: 95%;
@@ -856,6 +992,7 @@ body.enable .header .ctm-block {
   align-items: center;
 }
 .cars-filter .card-car__data--actions button:first-child {
+  cursor: pointer;
   padding: 10px 20px;
   background: #00BDD6;
   outline: none;
@@ -868,6 +1005,7 @@ body.enable .header .ctm-block {
   font-weight: 700;
 }
 .cars-filter .card-car__data--actions button:last-child {
+  cursor: pointer;
   padding: 10px 25px;
   background: #00BDD6;
   outline: none;
@@ -971,35 +1109,17 @@ body::-webkit-scrollbar {
 }
 
 .acordeon .data {
-  -webkit-animation: animate 0.7s;
-          animation: animate 0.7s;
+  background: #fff;
+}
+
+.data {
+  transition: all 0.5s ease;
 }
 
 .hideData {
   display: none;
 }
 
-@-webkit-keyframes animate {
-  from {
-    opacity: 0;
-    transform: scale(0.6);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes animate {
-  from {
-    opacity: 0;
-    transform: scale(0.6);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
 .filters {
   position: relative;
   z-index: 9;

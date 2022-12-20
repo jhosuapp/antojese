@@ -14728,18 +14728,17 @@ var Acordeon = function () {
     var acordeons = document.querySelectorAll(".acordeon");
     acordeons.forEach(function (acordeon) {
       var btn = acordeon.querySelector(".panel button");
-      var icon = acordeon.querySelector(".panel button i");
+      var icon = acordeon.querySelector(".panel button");
       var data = acordeon.lastElementChild;
       var datas = document.querySelectorAll(".acordeon .data");
       btn.addEventListener("click", function () {
         datas.forEach(function (ans) {
-          var ansIcon = ans.parentElement.querySelector("button i");
           if (data !== ans) {
             ans.classList.add("hideData");
-            ansIcon.className = "fas fa-plus-circle";
           }
         });
         data.classList.toggle("hideData");
+        icon.className === "button rotate" ? icon.className = "button" : icon.className = "button rotate";
       });
     });
   };
@@ -14936,13 +14935,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+// Configuramos los módulos a usar
+swiper__WEBPACK_IMPORTED_MODULE_0__["default"].use([swiper__WEBPACK_IMPORTED_MODULE_0__["Navigation"], swiper__WEBPACK_IMPORTED_MODULE_0__["Pagination"]]);
 var swiperExport = function () {
   var _SwiperCar = function _SwiperCar() {
-    var SwiperCar = new swiper__WEBPACK_IMPORTED_MODULE_0__["Swiper"](".swiper", {
+    var SwiperCar = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".swiper", {
       spaceBetween: 60,
       navigation: {
-        nextEl: ".next",
-        prevEl: ".prev"
+        nextEl: ".btn-next-car",
+        prevEl: ".btn-prev-car"
+      }
+    });
+  };
+  var _SwiperHotelImg = function _SwiperHotelImg() {
+    var SwiperHotelImg = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](".vipSwiper", {
+      navigation: {
+        nextEl: ".vipSwiper-next",
+        prevEl: ".vipSwiper-prev"
       }
     });
   };
@@ -14950,6 +14960,9 @@ var swiperExport = function () {
     getChildFunctions: function getChildFunctions() {
       try {
         _SwiperCar();
+      } catch (error) {}
+      try {
+        _SwiperHotelImg();
       } catch (error) {}
     }
   };
