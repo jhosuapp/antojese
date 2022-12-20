@@ -10,7 +10,7 @@ const aos = function(){
                 easing: 'ease',
                 once: true,
             });
-        }, 500);
+        }, 1000);
     }
 
 

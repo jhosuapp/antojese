@@ -4,8 +4,10 @@ const Nav = function(){
     const Loader = () => {
 
         const preloader = document.getElementById("loadScreen");
-        preloader.style.display = "none";
-        
+        setTimeout(()=>{
+            preloader.classList.add('hidden');
+        },1000);
+
     };
     //HAMBURGUESA
     const Hamburger = ()=>{

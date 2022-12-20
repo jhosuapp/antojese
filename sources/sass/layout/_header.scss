@@ -112,6 +112,12 @@ body.enable{
     }
 }
 
+//OPCIONES HEADER HOME
+
+.header-options{
+    display: none;
+}
+
 @media(max-width: breakpoints('ipad-grande')){
     .header{
         padding: 20px 0;
@@ -161,6 +167,59 @@ body.enable{
                 display: none;
             }
         }
+        .home-welcome{
+            display: none !important;
+        }
+        .header-options{
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            flex-wrap: wrap;
+            z-index: 9;
+            gap: 10px;
+            width: 90%;
+            max-width: 600px;
+            margin: 60px auto 0 auto;
+            &__item{
+                @include flex;
+                border: 1px solid color('white');
+                padding: 5px;
+                border-radius: 10px;
+                gap: 5px;
+                min-height: 40px;
+                &:first-child,
+                &:last-child{
+                    display: none;
+                }
+                width: 100%;
+                flex: 1;
+                p{
+                    color: color('white');
+                    font-size: 1.2rem;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+                img{
+                    width: 30px;
+                    max-height: 25px;
+                }
+                div{
+                    display: flex;
+                }
+            }
+        }
     }
-    
+}
+
+@media(max-width: breakpoints('celular')){
+    body.enable{
+        .header-options{
+            display: flex;
+            justify-content: center;
+            &__item{
+                width: 30%;
+            }
+        }
+    }
 }
