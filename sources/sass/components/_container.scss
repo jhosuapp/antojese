@@ -4,6 +4,14 @@
     margin: auto;
     padding-left: 80px;
     position: relative;
+    &--background{
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        background-color: color('secondary-light');
+        padding: 60px 0;
+        margin-top: 60px;
+    }
 }
 
 
