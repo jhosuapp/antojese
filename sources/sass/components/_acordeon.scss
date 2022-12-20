@@ -5,22 +5,13 @@
 
 
 .acordeon .data {
-    animation: animate .7s;
+    background: color('white');
 }
 
+.data{
+    transition: all 0.5s ease;
+}
 
 .hideData {
     display: none;
-}
-
-@keyframes animate {
-    from {
-        opacity: 0;
-        transform: scale(0.6);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
 }

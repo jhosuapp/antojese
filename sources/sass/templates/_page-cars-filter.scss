@@ -46,6 +46,7 @@
 }
 
 .cars-filter {
+    margin: 30px 0px;
     .acordeon {
         background-color: color('gray00');
 
@@ -58,6 +59,12 @@
 
             button {
                 @include restart_button();
+                background-color: transparent;
+                transition: all 0.5s ease;
+            }
+
+            .rotate{
+                transform: rotate(180deg)
             }
         }
     }
@@ -82,6 +89,20 @@
                     //background-color: #1A4A8C;
                     width: 326px !important;
                     @include flex();
+                }
+            }
+
+            .btn-next-car,
+            .btn-prev-car {
+                width: 30px;
+                height: 30px;
+                padding: 10px;
+                background: color('secondary');
+                box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.2), 0px 1px 5px rgba(0, 0, 0, 0.25);
+                border-radius: 5px;
+
+                &::after {
+                    display: none;
                 }
             }
         }
@@ -132,9 +153,11 @@
             padding: 15px 10px;
             margin-top: 16px;
             background: color('secondary-light');
-            h4{
+
+            h4 {
                 opacity: 0.6;
             }
+
             h2 {
                 @include flex($jc: flex-start);
                 gap: 5px;
@@ -153,6 +176,7 @@
                 @include flex($jc: space-between);
 
                 button:first-child {
+                    cursor: pointer;
                     padding: 10px 20px;
                     background: color('secondary');
                     outline: none;
@@ -167,6 +191,7 @@
                 }
 
                 button:last-child {
+                    cursor: pointer;
                     padding: 10px 25px;
                     background: color('secondary');
                     outline: none;

@@ -1,0 +1,122 @@
+.vip-search {
+    width: 100%;
+    height: 100px;
+    background: color('primary');
+    border-radius: 0px 0px 20px 20px;
+}
+
+.vip-result {
+    padding: 7px 25px;
+    margin-top: 20px;
+    @include flex($jc: flex-start);
+    width: 100%;
+    height: 40px;
+    background: color('gray00');
+}
+
+.vip-select {
+    width: 100%;
+    padding: 0px 20px;
+    margin: 7px 0px 25px 0px;
+
+    &__cont {
+        width: 90%;
+        margin: 0px auto;
+        height: 50px;
+        border: 1px solid #DEF3FF;
+        border-radius: 5px;
+    }
+}
+
+.vip-salas {
+    width: 100%;
+
+    &__cont {
+        &--card {
+            width: 336px;
+            border: 1px solid #DEF3FF;
+            border-radius: 5px;
+
+
+            .vipSwiper {
+                width: 100%;
+                border-radius: 5px;
+
+                &__wrapper {
+
+                    &--slide {
+                        width: 200px;
+                        @include flex($ai: flex-start);
+
+                        img {
+                            object-fit: cover;
+                        }
+                    }
+                }
+
+                .vipSwiper-next,
+                .vipSwiper-prev {
+                    width: 30px;
+                    height: 30px;
+                    background: color('white');
+                    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
+                    border-radius: 5px;
+
+                    &:after {
+                        display: none;
+                    }
+                }
+            }
+
+            h5 {
+                margin-left: 10px;
+                font-weight: 800;
+                line-height: 20px;
+            }
+
+            &_location {
+                padding: 0px 0px 0px 10px;
+                margin-top: 10px;
+                @include flex($ai: flex-start);
+
+                p {
+                    font-weight: 500;
+                    margin-left: 2px;
+                    font-size: 1.4rem !important;
+                    line-height: 20px;
+                    color: color('primary');
+                }
+            }
+
+            &_icons {
+                padding: 10px 10px;
+                width: 100%;
+                @include flex($jc: flex-start);
+                flex-wrap: wrap;
+                gap: 5px;
+
+                span {
+                    @include flex();
+                    padding: 2px 9px;
+                    width: 42px;
+                    height: 28px;
+                    background: #B5D3E3;
+                    border: 1px solid #1A4A8C;
+                    border-radius: 100px;
+                }
+            }
+
+            &_tarifas{
+                width: 100%;
+                background: color('secondary-light');
+
+                span{
+                    font-weight: 400;
+                    font-size: 1.2rem;
+                    color: color('primary');
+                    opacity: 0.6;
+                }
+            }
+        }
+    }
+}
