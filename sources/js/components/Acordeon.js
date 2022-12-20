@@ -4,19 +4,19 @@ const Acordeon = (function () {
 
     acordeons.forEach((acordeon) => {
       let btn = acordeon.querySelector(".panel button");
-      let icon = acordeon.querySelector(".panel button i");
+      let icon = acordeon.querySelector(".panel button");
       var data = acordeon.lastElementChild;
       var datas = document.querySelectorAll(".acordeon .data");
       btn.addEventListener("click", () => {
         datas.forEach((ans) => {
-          let ansIcon = ans.parentElement.querySelector("button i");
           if (data !== ans) {
             ans.classList.add("hideData");
-            ansIcon.className = "fas fa-plus-circle";
           }
         });
         data.classList.toggle("hideData");
-        
+        icon.className === "button rotate"
+          ? (icon.className = "button")
+          : (icon.className = "button rotate");
       });
     });
   };
