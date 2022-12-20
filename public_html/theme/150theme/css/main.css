@@ -743,10 +743,20 @@ body.enable .header .ctm-block {
 .vip-salas {
   width: 100%;
 }
+.vip-salas__cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .vip-salas__cont--card {
   width: 336px;
   border: 1px solid #DEF3FF;
   border-radius: 5px;
+}
+.vip-salas__cont--card hr {
+  background-color: #cccccc;
+  height: 2px;
+  margin: 10px 0px;
 }
 .vip-salas__cont--card .vipSwiper {
   width: 100%;
@@ -816,12 +826,38 @@ body.enable .header .ctm-block {
 .vip-salas__cont--card_tarifas {
   width: 100%;
   background: #DEF3FF;
+  padding: 15px 10px;
 }
 .vip-salas__cont--card_tarifas span {
   font-weight: 400;
   font-size: 1.2rem;
   color: #1A4A8C;
   opacity: 0.6;
+}
+.vip-salas__cont--card_tarifas .btn {
+  margin-top: 10px;
+}
+.vip-salas__cont--card_tarifas--items {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: space-between;
+  flex-direction: column;
+}
+.vip-salas__cont--card_tarifas--items-1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.vip-salas__cont--card_tarifas--items-1 h3 {
+  font-weight: 400;
+  font-size: 1.4rem !important;
+  color: #1A4A8C;
+}
+.vip-salas__cont--card_tarifas--items-1 span {
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: #1A4A8C;
 }
 
 .cars-search {
