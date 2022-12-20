@@ -8,11 +8,6 @@
     <link rel="stylesheet" href="../150theme/css/main.css">
 </head>
 <body>
-    <div id="loadScreen" class="preloader">
-        <span class="loader">
-            <img src="./assets/logo.svg" alt="">
-        </span>
-    </div>
     <header class="header" style="background-image: url('../150theme/assets/menu/bg-header.jpg')">
     <div class="ctn">
         <a href="#" class="header-logo">
@@ -46,5 +41,11 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dis senectus habitant sapien tempor amet et purus amet. Nec.</p>
     </div>
     <!-- OPCIONES DINAMICAS DEL MENU LATERAL SOLO PARA EL HOME -->
-    <div class="header-options"></div>
+    <div class="header-options" data-aos="custom"></div>
 </header>
+<!-- LOADER -->
+<div id="loadScreen" class="preloader">
+    <span class="loader">
+        <img src="./assets/logo.svg" alt="">
+    </span>
+</div>

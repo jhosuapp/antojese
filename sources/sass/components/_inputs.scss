@@ -161,3 +161,11 @@
         }
     }
 }
+@media(max-width:breakpoints('ipad-grande')){
+    .input-custom{
+        &__ctn{
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+    }
+}

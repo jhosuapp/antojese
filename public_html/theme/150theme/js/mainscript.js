@@ -14784,7 +14784,7 @@ var aos = function () {
         easing: 'ease',
         once: true
       });
-    }, 500);
+    }, 1000);
   }
   return {
     rturnFunctions: function rturnFunctions() {
@@ -14831,6 +14831,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
 /* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var core_js_modules_web_timers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/web.timers */ "./node_modules/core-js/modules/web.timers.js");
+/* harmony import */ var core_js_modules_web_timers__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_timers__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
@@ -14838,7 +14841,9 @@ __webpack_require__.r(__webpack_exports__);
 var Nav = function () {
   var Loader = function Loader() {
     var preloader = document.getElementById("loadScreen");
-    preloader.style.display = "none";
+    setTimeout(function () {
+      preloader.classList.add('hidden');
+    }, 1000);
   };
   //HAMBURGUESA
   var Hamburger = function Hamburger() {
