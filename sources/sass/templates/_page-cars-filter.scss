@@ -326,14 +326,3 @@ hr {
     }
 
 }
-
-@media (max-width: breakpoints('')) {
-
-    .cars-left {
-        display: none;
-    }
-
-    .cars-right {
-        width: 100%;
-    }
-}

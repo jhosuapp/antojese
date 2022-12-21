@@ -4,6 +4,7 @@
 <section class="cars-search ctm-block"></section>
 
 <section class="cars-search-general">
+  
   <div class="cars-left">
     <div class="cars-left__cont">
       <h2>Filtros activos</h2>
@@ -28,7 +29,7 @@
       <h3>Categoria</h3>
 
       <div class="cars-left__cont--checks">
-        <div class="cars-left__cont--checks--item">
+        <div class="cars-left__cont--checks--item input-custom">
           <input type="checkbox" name="" id="">
           <img src="./assets/car/car1-filter.png" alt="">
           <p>Premium</p>
@@ -633,5 +634,6 @@
       </div>
     </section>
   </div>
+
 </section>
 <?php include './template-part/footer.php' ?>
