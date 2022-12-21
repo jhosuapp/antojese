@@ -3,7 +3,7 @@ import 'aos/dist/aos.css';
 
 const aos = function(){
     
-    function _initAos(){
+    function InitAos(){
         setTimeout(() => {
             AOS.init({
                 duration: 1000,
@@ -16,7 +16,7 @@ const aos = function(){
 
     return {
         rturnFunctions : function(){
-            _initAos();
+            InitAos();
         }
     }
 }();

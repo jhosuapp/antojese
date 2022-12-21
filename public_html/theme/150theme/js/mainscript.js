@@ -14777,7 +14777,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var aos = function () {
-  function _initAos() {
+  function InitAos() {
     setTimeout(function () {
       aos__WEBPACK_IMPORTED_MODULE_1__["init"]({
         duration: 1000,
@@ -14788,7 +14788,7 @@ var aos = function () {
   }
   return {
     rturnFunctions: function rturnFunctions() {
-      _initAos();
+      InitAos();
     }
   };
 }();
@@ -14922,6 +14922,54 @@ var getChildsNav = function getChildsNav() {
 
 /***/ }),
 
+/***/ "./sources/js/components/Selects.js":
+/*!******************************************!*\
+  !*** ./sources/js/components/Selects.js ***!
+  \******************************************/
+/*! exports provided: getChildsSelect */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getChildsSelect", function() { return getChildsSelect; });
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.for-each */ "./node_modules/core-js/modules/es.array.for-each.js");
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__);
+
+
+var Select = function () {
+  var SelectConfig = function SelectConfig() {
+    var getAllSelectsContainer = document.querySelectorAll('.input-custom__select');
+    var getAllOptions = document.querySelectorAll('.input-custom__select option');
+    getAllSelectsContainer.forEach(function (data) {
+      data.addEventListener('click', function () {
+        data.classList.toggle('active');
+      });
+    });
+    getAllOptions.forEach(function (data) {
+      data.addEventListener('click', function () {
+        var getParentElement = data.parentElement;
+        var getPreviousElement = getParentElement.previousElementSibling;
+        getPreviousElement.value = data.textContent;
+        getPreviousElement.setAttribute('data-value', data.getAttribute('data-value'));
+        getPreviousElement.setAttribute('value', data.getAttribute('data-value'));
+      });
+    });
+  };
+  return {
+    getChildFunctions: function getChildFunctions() {
+      SelectConfig();
+    }
+  };
+}();
+var getChildsSelect = function getChildsSelect() {
+  Select.getChildFunctions();
+};
+
+
+/***/ }),
+
 /***/ "./sources/js/components/Swiper.js":
 /*!*****************************************!*\
   !*** ./sources/js/components/Swiper.js ***!
@@ -14993,6 +15041,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Swiper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Swiper */ "./sources/js/components/Swiper.js");
 /* harmony import */ var _components_Acordeon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Acordeon */ "./sources/js/components/Acordeon.js");
 /* harmony import */ var _components_Aos__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Aos */ "./sources/js/components/Aos.js");
+/* harmony import */ var _components_Selects__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Selects */ "./sources/js/components/Selects.js");
+
 
 
 
@@ -15002,6 +15052,7 @@ window.addEventListener('load', function () {
   Object(_components_Nav__WEBPACK_IMPORTED_MODULE_0__["getChildsNav"])();
   Object(_components_Swiper__WEBPACK_IMPORTED_MODULE_2__["getChildsSwiper"])();
   Object(_components_Aos__WEBPACK_IMPORTED_MODULE_4__["getChildsAos"])();
+  Object(_components_Selects__WEBPACK_IMPORTED_MODULE_5__["getChildsSelect"])();
 });
 window.addEventListener("DOMContentLoaded", function () {
   Object(_components_Acordeon__WEBPACK_IMPORTED_MODULE_3__["getChildsAcordeon"])();

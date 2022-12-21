@@ -72,9 +72,68 @@
             transition: .3s opacity ease;
         }
     }
+    &__select{
+        background-color: color('secondary');
+        position: relative;
+        z-index: 9;
+        @include flex;
+        &::after{
+            position: absolute;
+            content: "";
+            right: 15px;
+            width: 13px;
+            height: 7px;
+            background-image: url('../assets/icons/icon-select.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            z-index: 9;
+            transition: .3s ease transform;
+        }
+        &.active{
+            &::after{
+                transform: rotateX(180deg);
+            }
+            .options{
+                opacity: 1;
+                height: 150px;
+                pointer-events: all;
+            }
+        }
+        input[type="text"]{
+            background-color: transparent;
+            padding: 15px 10px 15px 10px;
+            border-color: color('primary');
+            font-weight: 500;
+        }
+        .options{
+            position: absolute;
+            width: 100%;
+            background-color: color('white');
+            border: 1px solid color('primary');
+            border-radius: 5px;
+            top: calc(100% + 5px);
+            height: 0;
+            opacity: 0;
+            pointer-events: none;
+            overflow: auto;
+            padding: 10px 0;
+            transition: 1s ease;
+            transition-property: opacity, height;
+        }
+        .options option{
+            color: color('primary');
+            font-size: 1.4rem;
+            padding: 10px 20px;
+            &:hover{
+                font-weight: 500;
+                background-color: color('secondary-light');
+            }
+        }
+    }
     &__checkbox,
     &__radio,
-    &__submit{
+    &__submit,
+    &__checkbox--blue{
         @include flex;
         gap: 10px;
     }
@@ -82,11 +141,26 @@
         width: 100%;
         justify-content: center;
     }
-    &__checkbox{
+    &__checkbox,
+    &__checkbox--blue{
         padding-right: 20px;
         label{
             color: color('white');
             font-size: 1.6rem;
+        }
+    }
+    &__checkbox--blue{
+        label{
+            color: color('primary');
+        }
+        input[type="checkbox"]{
+            border-color: color('primary');
+            &:checked{
+                background-color: color('primary');
+            }
+            &:before{
+                filter: hue-rotate(60deg) brightness(1000000%);
+            }
         }
     }
     &__radio{
@@ -99,6 +173,7 @@
     }
     &__block{
         position: relative;
+        width: 25%;
         .error-message{
             color: color('error');
             font-size: 1.2rem;
@@ -107,6 +182,29 @@
             position: absolute;
             bottom: -20px;
         }
+        &:nth-child(2){
+            &::before{
+                content: "";
+                width: 12px;
+                height: 12px;
+                @include flex;
+                position: absolute;
+                left: -25px;
+                top: calc(50% - 14px);
+                background-image: url('../assets/icons/icon-repeat.svg');
+                background-size: 60%;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: color('white');
+                border: 1px solid color('primary');
+                z-index: 99;
+                border-radius: 5px;
+                padding: 7.5px;
+            }
+        }
+    }
+    &__calendar{
+        width: 15%;
     }
     &__ctn{
         @include flex($jc: flex-start);
@@ -143,6 +241,20 @@
     &__options{
         display: flex;
         gap: 5px;
+        width: 100%;
+    }
+    &__no-write{
+        position: relative;
+        &::before{
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            left: 0;
+            top: 0;
+            z-index: 99;
+        }
     }
 
     //error
@@ -166,6 +278,31 @@
         &__ctn{
             flex-wrap: wrap;
             gap: 10px;
+        }
+        &__options{
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        &__block{
+            width: calc(50% - 2.5px);
+        }
+    }
+}
+
+@media(max-width:breakpoints('celular')){
+    .input-custom{
+        &__block{
+            width: 100%;
+            &:nth-child(2){
+                &::before{
+                    left: unset;
+                    top: -20px;
+                    right: 20px;
+                }
+            }
+        }
+        &__calendar{
+            width: calc(50% - 2.5px);
         }
     }
 }
