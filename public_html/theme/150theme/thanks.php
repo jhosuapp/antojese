@@ -32,19 +32,19 @@
         <h2>Otros servicios</h2>
         <div class="more-cont__cards">
             <div class="more-cont__cards--item">
-                <img src="./assets/thanks/card-thanks-img1.png" alt="">
+                <img src="./assets-temporal/thanks/card-thanks-img1.png" alt="">
                 <h3>Turisemana</h3>
                 <p>Los mejores destinos con playa, brisa y mar </p>
             </div>
 
             <div class="more-cont__cards--item">
-                <img src="./assets/thanks/card-thanks-img2.png" alt="">
+                <img src="./assets-temporal/thanks/card-thanks-img2.png" alt="">
                 <h3>Salas VIP</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce massa risus potenti.</p>
             </div>
 
             <div class="more-cont__cards--item">
-                <img src="./assets/thanks/card-thanks-img3.png" alt="">
+                <img src="./assets-temporal/thanks/card-thanks-img3.png" alt="">
                 <h3>Autos</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce massa risus potenti.</p>
             </div>

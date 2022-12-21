@@ -1,8 +1,105 @@
+.filter {
+    max-width: 140px;
+    min-width: 50px;
+    @include flex($ai: normal);
+    padding: 3px 6px;
+    gap: 5px;
+    background: #B5D3E3;
+    border: 1px solid color('primary');
+    border-radius: 100px;
+
+    p {
+        font-weight: 500;
+        color: color('primary');
+        font-size: 1.4rem;
+    }
+
+    button {
+        @include restart_button();
+        background: transparent;
+        @include flex($ai: flex-end);
+        cursor: pointer;
+
+        img {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+}
+
 .cars-search {
     width: 100%;
     height: 100px;
     background: color('primary');
     border-radius: 0px 0px 20px 20px;
+}
+
+.cars-search-general {
+    @include flex($ai: flex-start);
+}
+
+.cars-left {
+    min-width: 260px;
+    width: 20%;
+    height: 100vh;
+    @include flex();
+
+    &__cont {
+        width: 90%;
+        height: 98%;
+        background: color('white');
+
+        h2 {
+            font-weight: 800;
+            font-size: 2rem;
+            color: color('primary');
+        }
+
+        h3 {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: color('primary');
+            margin-bottom: 10px;
+        }
+
+        &--filter {
+            @include flex($jc: flex-start);
+            margin-top: 10px;
+            width: 100%;
+            gap: 5px;
+        }
+
+        &--checks {
+            width: 100%;
+            height: auto;
+
+            &--item {
+                display: flex;
+                justify-content: flex-start !important;
+                align-items: center;
+                gap: 15px;
+
+                label {
+                    font-weight: 500;
+                    font-size: 1.4rem;
+                    color: color('primary');
+                }
+            }
+        }
+    }
+}
+
+hr {
+    width: 100%;
+    height: 2px;
+    background: #cccccc;
+    margin: 20px 0px;
+    border: none;
+}
+
+.cars-right {
+    width: 80%;
 }
 
 .convenciones {
@@ -47,6 +144,7 @@
 
 .cars-filter {
     margin: 30px 0px;
+
     .acordeon {
         background-color: color('gray00');
 
@@ -63,7 +161,7 @@
                 transition: all 0.5s ease;
             }
 
-            .rotate{
+            .rotate {
                 transform: rotate(180deg)
             }
         }
@@ -82,12 +180,15 @@
             width: 100%;
             height: auto;
             padding: 10px 4vw;
+            overflow-x: clip;
+            overflow-y: initial;
+
 
             &-wrapper {
 
                 &__slide {
+                    min-width: 170px;
                     //background-color: #1A4A8C;
-                    width: 326px !important;
                     @include flex();
                 }
             }
@@ -108,24 +209,190 @@
         }
     }
 
-    .card-car {
-        width: 95%;
-        margin: 0px auto;
-        min-height: 300px;
-        border: 1px solid #DEF3FF;
-        border-radius: 5px;
+}
 
-        &__img {
-            @include flex();
+.card-car {
+    display: none;
+    width: 95%;
+    margin: 0px auto;
+    min-height: 300px;
+    border: 1px solid #DEF3FF;
+    border-radius: 5px;
+
+    &__img {
+        @include flex();
+    }
+
+    &__name {
+        @include flex($jc: space-between);
+        padding: 0px 10px;
+    }
+
+    &__items {
+        padding: 0px 10px;
+        width: 100%;
+        margin-top: 15px;
+        @include flex($jc: space-between);
+        gap: 2.5px;
+
+        span {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 3px;
+            gap: 5px;
+            min-width: 52px;
+            height: 28px;
+            background: #B5D3E3;
+            border: 1px solid #1A4A8C;
+            border-radius: 100px;
+
+            font-size: 1.2rem;
+            color: color('primary');
+            font-weight: 500;
+        }
+    }
+
+    &__data {
+        padding: 15px 10px;
+        margin-top: 16px;
+        background: color('secondary-light');
+
+        h4 {
+            opacity: 0.6;
         }
 
-        &__name {
+        h2 {
+            @include flex($jc: flex-start);
+            gap: 5px;
+            margin: 5px 0px 10px 0px;
+            font-weight: 800;
+
+            span {
+                color: color('primary');
+                font-size: 1.2rem;
+                opacity: 0.3;
+            }
+        }
+
+        &--actions {
+            width: 100%;
             @include flex($jc: space-between);
-            padding: 0px 10px;
+
+            button:first-child {
+                cursor: pointer;
+                padding: 10px 20px;
+                background: color('secondary');
+                outline: none;
+                border: none;
+                box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
+                border-radius: 10px;
+
+                h5 {
+                    color: color('white');
+                    font-weight: 700;
+                }
+            }
+
+            button:last-child {
+                cursor: pointer;
+                padding: 10px 25px;
+                background: color('secondary');
+                outline: none;
+                border: 2px solid color('primary');
+                filter: drop-shadow(0px 3px 10px rgba(0, 0, 0, 0.3));
+                border-radius: 10px;
+                background: color('secondary-light');
+
+                h5 {
+                    font-weight: 700;
+                    color: color('primary')
+                }
+            }
+        }
+    }
+}
+
+.card-car-mobile {
+    padding: 15px 13px;
+    min-width: 170px;
+    height: 200px;
+    text-align: right;
+    border: 1px solid #DEF3FF;
+    border-radius: 5px;
+    z-index: 5;
+    @include transition();
+
+    &__img {
+        margin-bottom: 8px;
+        width: 100%;
+        @include flex($jc: flex-start)
+    }
+
+    &__name {
+        width: 100%;
+        @include flex();
+
+        h4 {
+            font-size: 1.2rem;
+            color: color('primary');
+            font-weight: 400;
+        }
+    }
+
+    hr {
+        height: 2px;
+        background-color: color('gray00');
+        border: none;
+    }
+
+    span {
+        font-weight: 400;
+        font-size: 1.2rem;
+        color: color('primary');
+        opacity: 0.3;
+    }
+
+    h5 {
+        font-weight: 800;
+    }
+
+    .price-txt {
+        font-weight: 400;
+        font-size: 1.2rem;
+        color: color('primary');
+        opacity: 0.6;
+    }
+
+    &__select {
+        width: 100%;
+        padding: 10px;
+        @include flex();
+
+        h5 {
+            color: color('secondary') !important;
+            font-weight: 700 !important;
+        }
+    }
+
+    &__hover {
+        z-index: 100;
+        top: 100%;
+        width: 340px;
+        position: absolute;
+        left: 19px;
+        padding: 20px 15px;
+        box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.2), 0px 1px 5px rgba(0, 0, 0, 0.25);
+        border-radius: 0px 5px 5px 5px;
+        display: none;
+        @include transition();
+
+        &--img {
+            @include flex();
+            width: 100%;
         }
 
-        &__items {
-            padding: 0px 10px;
+        &--icons {
             width: 100%;
             margin-top: 15px;
             @include flex($jc: space-between);
@@ -142,70 +409,66 @@
                 background: #B5D3E3;
                 border: 1px solid #1A4A8C;
                 border-radius: 100px;
-
+                opacity: 1;
                 font-size: 1.2rem;
                 color: color('primary');
                 font-weight: 500;
             }
         }
 
-        &__data {
-            padding: 15px 10px;
-            margin-top: 16px;
-            background: color('secondary-light');
+        &--actions {
+            margin-top: 10px;
+            width: 100%;
+            @include flex($jc: space-between);
 
-            h4 {
-                opacity: 0.6;
-            }
-
-            h2 {
-                @include flex($jc: flex-start);
-                gap: 5px;
-                margin: 5px 0px 10px 0px;
-                font-weight: 800;
-
-                span {
-                    color: color('primary');
-                    font-size: 1.2rem;
-                    opacity: 0.3;
-                }
-            }
-
-            &--actions {
-                width: 100%;
-                @include flex($jc: space-between);
-
-                button:first-child {
-                    cursor: pointer;
-                    padding: 10px 20px;
-                    background: color('secondary');
-                    outline: none;
-                    border: none;
-                    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
-                    border-radius: 10px;
-
-                    h5 {
-                        color: color('white');
-                        font-weight: 700;
-                    }
-                }
-
-                button:last-child {
-                    cursor: pointer;
-                    padding: 10px 25px;
-                    background: color('secondary');
-                    outline: none;
-                    border: 2px solid color('primary');
-                    filter: drop-shadow(0px 3px 10px rgba(0, 0, 0, 0.3));
-                    border-radius: 10px;
-                    background: color('secondary-light');
-
-                    h5 {
-                        font-weight: 700;
-                        color: color('primary')
-                    }
-                }
+            .btn {
+                border: none;
             }
         }
     }
+
+    &:hover {
+        border: 1px solid #1A4A8C;
+
+        .card-car-mobile__hover {
+            border: 1px solid #1A4A8C;
+            display: block;
+        }
+    }
+}
+
+@media (max-width: breakpoints('ipad-grande')) {
+
+    .cars-search-general {
+        margin: 0;
+        width: 100%;
+        @include flex($ai: flex-start);
+    }
+
+    .cars-left {
+        display: none;
+    }
+
+    .cars-right {
+        width: 100%;
+        padding: 0;
+    }
+
+    .card-car {
+        display: block !important;
+    }
+
+    .card-car-mobile {
+        display: none;
+    }
+
+    .swiperCar {
+        
+        &-wrapper {
+            &__slide {
+                width: 326px !important;
+            }
+        }
+    }
+    
 }
