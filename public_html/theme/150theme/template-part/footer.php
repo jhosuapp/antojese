@@ -1,7 +1,7 @@
     
     
     <footer class="footer">
-        <div class="footer__container">
+        <div class="footer__container ctn">
             <div class="footer__container--logo">
                 <img src="./assets/logoFooter.png" alt="">
                 <div class="footer__container--logo_social">

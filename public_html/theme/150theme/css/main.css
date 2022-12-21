@@ -286,7 +286,6 @@ body.enable .header .ctm-block {
 }
 .footer__container {
   padding: 30px 0px;
-  width: 80%;
   min-height: 300px;
   background: #F7F7F7;
   display: flex;
@@ -739,6 +738,26 @@ body.enable .header .ctm-block {
     gap: 50px;
   }
 }
+.vip-search-general {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.vip-left {
+  min-width: 260px;
+  width: 20%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vip-right {
+  width: 80%;
+  padding: 30px 0px;
+}
+
 .vip-search {
   width: 100%;
   height: 100px;
@@ -755,12 +774,14 @@ body.enable .header .ctm-block {
   width: 100%;
   height: 40px;
   background: #F7F7F7;
+  display: none;
 }
 
 .vip-select {
   width: 100%;
   padding: 0px 20px;
   margin: 7px 0px 25px 0px;
+  display: none;
 }
 .vip-select__cont {
   width: 90%;
@@ -890,6 +911,37 @@ body.enable .header .ctm-block {
   color: #1A4A8C;
 }
 
+.vip-card__body {
+  border: solid 1px red;
+}
+
+.vip-card__header {
+  border: solid 1px yellow;
+}
+
+.vip-card__cont {
+  border: solid 1px blue;
+}
+
+.vip-card__footer {
+  border: solid 1px green;
+}
+
+@media (max-width: 992px) {
+  .vip-left {
+    display: none;
+  }
+  .vip-right {
+    width: 100%;
+    padding: 0;
+  }
+  .vip-result {
+    display: block;
+  }
+  .vip-select {
+    display: block;
+  }
+}
 .filter {
   max-width: 140px;
   min-width: 50px;
@@ -929,8 +981,6 @@ body.enable .header .ctm-block {
 }
 
 .cars-search-general {
-  margin-left: 150px;
-  width: calc(100% - 100px);
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -974,11 +1024,11 @@ body.enable .header .ctm-block {
 }
 .cars-left__cont--checks--item {
   display: flex;
-  justify-content: flex-start;
+  justify-content: start !important;
   align-items: center;
   gap: 15px;
 }
-.cars-left__cont--checks--item p {
+.cars-left__cont--checks--item label {
   font-weight: 500;
   font-size: 1.4rem;
   color: #1A4A8C;
@@ -989,10 +1039,10 @@ hr {
   height: 2px;
   background: #cccccc;
   margin: 20px 0px;
+  border: none;
 }
 
 .cars-right {
-  padding: 0px 10px;
   width: 80%;
 }
 
@@ -1067,9 +1117,11 @@ hr {
   width: 100%;
   height: auto;
   padding: 10px 4vw;
+  overflow-x: clip;
+  overflow-y: initial;
 }
 .cars-filter__data .swiperCar-wrapper__slide {
-  width: 326px !important;
+  min-width: 170px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1087,25 +1139,27 @@ hr {
 .cars-filter__data .swiperCar .btn-prev-car::after {
   display: none;
 }
-.cars-filter .card-car {
+
+.card-car {
+  display: none;
   width: 95%;
   margin: 0px auto;
   min-height: 300px;
   border: 1px solid #DEF3FF;
   border-radius: 5px;
 }
-.cars-filter .card-car__img {
+.card-car__img {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.cars-filter .card-car__name {
+.card-car__name {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0px 10px;
 }
-.cars-filter .card-car__items {
+.card-car__items {
   padding: 0px 10px;
   width: 100%;
   margin-top: 15px;
@@ -1114,7 +1168,7 @@ hr {
   align-items: center;
   gap: 2.5px;
 }
-.cars-filter .card-car__items span {
+.card-car__items span {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -1129,15 +1183,15 @@ hr {
   color: #1A4A8C;
   font-weight: 500;
 }
-.cars-filter .card-car__data {
+.card-car__data {
   padding: 15px 10px;
   margin-top: 16px;
   background: #DEF3FF;
 }
-.cars-filter .card-car__data h4 {
+.card-car__data h4 {
   opacity: 0.6;
 }
-.cars-filter .card-car__data h2 {
+.card-car__data h2 {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -1145,18 +1199,18 @@ hr {
   margin: 5px 0px 10px 0px;
   font-weight: 800;
 }
-.cars-filter .card-car__data h2 span {
+.card-car__data h2 span {
   color: #1A4A8C;
   font-size: 1.2rem;
   opacity: 0.3;
 }
-.cars-filter .card-car__data--actions {
+.card-car__data--actions {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.cars-filter .card-car__data--actions button:first-child {
+.card-car__data--actions button:first-child {
   cursor: pointer;
   padding: 10px 20px;
   background: #00BDD6;
@@ -1165,11 +1219,11 @@ hr {
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
 }
-.cars-filter .card-car__data--actions button:first-child h5 {
+.card-car__data--actions button:first-child h5 {
   color: #fff;
   font-weight: 700;
 }
-.cars-filter .card-car__data--actions button:last-child {
+.card-car__data--actions button:last-child {
   cursor: pointer;
   padding: 10px 25px;
   background: #00BDD6;
@@ -1180,9 +1234,128 @@ hr {
   border-radius: 10px;
   background: #DEF3FF;
 }
-.cars-filter .card-car__data--actions button:last-child h5 {
+.card-car__data--actions button:last-child h5 {
   font-weight: 700;
   color: #1A4A8C;
+}
+
+.card-car-mobile {
+  padding: 15px 13px;
+  min-width: 170px;
+  height: 200px;
+  text-align: end;
+  border: 1px solid #DEF3FF;
+  border-radius: 5px;
+  z-index: 5;
+  transition: 0.3s all ease;
+}
+.card-car-mobile__img {
+  margin-bottom: 8px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.card-car-mobile__name {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-car-mobile__name h4 {
+  font-size: 1.2rem;
+  color: #1A4A8C;
+  font-weight: 400;
+}
+.card-car-mobile hr {
+  height: 2px;
+  background-color: #F7F7F7;
+  border: none;
+}
+.card-car-mobile span {
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #1A4A8C;
+  opacity: 0.3;
+}
+.card-car-mobile h5 {
+  font-weight: 800;
+}
+.card-car-mobile .price-txt {
+  font-weight: 400;
+  font-size: 1.2rem;
+  color: #1A4A8C;
+  opacity: 0.6;
+}
+.card-car-mobile__select {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-car-mobile__select h5 {
+  color: #00BDD6 !important;
+  font-weight: 700 !important;
+}
+.card-car-mobile__hover {
+  z-index: 100;
+  top: 100%;
+  width: 340px;
+  position: absolute;
+  left: 19px;
+  padding: 20px 15px;
+  box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.2), 0px 1px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 5px 5px 5px;
+  display: none;
+  transition: 0.3s all ease;
+}
+.card-car-mobile__hover--img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.card-car-mobile__hover--icons {
+  width: 100%;
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.5px;
+}
+.card-car-mobile__hover--icons span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 3px;
+  gap: 5px;
+  min-width: 52px;
+  height: 28px;
+  background: #B5D3E3;
+  border: 1px solid #1A4A8C;
+  border-radius: 100px;
+  opacity: 1;
+  font-size: 1.2rem;
+  color: #1A4A8C;
+  font-weight: 500;
+}
+.card-car-mobile__hover--actions {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-car-mobile__hover--actions .btn {
+  border: none;
+}
+.card-car-mobile:hover {
+  border: 1px solid #1A4A8C;
+}
+.card-car-mobile:hover .card-car-mobile__hover {
+  border: 1px solid #1A4A8C;
+  display: block;
 }
 
 @media (max-width: 992px) {
@@ -1198,6 +1371,16 @@ hr {
   }
   .cars-right {
     width: 100%;
+    padding: 0;
+  }
+  .card-car {
+    display: block !important;
+  }
+  .card-car-mobile {
+    display: none;
+  }
+  .swiperCar-wrapper__slide {
+    width: 326px !important;
   }
 }
 .home-bg__ctn {
@@ -1412,6 +1595,9 @@ body::-webkit-scrollbar {
 }
 .ctm-block h5 {
   font-size: 1.6rem;
+}
+.ctm-block h6 {
+  font-size: 1.2rem;
 }
 .ctm-block p {
   font-size: 1.8rem;
@@ -1829,6 +2015,29 @@ body::-webkit-scrollbar {
 }
 .btn:hover {
   background-color: #559FC7;
+}
+
+.btn-s {
+  color: #1A4A8C;
+  font-size: 1.8rem;
+  font-weight: 700;
+  background-color: #fff;
+  border-radius: 10px;
+  min-width: 150px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 11px 20px;
+  cursor: pointer;
+  transition: 0.3s background-color ease;
+  box-sizing: border-box;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-s:hover {
+  background-color: #DEF3FF;
 }
 
 .aos-custom {
