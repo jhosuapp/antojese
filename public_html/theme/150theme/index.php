@@ -23,12 +23,12 @@
                 <label for="Multidestino">Multidestino</label>
             </div>
         </div>
-        <!-- OPCIONES -->
         <div class="input-custom__options">
+            <!-- OPCIONES ORIGEN DESTINO-->
             <div class="input-custom__block">
                 <div class="input-custom__item">
-                    <label for="origin">Origen</label>
-                    <input type="text" id="origin" name="origin" placeholder="Ciudad o aeropouerto">
+                    <label for="origen">Origen</label>
+                    <input type="text" id="origen" name="origen" placeholder="Ciudad o aeropouerto">
                     <img src="./assets/icons/position.svg" alt="icon">
                 </div>
                 <p class="error-message">Texto de ayuda</p>
@@ -36,13 +36,51 @@
 
             <div class="input-custom__block">
                 <div class="input-custom__item">
-                    <label for="origin">Origen</label>
-                    <input type="text" id="origin" name="origin" placeholder="Ciudad o aeropouerto">
+                    <label for="destino">Destino</label>
+                    <input type="text" id="destino" name="destino" placeholder="Ciudad o aeropouerto">
                     <img src="./assets/icons/position.svg" alt="icon">
                 </div>
                 <p class="error-message">Texto de ayuda</p>
             </div>
+            <!-- OPCIONES SALIDA REGRESO -->
+            <div class="input-custom__block input-custom__no-write input-custom__calendar">
+                <div class="input-custom__item">
+                    <label for="salida">Salida</label>
+                    <input type="text" id="salida" name="salida" placeholder="Fecha de ida">
+                    <img src="./assets/icons/icon-calendar.svg" alt="icon">
+                </div>
+                <p class="error-message">Texto de ayuda</p>
+            </div>
+
+            <div class="input-custom__block input-custom__no-write input-custom__calendar">
+                <div class="input-custom__item">
+                    <label for="regreso">Regreso</label>
+                    <input type="text" id="regreso" name="regreso" placeholder="Fecha de regreso">
+                    <img src="./assets/icons/icon-calendar.svg" alt="icon">
+                </div>
+                <p class="error-message">Texto de ayuda</p>
+            </div>
+            <!-- OPCIONES PASAJEROS -->
+            <div class="input-custom__block input-custom__no-write">
+                <div class="input-custom__item">
+                    <label for="pasajeros">Pasajeros y clase</label>
+                    <input type="text" id="pasajeros" name="pasajeros" placeholder="Fecha de regreso">
+                    <img src="./assets/icons/icon-user.svg" alt="icon">
+                </div>
+                <p class="error-message">Texto de ayuda</p>
+            </div>
         </div>
+        <!-- <div class="input-custom__options">
+            <div class="input-custom__select input-custom__no-write">
+                <input type="text" value="economica" data-value="economica">
+                <div class="options">
+                    <option data-value="economica">Economica</option>
+                    <option data-value="premiumEconomy">Premium economy</option>
+                    <option data-value="ejecutivaBusiness">Ejecutiva/Business</option>
+                    <option data-value="primeraClase">Primera clase</option>
+                </div>
+            </div>
+        </div> -->
         <!-- OPCIONES CHECKBOX -->
         <div class="input-custom__ctn">
             <div class="input-custom__checkbox">
