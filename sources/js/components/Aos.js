@@ -16,7 +16,9 @@ const aos = function(){
 
     return {
         rturnFunctions : function(){
-            InitAos();
+            try{
+                InitAos();
+            }catch(error){ }
         }
     }
 }();

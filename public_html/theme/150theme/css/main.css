@@ -5,8 +5,8 @@
 }
 @font-face {
   font-family: "Inter";
-  src: url("../fonts/Inter-SemiBold.ttf");
-  font-weight: 600;
+  src: url("../fonts/Inter-Medium.ttf");
+  font-weight: 500;
 }
 @font-face {
   font-family: "Inter";
@@ -35,7 +35,7 @@ li,
 label,
 option {
   font-family: "Inter", sans-serif;
-  font-weight: 100;
+  font-weight: 400;
 }
 
 * {
@@ -1116,6 +1116,7 @@ body.enable .header .ctm-block {
   border-radius: 10px;
   pointer-events: none;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 93.86%);
+  transition: 0.3s bottom ease;
 }
 .home-cities__item div {
   position: relative;
@@ -1143,8 +1144,8 @@ body.enable .header .ctm-block {
   gap: 10px;
   margin-top: 10px;
 }
-.home-cities__item:hover {
-  top: -5px;
+.home-cities__item:hover::before {
+  bottom: 0;
 }
 
 @media (max-width: 1280px) {
@@ -1375,6 +1376,18 @@ body::-webkit-scrollbar {
 .input-custom input[type=text]:focus {
   border-color: #1A4A8C;
 }
+.input-custom input[type=number] {
+  border: none;
+  pointer-events: none;
+  width: 30px;
+  font-size: 1.6rem;
+  color: #1A4A8C;
+  text-align: center;
+}
+.input-custom input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+          appearance: none;
+}
 .input-custom input[type=radio] {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -1436,8 +1449,12 @@ body::-webkit-scrollbar {
   opacity: 0;
   transition: 0.3s opacity ease;
 }
+.input-custom input[type=checkbox],
+.input-custom input[type=radio],
+.input-custom input[type=text] {
+  font-weight: 500;
+}
 .input-custom__select {
-  background-color: #00BDD6;
   position: relative;
   z-index: 9;
   display: flex;
@@ -1456,13 +1473,21 @@ body::-webkit-scrollbar {
   z-index: 9;
   transition: 0.3s ease transform;
 }
-.input-custom__select.active::after {
+.input-custom__select.active::after, .input-custom__select.show-options::after {
   transform: rotateX(180deg);
 }
-.input-custom__select.active .options {
+.input-custom__select.active .options, .input-custom__select.show-options .options {
   opacity: 1;
   height: 150px;
   pointer-events: all;
+}
+.input-custom__select.hidden::after {
+  transform: rotate(0deg);
+}
+.input-custom__select.hidden .options {
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
 }
 .input-custom__select input[type=text] {
   background-color: transparent;
@@ -1474,7 +1499,7 @@ body::-webkit-scrollbar {
   position: absolute;
   width: 100%;
   background-color: #fff;
-  border: 1px solid #1A4A8C;
+  border: 1.5px solid #1A4A8C;
   border-radius: 5px;
   top: calc(100% + 5px);
   height: 0;
@@ -1633,6 +1658,105 @@ body::-webkit-scrollbar {
   opacity: 1;
 }
 
+.input-modal {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 999999;
+  background-color: #fff;
+  opacity: 0;
+  left: -100%;
+  transition: 1s ease left;
+}
+
+#modalPassengers.enable-modal .input-custom__modal {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.input-custom__modal {
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+  width: calc(100% + 70px);
+  left: -70px;
+  top: calc(100% + 10px);
+  padding: 20px 20px 60px 20px;
+  border-radius: 5px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s ease opacity;
+}
+.input-custom__modal p, .input-custom__modal h5 {
+  color: #1A4A8C;
+  font-size: 1.6rem;
+}
+.input-custom__modal h5 {
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+.input-custom__modal p {
+  font-weight: 500;
+}
+.input-custom__modal i {
+  font-style: normal;
+  font-size: 1.4rem;
+  color: #486EA3;
+  opacity: 0.8;
+}
+.input-custom__modal .flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.input-custom__modal .flex div {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+}
+.input-custom__modal .flex .minus,
+.input-custom__modal .flex .plus {
+  padding: 14px;
+  border: 1.5px solid #1A4A8C;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input-custom__modal .flex .minus::after,
+.input-custom__modal .flex .plus::after {
+  position: absolute;
+  content: "";
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  background-position: 50%;
+}
+.input-custom__modal .flex .plus::after {
+  background-image: url("../assets/icons/icon-plus.svg");
+}
+.input-custom__modal .flex .minus::after {
+  background-image: url("../assets/icons/icon-minus.svg");
+  width: 17px;
+}
+
+.input-childs {
+  position: relative;
+  z-index: 99;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.input-childs .childs-select:last-child {
+  margin-bottom: 20px;
+}
+.input-childs .input-custom__select.index {
+  z-index: 8;
+}
+
 @media (max-width: 992px) {
   .input-custom__ctn {
     flex-wrap: wrap;
@@ -1752,14 +1876,9 @@ body::-webkit-scrollbar {
   opacity: 1;
 }
 
-.filters-block.aos-animate {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 .home-welcome h1, .home-welcome p {
   opacity: 0;
-  transform: translateY(100px);
+  transform: translateY(20px);
   transition: 1s ease;
   transition-property: opacity, transform;
 }
@@ -1817,9 +1936,49 @@ body::-webkit-scrollbar {
   transition-delay: 0.2s;
 }
 
+.home-cities .ctm-block h2,
+.home-cities .ctm-block p,
+.home-cities .home-cities__grid a {
+  transition: 1s ease;
+  transition-property: opacity, transform;
+  opacity: 0;
+  transform: translateY(50px);
+}
+.home-cities .home-cities__grid a:first-child {
+  transition-delay: 0.25s;
+}
+.home-cities .home-cities__grid a:nth-child(2) {
+  transition-delay: 0.5s;
+}
+.home-cities .home-cities__grid a:nth-child(3) {
+  transition-delay: 0.75s;
+}
+.home-cities .home-cities__grid a:last-child {
+  transition-delay: 1s;
+}
+
+.home-cities.aos-animate .ctm-block h2,
+.home-cities.aos-animate .ctm-block p,
+.home-cities.aos-animate .home-cities__grid a {
+  opacity: 1;
+  transform: translateY(0);
+}
+.home-cities.aos-animate .ctm-block p {
+  transition-delay: 0.25s;
+}
+
+.home-bg {
+  transition-delay: 0.75s;
+}
+
 @media (max-width: 992px) {
   .filters-block {
     transition-delay: 1.2s;
+  }
+}
+@media (max-width: 1440px) {
+  .home-bg {
+    transition-delay: 0s;
   }
 }
 @-webkit-keyframes entry {

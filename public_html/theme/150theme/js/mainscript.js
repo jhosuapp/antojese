@@ -1122,6 +1122,31 @@ module.exports = typeof WeakMap === 'function' && /native code/.test(inspectSour
 
 /***/ }),
 
+/***/ "./node_modules/core-js/internals/number-parse-int.js":
+/*!************************************************************!*\
+  !*** ./node_modules/core-js/internals/number-parse-int.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var global = __webpack_require__(/*! ../internals/global */ "./node_modules/core-js/internals/global.js");
+var trim = __webpack_require__(/*! ../internals/string-trim */ "./node_modules/core-js/internals/string-trim.js").trim;
+var whitespaces = __webpack_require__(/*! ../internals/whitespaces */ "./node_modules/core-js/internals/whitespaces.js");
+
+var $parseInt = global.parseInt;
+var hex = /^[+-]?0[Xx]/;
+var FORCED = $parseInt(whitespaces + '08') !== 8 || $parseInt(whitespaces + '0x16') !== 22;
+
+// `parseInt` method
+// https://tc39.github.io/ecma262/#sec-parseint-string-radix
+module.exports = FORCED ? function parseInt(string, radix) {
+  var S = trim(String(string));
+  return $parseInt(S, (radix >>> 0) || (hex.test(S) ? 16 : 10));
+} : $parseInt;
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/internals/object-define-property.js":
 /*!******************************************************************!*\
   !*** ./node_modules/core-js/internals/object-define-property.js ***!
@@ -1447,6 +1472,45 @@ var store = __webpack_require__(/*! ../internals/shared-store */ "./node_modules
 
 /***/ }),
 
+/***/ "./node_modules/core-js/internals/string-trim.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/core-js/internals/string-trim.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var requireObjectCoercible = __webpack_require__(/*! ../internals/require-object-coercible */ "./node_modules/core-js/internals/require-object-coercible.js");
+var whitespaces = __webpack_require__(/*! ../internals/whitespaces */ "./node_modules/core-js/internals/whitespaces.js");
+
+var whitespace = '[' + whitespaces + ']';
+var ltrim = RegExp('^' + whitespace + whitespace + '*');
+var rtrim = RegExp(whitespace + whitespace + '*$');
+
+// `String.prototype.{ trim, trimStart, trimEnd, trimLeft, trimRight }` methods implementation
+var createMethod = function (TYPE) {
+  return function ($this) {
+    var string = String(requireObjectCoercible($this));
+    if (TYPE & 1) string = string.replace(ltrim, '');
+    if (TYPE & 2) string = string.replace(rtrim, '');
+    return string;
+  };
+};
+
+module.exports = {
+  // `String.prototype.{ trimLeft, trimStart }` methods
+  // https://tc39.github.io/ecma262/#sec-string.prototype.trimstart
+  start: createMethod(1),
+  // `String.prototype.{ trimRight, trimEnd }` methods
+  // https://tc39.github.io/ecma262/#sec-string.prototype.trimend
+  end: createMethod(2),
+  // `String.prototype.trim` method
+  // https://tc39.github.io/ecma262/#sec-string.prototype.trim
+  trim: createMethod(3)
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/internals/to-absolute-index.js":
 /*!*************************************************************!*\
   !*** ./node_modules/core-js/internals/to-absolute-index.js ***!
@@ -1633,6 +1697,20 @@ module.exports = function (name) {
 
 /***/ }),
 
+/***/ "./node_modules/core-js/internals/whitespaces.js":
+/*!*******************************************************!*\
+  !*** ./node_modules/core-js/internals/whitespaces.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// a string of all valid unicode whitespaces
+// eslint-disable-next-line max-len
+module.exports = '\u0009\u000A\u000B\u000C\u000D\u0020\u00A0\u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF';
+
+
+/***/ }),
+
 /***/ "./node_modules/core-js/modules/es.array.concat.js":
 /*!*********************************************************!*\
   !*** ./node_modules/core-js/modules/es.array.concat.js ***!
@@ -1721,6 +1799,25 @@ var forEach = __webpack_require__(/*! ../internals/array-for-each */ "./node_mod
 // https://tc39.github.io/ecma262/#sec-array.prototype.foreach
 $({ target: 'Array', proto: true, forced: [].forEach != forEach }, {
   forEach: forEach
+});
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/modules/es.parse-int.js":
+/*!******************************************************!*\
+  !*** ./node_modules/core-js/modules/es.parse-int.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var $ = __webpack_require__(/*! ../internals/export */ "./node_modules/core-js/internals/export.js");
+var parseIntImplementation = __webpack_require__(/*! ../internals/number-parse-int */ "./node_modules/core-js/internals/number-parse-int.js");
+
+// `parseInt` method
+// https://tc39.github.io/ecma262/#sec-parseint-string-radix
+$({ global: true, forced: parseInt != parseIntImplementation }, {
+  parseInt: parseIntImplementation
 });
 
 
@@ -14788,7 +14885,9 @@ var aos = function () {
   }
   return {
     rturnFunctions: function rturnFunctions() {
-      InitAos();
+      try {
+        InitAos();
+      } catch (error) {}
     }
   };
 }();
@@ -14799,19 +14898,150 @@ var getChildsAos = function getChildsAos() {
 
 /***/ }),
 
-/***/ "./sources/js/components/Footer.js":
-/*!*****************************************!*\
-  !*** ./sources/js/components/Footer.js ***!
-  \*****************************************/
-/*! exports provided: Footer */
+/***/ "./sources/js/components/InputNumber.js":
+/*!**********************************************!*\
+  !*** ./sources/js/components/InputNumber.js ***!
+  \**********************************************/
+/*! exports provided: getChildsInputNumber */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Footer", function() { return Footer; });
-var Footer = function Footer() {
-  // alert('footer');
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getChildsInputNumber", function() { return getChildsInputNumber; });
+/* harmony import */ var core_js_modules_es_array_concat__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.concat */ "./node_modules/core-js/modules/es.array.concat.js");
+/* harmony import */ var core_js_modules_es_array_concat__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_concat__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.array.for-each */ "./node_modules/core-js/modules/es.array.for-each.js");
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_es_parse_int__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/es.parse-int */ "./node_modules/core-js/modules/es.parse-int.js");
+/* harmony import */ var core_js_modules_es_parse_int__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_parse_int__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _Selects__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Selects */ "./sources/js/components/Selects.js");
+
+
+
+
+
+var InputNumber = function () {
+  //FUNCIONALIDAD DE RESTAR Y SUMAR SEGÚN LA CANTIDAD DE ADULTOS, NIÑOS Y BEBÉS
+  var InputNumberConfig = function InputNumberConfig() {
+    var getAllMinus = document.querySelectorAll('.minus');
+    var getAllPlus = document.querySelectorAll('.plus');
+    var getInputAdults = document.querySelector('#adultos');
+    getAllMinus.forEach(function (data) {
+      data.addEventListener('click', function () {
+        var nextElemement = data.nextElementSibling;
+        var valueElement = parseInt(nextElemement.value);
+        nextElemement.value = valueElement - 1;
+        nextElemement.value < 0 ? nextElemement.value = 0 : false;
+        getInputAdults.value < 1 ? getInputAdults.value = 1 : false;
+      });
+    });
+    getAllPlus.forEach(function (data) {
+      data.addEventListener('click', function () {
+        var prevElement = data.previousElementSibling;
+        var valueElement = parseInt(prevElement.value);
+        prevElement.value = valueElement + 1;
+      });
+    });
+  };
+  //CREAR OPCIONES DINAMICAS SEGÚN LA CANTIDAD DE NIÑOS
+  var CustomsDinamics = function CustomsDinamics() {
+    var getMinus = document.querySelector('#niñosMinus');
+    var getPlus = document.querySelector('#niñosPlus');
+    var createCustomsDinamics = function createCustomsDinamics() {
+      var getAllChilds = document.querySelectorAll('.childs-select');
+      var getInputChilds = document.querySelector('#niños');
+      var getValue = parseInt(getInputChilds.value);
+      var getDinamicChilds = document.querySelector('#dinamiChilds');
+      getAllChilds.forEach(function (data) {
+        data.remove();
+      });
+      for (var i = 1; i <= getValue; i++) {
+        var createDivForTemplate = document.createElement('div');
+        createDivForTemplate.classList.add('childs-select');
+        var template = "<div class=\"input-custom__select input-custom__no-write\">\n                                        <input type=\"text\" name=\"ni\xF1o-".concat(i, "\" id=\"ni\xF1o-").concat(i, "\" value=\"2 a\xF1os\">\n                                        <div class=\"options\">\n                                            <option data-value=\"2\">2 a\xF1os</option>\n                                            <option data-value=\"3\">3 a\xF1os</option>\n                                            <option data-value=\"4\">4 a\xF1os</option>\n                                            <option data-value=\"5\">5 a\xF1os</option>\n                                            <option data-value=\"6\">6 a\xF1os</option>\n                                            <option data-value=\"7\">7 a\xF1os</option>\n                                            <option data-value=\"8\">8 a\xF1os</option>\n                                            <option data-value=\"9\">9 a\xF1os</option>\n                                            <option data-value=\"10\">10 a\xF1os</option>\n                                            <option data-value=\"11\">11 a\xF1os</option>\n                                            <option data-value=\"12\">12 a\xF1os</option>\n                                            <option data-value=\"13\">13 a\xF1os</option>\n                                            <option data-value=\"14\">14 a\xF1os</option>\n                                            <option data-value=\"15\">15 a\xF1os</option>\n                                            <option data-value=\"16\">16 a\xF1os</option>\n                                            <option data-value=\"17\">17 a\xF1os</option>\n                                        </div>\n                                    </div>");
+        createDivForTemplate.innerHTML = template;
+        getDinamicChilds.append(createDivForTemplate);
+      }
+      Object(_Selects__WEBPACK_IMPORTED_MODULE_4__["getChildsSelect"])();
+    };
+    getMinus.addEventListener('click', createCustomsDinamics);
+    getPlus.addEventListener('click', createCustomsDinamics);
+  };
+  //FUNCION QUE CORRIJE BUG CON EL SELECT DE CLASE
+  var SelectClase = function SelectClase() {
+    var getSelectClase = document.querySelector('#dinamicClase');
+    getSelectClase.classList.add('hidden');
+    getSelectClase.addEventListener('click', function () {
+      getSelectClase.classList.add('show-options');
+      if (getSelectClase.classList.contains('hidden')) {
+        getSelectClase.classList.remove('hidden');
+      } else {
+        getSelectClase.classList.add('hidden');
+      }
+    });
+  };
+  return {
+    getChildFunctions: function getChildFunctions() {
+      try {
+        InputNumberConfig();
+      } catch (error) {}
+      try {
+        CustomsDinamics();
+      } catch (error) {}
+      try {
+        SelectClase();
+      } catch (error) {}
+    }
+  };
+}();
+var getChildsInputNumber = function getChildsInputNumber() {
+  InputNumber.getChildFunctions();
 };
+
+
+/***/ }),
+
+/***/ "./sources/js/components/Modal.js":
+/*!****************************************!*\
+  !*** ./sources/js/components/Modal.js ***!
+  \****************************************/
+/*! exports provided: getChildsModal */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getChildsModal", function() { return getChildsModal; });
+var Modal = function () {
+  var ModalHomeDesktop = function ModalHomeDesktop() {
+    var getContainerModalHome = document.querySelector('#modalPassengers');
+    getContainerModalHome.addEventListener('click', function () {
+      getContainerModalHome.classList.add('enable-modal');
+    });
+  };
+  var ModalHomeMobile = function ModalHomeMobile() {
+    // const getAllModals = document.querySelectorAll('.open-modal');
+    // const getContainerModal = document.querySelector('#modal');
+
+    // getAllModals.forEach((data)=>{
+    //     data.addEventListener('click', ()=>{
+    //         getContainerModal.classList.add('active');
+    //         getContainerModal.append(data);
+    //     });
+    // });
+  };
+  return {
+    getChildFunctions: function getChildFunctions() {
+      ModalHomeMobile();
+      ModalHomeDesktop();
+    }
+  };
+}();
+var getChildsModal = function getChildsModal() {
+  Modal.getChildFunctions();
+};
+
 
 /***/ }),
 
@@ -14942,11 +15172,27 @@ var Select = function () {
   var SelectConfig = function SelectConfig() {
     var getAllSelectsContainer = document.querySelectorAll('.input-custom__select');
     var getAllOptions = document.querySelectorAll('.input-custom__select option');
+    //ANIMACION DEL SELECT
     getAllSelectsContainer.forEach(function (data) {
       data.addEventListener('click', function () {
-        data.classList.toggle('active');
+        var reUseRemoveClasses = function reUseRemoveClasses() {
+          getAllSelectsContainer.forEach(function (data) {
+            data.classList.remove('active');
+          });
+        };
+        getAllSelectsContainer.forEach(function (data) {
+          data.classList.add('index');
+        });
+        if (data.classList.contains('active')) {
+          reUseRemoveClasses();
+        } else {
+          reUseRemoveClasses();
+          data.classList.add('active');
+        }
+        data.classList.remove('index');
       });
     });
+    //VALUES DEL SELECT DE MANERA DINAMICA
     getAllOptions.forEach(function (data) {
       data.addEventListener('click', function () {
         var getParentElement = data.parentElement;
@@ -14959,7 +15205,9 @@ var Select = function () {
   };
   return {
     getChildFunctions: function getChildFunctions() {
-      SelectConfig();
+      try {
+        SelectConfig();
+      } catch (error) {}
     }
   };
 }();
@@ -15037,11 +15285,13 @@ var getChildsSwiper = function getChildsSwiper() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Nav__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Nav */ "./sources/js/components/Nav.js");
-/* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Footer */ "./sources/js/components/Footer.js");
-/* harmony import */ var _components_Swiper__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Swiper */ "./sources/js/components/Swiper.js");
-/* harmony import */ var _components_Acordeon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Acordeon */ "./sources/js/components/Acordeon.js");
-/* harmony import */ var _components_Aos__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Aos */ "./sources/js/components/Aos.js");
-/* harmony import */ var _components_Selects__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Selects */ "./sources/js/components/Selects.js");
+/* harmony import */ var _components_Swiper__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Swiper */ "./sources/js/components/Swiper.js");
+/* harmony import */ var _components_Acordeon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Acordeon */ "./sources/js/components/Acordeon.js");
+/* harmony import */ var _components_Aos__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Aos */ "./sources/js/components/Aos.js");
+/* harmony import */ var _components_Selects__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Selects */ "./sources/js/components/Selects.js");
+/* harmony import */ var _components_Modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Modal */ "./sources/js/components/Modal.js");
+/* harmony import */ var _components_InputNumber__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/InputNumber */ "./sources/js/components/InputNumber.js");
+
 
 
 
@@ -15050,13 +15300,14 @@ __webpack_require__.r(__webpack_exports__);
 
 window.addEventListener('load', function () {
   Object(_components_Nav__WEBPACK_IMPORTED_MODULE_0__["getChildsNav"])();
-  Object(_components_Swiper__WEBPACK_IMPORTED_MODULE_2__["getChildsSwiper"])();
-  Object(_components_Aos__WEBPACK_IMPORTED_MODULE_4__["getChildsAos"])();
-  Object(_components_Selects__WEBPACK_IMPORTED_MODULE_5__["getChildsSelect"])();
+  Object(_components_Swiper__WEBPACK_IMPORTED_MODULE_1__["getChildsSwiper"])();
+  Object(_components_Aos__WEBPACK_IMPORTED_MODULE_3__["getChildsAos"])();
+  Object(_components_Selects__WEBPACK_IMPORTED_MODULE_4__["getChildsSelect"])();
+  Object(_components_Modal__WEBPACK_IMPORTED_MODULE_5__["getChildsModal"])();
+  Object(_components_InputNumber__WEBPACK_IMPORTED_MODULE_6__["getChildsInputNumber"])();
 });
 window.addEventListener("DOMContentLoaded", function () {
-  Object(_components_Acordeon__WEBPACK_IMPORTED_MODULE_3__["getChildsAcordeon"])();
-  Object(_components_Footer__WEBPACK_IMPORTED_MODULE_1__["Footer"])();
+  Object(_components_Acordeon__WEBPACK_IMPORTED_MODULE_2__["getChildsAcordeon"])();
 });
 
 /***/ }),

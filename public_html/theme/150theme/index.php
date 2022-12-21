@@ -61,26 +61,61 @@
                 <p class="error-message">Texto de ayuda</p>
             </div>
             <!-- OPCIONES PASAJEROS -->
-            <div class="input-custom__block input-custom__no-write">
+            <div class="input-custom__block input-custom__no-write open-modal" id="modalPassengers">
                 <div class="input-custom__item">
                     <label for="pasajeros">Pasajeros y clase</label>
                     <input type="text" id="pasajeros" name="pasajeros" placeholder="Fecha de regreso">
                     <img src="./assets/icons/icon-user.svg" alt="icon">
                 </div>
-                <p class="error-message">Texto de ayuda</p>
-            </div>
-        </div>
-        <!-- <div class="input-custom__options">
-            <div class="input-custom__select input-custom__no-write">
-                <input type="text" value="economica" data-value="economica">
-                <div class="options">
-                    <option data-value="economica">Economica</option>
-                    <option data-value="premiumEconomy">Premium economy</option>
-                    <option data-value="ejecutivaBusiness">Ejecutiva/Business</option>
-                    <option data-value="primeraClase">Primera clase</option>
+                <div class="input-custom__modal">
+                    <h5>Pasajeros</h5>
+                    <div class="flex">
+                        <p>Adultos</p>
+                        <div>
+                            <span class="minus"></span>
+                            <input name="adultos" type="number" id="adultos" value="1">
+                            <span class="plus"></span>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <span>
+                            <p>Niños</p>
+                            <p><i>2 a 17 años</i></p>
+                        </span>
+                        <div>
+                            <span class="minus" id="niñosMinus"></span>
+                            <input name="niños" type="number" id="niños" value="0">
+                            <span class="plus" id="niñosPlus"></span>
+                        </div>
+                    </div>
+                    <!-- CAMPOS DINAMICOS CON EDADES -->
+                    <div class="input-childs" id="dinamiChilds">
+                    </div>
+                    <div class="flex">
+                        <span>
+                            <p>Bebés</p>
+                            <p><i>Menores de 2 años</i></p>
+                        </span>
+                        <p></p>
+                        <div>
+                            <span class="minus"></span>
+                            <input name="bebes" type="number" id="bebes" value="0">
+                            <span class="plus"></span>
+                        </div>
+                    </div>
+                    <h5>Clase</h5>
+                    <div class="input-custom__select input-custom__no-write" id="dinamicClase">
+                        <input type="text" name="selectClase" value="Economica" data-value="economica">
+                        <div class="options">
+                            <option data-value="economica">Economica</option>
+                            <option data-value="premiumEconomy">Premium economy</option>
+                            <option data-value="ejecutivaBusiness">Ejecutiva/Business</option>
+                            <option data-value="primeraClase">Primera clase</option>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div> -->
+        </div>
         <!-- OPCIONES CHECKBOX -->
         <div class="input-custom__ctn">
             <div class="input-custom__checkbox">
@@ -102,8 +137,8 @@
         </div>
     </form>
 </section>
-
-<section class="home-bg ctn">
+<!-- PROMO -->
+<section class="home-bg ctn" data-aos="fade-up">
     <div class="home-bg__ctn"  style="background-image: url('./assets-temporal/bg-home.png')">
         <div class="ctm-block ctm-block-white">
             <h2>Titulo promo</h2>
@@ -116,7 +151,7 @@
 </section>
 <!--CIUDADES DESTACADAS -->
 <section class="ctn--background">
-    <article class="home-cities ctn">
+    <article class="home-cities ctn" data-aos="custom">
         <div class="ctm-block">
             <h2>Aliquam dis hac platea urna viverra.</h2>
             <br>
@@ -178,5 +213,7 @@
         </div>
     </article>
 </section>
+<!-- MODAL -->
+<div class="input-custom input-modal" id="modal"></div>
 
 <?php include './template-part/footer.php' ?>

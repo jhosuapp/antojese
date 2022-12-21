@@ -19,6 +19,17 @@
             border-color: color('primary');
         }
     }
+    input[type="number"]{
+        border: none;
+        pointer-events: none;
+        width: 30px;
+        font-size: 1.6rem;
+        color: color('primary');
+        text-align: center;
+        &::-webkit-inner-spin-button{
+            appearance: none;
+        }
+    }
     input[type="radio"]{
         appearance: none;
         width: 20px;
@@ -72,8 +83,12 @@
             transition: .3s opacity ease;
         }
     }
+    input[type="checkbox"],
+    input[type="radio"],
+    input[type="text"]{
+        font-weight: 500;
+    }
     &__select{
-        background-color: color('secondary');
         position: relative;
         z-index: 9;
         @include flex;
@@ -89,7 +104,8 @@
             z-index: 9;
             transition: .3s ease transform;
         }
-        &.active{
+        &.active,
+        &.show-options{
             &::after{
                 transform: rotateX(180deg);
             }
@@ -97,6 +113,16 @@
                 opacity: 1;
                 height: 150px;
                 pointer-events: all;
+            }
+        }
+        &.hidden{
+            &::after{
+                transform: rotate(0deg);
+            }
+            .options{
+                opacity: 0;
+                pointer-events: none;
+                height: 0;
             }
         }
         input[type="text"]{
@@ -109,7 +135,7 @@
             position: absolute;
             width: 100%;
             background-color: color('white');
-            border: 1px solid color('primary');
+            border: 1.5px solid color('primary');
             border-radius: 5px;
             top: calc(100% + 5px);
             height: 0;
@@ -273,6 +299,118 @@
         }
     }
 }
+//MODAL INPUT CUSTOM
+.input-modal{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 999999;
+    background-color: color('white');
+    opacity: 0;
+    left: -100%;
+    transition: 1s ease left;
+    // &.active{
+    //     left: 0;
+    //     opacity: 1;
+    // }
+}
+//MODAL PASAJEROS
+#modalPassengers{
+    &.enable-modal{
+        .input-custom__modal{
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+}
+.input-custom__modal{
+    position: absolute;
+    background-color: color('white');
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+    width: calc(100% + 70px);
+    left: -70px;
+    top: calc(100% + 10px);
+    padding: 20px 20px 60px 20px;
+    border-radius: 5px;
+    opacity: 0;
+    pointer-events: none;
+    transition: .5s ease opacity;
+    p, h5{
+        color: color('primary');
+        font-size: 1.6rem;
+    }
+    h5{
+        font-weight: 800;
+        margin-bottom: 10px;
+    }
+    p{
+        font-weight: 500;
+    }
+    i{
+        font-style: normal;
+        font-size: 1.4rem;
+        color: color('tertiary');
+        opacity: .8;
+    }
+    .flex{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        div{
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+        }
+        .minus,
+        .plus{
+            padding: 14px;
+            border: 1.5px solid color('primary');
+            border-radius: 5px;
+            @include flex;
+            &::after{
+                position: absolute;
+                content: "";
+                background-repeat: no-repeat;
+                background-size: contain;
+                width: 20px;
+                height: 20px;
+                background-position: 50%;
+            }
+        }
+        .plus{
+            &::after{
+                background-image: url('../assets/icons/icon-plus.svg');
+            }
+        }
+        .minus{
+            &::after{
+                background-image: url('../assets/icons/icon-minus.svg');
+                width: 17px;
+            }
+        }
+    }
+}
+//OPCIONES DE AÑADIR NIÑOS
+.input-childs{
+    position: relative;
+    z-index: 99;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    // margin-bottom: 20px;
+
+    .childs-select{
+        &:last-child{
+            margin-bottom: 20px;
+        }
+    }
+    .input-custom__select.index{
+        z-index: 8;
+    }
+}
+
 @media(max-width:breakpoints('ipad-grande')){
     .input-custom{
         &__ctn{

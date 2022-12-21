@@ -1,17 +1,8 @@
-// .filters-block{
-//     opacity: 0;
-//     transform: translateY(50px);
-//     transition-delay: .5s;
-// }
-.filters-block.aos-animate{
-    opacity: 1;
-    transform: translateY(0);
-}
 //HOME TITLE
 .home-welcome{
     h1, p{
         opacity: 0;
-        transform: translateY(100px);
+        transform: translateY(20px);
         transition: 1s ease;
         transition-property: opacity, transform;
     }
@@ -25,6 +16,16 @@
         transition-delay: .25s;
     }
 }
+//HOME FILTERS
+// .filters-block{
+//     opacity: 0;
+//     transform: translateY(50px);
+//     transition-delay: .5s;
+// }
+// .filters-block.aos-animate{
+//     opacity: 1;
+//     transform: translateY(0);
+// }
 //HOME OPTIONS MENU
 .header-options{
     .header-options__item{
@@ -74,8 +75,55 @@
     }
 }
 
+//HOME CIUDADES DESTACADAS
+.home-cities{
+    .ctm-block h2,
+    .ctm-block p,
+    .home-cities__grid a{
+        transition: 1s ease;
+        transition-property: opacity, transform;
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    .home-cities__grid a{
+        &:first-child{
+            transition-delay: .25s;
+        }
+        &:nth-child(2){
+            transition-delay: .5s;
+        }
+        &:nth-child(3){
+            transition-delay: .75s;
+        }
+        &:last-child{
+            transition-delay: 1s;
+        }
+    }
+}
+.home-cities.aos-animate{
+    .ctm-block h2,
+    .ctm-block p,
+    .home-cities__grid a{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    .ctm-block p{
+        transition-delay: .25s;
+    }
+}
+//HOME PROMO
+.home-bg {
+    transition-delay: .75s;
+}
+
 @media(max-width: breakpoints('ipad-grande')){
     .filters-block{
         transition-delay: 1.2s;
+    }
+}
+
+@media(max-width: breakpoints('desktop')){
+    .home-bg {
+        transition-delay: 0s;
     }
 }

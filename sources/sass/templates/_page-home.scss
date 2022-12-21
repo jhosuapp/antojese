@@ -65,6 +65,7 @@
             border-radius: 10px;
             pointer-events: none;
             background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 93.86%);
+            transition: .3s bottom ease;
         }
         div{
             position: relative;
@@ -91,7 +92,9 @@
             }
         }
         &:hover{
-            top: -5px;
+            &::before{
+                bottom: 0;
+            }
         }
     }
 }
