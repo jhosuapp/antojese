@@ -265,6 +265,10 @@ body.enable .header .ctm-block {
   body.enable .header-options__item div {
     display: flex;
   }
+  body.enable .header-options__item.active {
+    background-color: #00BDD6;
+    border-color: #00BDD6;
+  }
 }
 @media (max-width: 576px) {
   body.enable .header-options {
@@ -522,6 +526,10 @@ body.enable .header .ctm-block {
 .lateralMenu:hover .lateralMenu__item p {
   opacity: 1;
 }
+.lateralMenu.disable-menu {
+  width: 80px;
+  pointer-events: none;
+}
 
 @media (max-width: 992px) {
   .lateralMenu {
@@ -585,8 +593,6 @@ body.enable .header .ctm-block {
   align-items: center;
   justify-content: center;
   transition: 0.5s ease opacity;
-  opacity: 0;
-  pointer-events: none;
 }
 .preloader.hidden {
   opacity: 0;
@@ -1659,10 +1665,18 @@ body::-webkit-scrollbar {
   padding: 40px 20px;
   border-radius: 10px;
   top: -180px;
+  left: 0;
   margin-bottom: -120px;
   gap: 30px;
   -webkit-filter: drop-shadow(0px 2px 10px rgba(0, 0, 0, 0.2)) drop-shadow(0px 11px 20px rgba(0, 0, 0, 0.3));
           filter: drop-shadow(0px 2px 10px rgba(0, 0, 0, 0.2)) drop-shadow(0px 11px 20px rgba(0, 0, 0, 0.3));
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+}
+.filters-block.active {
+  -webkit-animation: opacity-to-absolute 1s 1 ease forwards;
+          animation: opacity-to-absolute 1s 1 ease forwards;
 }
 
 @media (max-width: 576px) {
@@ -2178,7 +2192,7 @@ body::-webkit-scrollbar {
   width: 90%;
   max-width: 700px;
   margin: auto;
-  padding-top: 20px;
+  padding: 20px 2px;
   height: 100vh;
   overflow: auto;
   position: relative;
@@ -2190,13 +2204,14 @@ body::-webkit-scrollbar {
   padding: 5px;
   border-radius: 5px;
   background-color: #F7F7F7;
-  margin-bottom: 30px;
 }
 .input-modal__flex {
   display: flex;
   width: 100%;
   justify-content: center;
-  padding: 30px 0 20px 0;
+}
+.input-modal__dinamic {
+  margin: 30px 0;
 }
 
 .input-custom__modal {
@@ -2366,6 +2381,17 @@ body::-webkit-scrollbar {
   transition-delay: 0.25s;
 }
 
+.filters {
+  opacity: 0;
+  transform: translateY(50px);
+  transition-delay: 0.5s;
+}
+
+.filters.aos-animate {
+  transform: translateY(0);
+  opacity: 1;
+}
+
 .header-options .header-options__item {
   opacity: 0;
   transform: translateY(50px);
@@ -2488,6 +2514,26 @@ body::-webkit-scrollbar {
   100% {
     opacity: 0;
     transform: translateZ(-1000em);
+  }
+}
+@-webkit-keyframes opacity-to-absolute {
+  from {
+    position: relative;
+  }
+  to {
+    opacity: 1;
+    position: relative;
+    pointer-events: all;
+  }
+}
+@keyframes opacity-to-absolute {
+  from {
+    position: relative;
+  }
+  to {
+    opacity: 1;
+    position: relative;
+    pointer-events: all;
   }
 }
 /**

@@ -104,6 +104,10 @@
             }
         }
     }
+    &.disable-menu{
+        width: 80px;
+        pointer-events: none;
+    }
 }
 
 @media(max-width: breakpoints('ipad-grande')){

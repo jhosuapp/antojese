@@ -1,0 +1,10 @@
+@keyframes opacity-to-absolute{
+    from{
+        position: relative;
+    }
+    to{
+        opacity: 1;
+        position: relative;
+        pointer-events: all;
+    }
+}

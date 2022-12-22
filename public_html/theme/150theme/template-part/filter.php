@@ -1,4 +1,6 @@
-<form class="filters-block input-custom" data-aos="custom">
+
+<!-- FILTROS VUELOS -->
+<form class="filters-block input-custom">
     <!--OPCIONES RADIO BUTTONS -->
     <div class="input-custom__ctn">
         <div class="input-custom__radio">
@@ -72,7 +74,7 @@
         <div class="input-custom__block input-modal__container" data-input="pasajeros">
             <div class="input-custom__item input-custom__no-write open-modal">
                 <label for="pasajeros">Pasajeros y clase</label>
-                <input type="text" id="pasajeros" name="pasajeros" placeholder="Fecha de regreso">
+                <input id="inputPassengers" type="text" value="1 adulto, economica" id="pasajeros" name="pasajeros" placeholder="Fecha de regreso">
                 <img src="./assets/icons/icon-user.svg" alt="icon">
             </div>
             <!-- MODAL PASAJEROS CON TODAS LAS OPCIONES -->
@@ -113,7 +115,7 @@
                 </div>
                 <h5>Clase</h5>
                 <div class="input-custom__select input-custom__no-write" id="dinamicClase">
-                    <input type="text" name="selectClase" value="Economica" data-value="economica">
+                    <input type="text" id="selectClase" name="selectClase" value="Economica" data-value="economica">
                     <div class="options">
                         <option data-value="economica">Economica</option>
                         <option data-value="premiumEconomy">Premium economy</option>
@@ -143,4 +145,10 @@
     <div class="input-custom__submit">
         <a class="btn">Buscar</a>
     </div>
+</form>
+
+<!-- FILTROS HOTELES -->
+
+<form class="filters-block input-custom">
+    
 </form>

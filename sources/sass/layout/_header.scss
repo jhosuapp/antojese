@@ -207,6 +207,10 @@ body.enable{
                 div{
                     display: flex;
                 }
+                &.active{
+                    background-color: color('secondary');
+                    border-color: color('secondary');
+                }
             }
         }
     }

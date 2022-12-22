@@ -6,7 +6,7 @@
 <div class="enable-home"></div>
 
 <!-- FILTROS -->
-<section class="ctn filters">
+<section class="ctn filters" data-aos="custom">
     <?php include './template-part/filter.php'?>  
 </section>
 <!-- PROMO -->

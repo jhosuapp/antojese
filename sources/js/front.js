@@ -4,7 +4,8 @@ import { getChildsAcordeon } from './components/Acordeon';
 import { getChildsAos } from './components/Aos';
 import { getChildsSelect } from './components/Selects';
 import { getChildsModal } from './components/Modal';
-import { getChildsInputNumber } from './components/InputNumber';
+import { getChildsFilterPassengers } from './components/FilterPassengers';
+import { getChildsTab } from './components/Tab';
  
 window.addEventListener('load', ()=>{
   getChildsNav();
@@ -12,7 +13,8 @@ window.addEventListener('load', ()=>{
   getChildsAos();
   getChildsSelect();
   getChildsModal();
-  getChildsInputNumber();
+  getChildsFilterPassengers();
+  getChildsTab();
 });
 
 window.addEventListener("DOMContentLoaded", () => {

@@ -15713,16 +15713,16 @@ var getChildsAos = function getChildsAos() {
 
 /***/ }),
 
-/***/ "./sources/js/components/InputNumber.js":
-/*!**********************************************!*\
-  !*** ./sources/js/components/InputNumber.js ***!
-  \**********************************************/
-/*! exports provided: getChildsInputNumber */
+/***/ "./sources/js/components/FilterPassengers.js":
+/*!***************************************************!*\
+  !*** ./sources/js/components/FilterPassengers.js ***!
+  \***************************************************/
+/*! exports provided: getChildsFilterPassengers */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getChildsInputNumber", function() { return getChildsInputNumber; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getChildsFilterPassengers", function() { return getChildsFilterPassengers; });
 /* harmony import */ var core_js_modules_es_array_concat__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.concat */ "./node_modules/core-js/modules/es.array.concat.js");
 /* harmony import */ var core_js_modules_es_array_concat__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_concat__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/es.array.for-each */ "./node_modules/core-js/modules/es.array.for-each.js");
@@ -15737,19 +15737,29 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var InputNumber = function () {
+var FilterPassengers = function () {
+  //CAMBIAR DE MANERA DINAMICA EL VALUE DEL INPUT
+  var dinamicValues = function dinamicValues() {
+    var getInputChilds = document.querySelector('#niños');
+    var getInputBabys = document.querySelector('#bebes');
+    var getInputPassenger = document.querySelector('#inputPassengers');
+    var getInputAdults = document.querySelector('#adultos');
+    var getSelectClase = document.querySelector('#selectClase');
+    getInputPassenger.value = "".concat(getInputAdults.value, " adultos, ").concat(getInputChilds.value, " ni\xF1os, ").concat(getInputBabys.value, " beb\xE9s, ").concat(getSelectClase.value);
+  };
   //FUNCIONALIDAD DE RESTAR Y SUMAR SEGÚN LA CANTIDAD DE ADULTOS, NIÑOS Y BEBÉS
-  var InputNumberConfig = function InputNumberConfig() {
+  var FilterPassengersConfig = function FilterPassengersConfig() {
     var getAllMinus = document.querySelectorAll('.minus');
     var getAllPlus = document.querySelectorAll('.plus');
-    var getInputAdults = document.querySelector('#adultos');
+    var getInputAdultsForValues = document.querySelector('#adultos');
     getAllMinus.forEach(function (data) {
       data.addEventListener('click', function () {
         var nextElemement = data.nextElementSibling;
         var valueElement = parseInt(nextElemement.value);
         nextElemement.value = valueElement - 1;
         nextElemement.value < 0 ? nextElemement.value = 0 : false;
-        getInputAdults.value < 1 ? getInputAdults.value = 1 : false;
+        getInputAdultsForValues.value < 1 ? getInputAdultsForValues.value = 1 : false;
+        dinamicValues();
       });
     });
     getAllPlus.forEach(function (data) {
@@ -15757,6 +15767,7 @@ var InputNumber = function () {
         var prevElement = data.previousElementSibling;
         var valueElement = parseInt(prevElement.value);
         prevElement.value = valueElement + 1;
+        dinamicValues();
       });
     });
   };
@@ -15795,12 +15806,13 @@ var InputNumber = function () {
       } else {
         getSelectClase.classList.add('hidden');
       }
+      dinamicValues();
     });
   };
   return {
     getChildFunctions: function getChildFunctions() {
       try {
-        InputNumberConfig();
+        FilterPassengersConfig();
       } catch (error) {}
       try {
         CustomsDinamics();
@@ -15811,8 +15823,8 @@ var InputNumber = function () {
     }
   };
 }();
-var getChildsInputNumber = function getChildsInputNumber() {
-  InputNumber.getChildFunctions();
+var getChildsFilterPassengers = function getChildsFilterPassengers() {
+  FilterPassengers.getChildFunctions();
 };
 
 
@@ -15929,8 +15941,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-// import { create } from "core-js/core/object";
 var Nav = function () {
+  //LOADER
   var Loader = function Loader() {
     var preloader = document.getElementById("loadScreen");
     setTimeout(function () {
@@ -15950,13 +15962,13 @@ var Nav = function () {
       });
     });
   };
-  //VALIDAR HOME
+  //VALIDAR SI LA PAGINA ACTUAL ES EL HOME
   var ValidationHome = function ValidationHome() {
     var getContainerValHome = document.querySelector('.enable-home');
     var getBody = document.querySelector('body');
     getContainerValHome ? getBody.classList.add('enable') : false;
   };
-  //ANIMACION SCROLL
+  //ANIMACION SCROLL MOBILE
   var ScrollHeaderMobile = function ScrollHeaderMobile() {
     var getHeader = document.querySelector('.header');
     var reUseValidationScroll = function reUseValidationScroll() {
@@ -15967,7 +15979,7 @@ var Nav = function () {
       reUseValidationScroll();
     });
   };
-  //OPCION MENU LATERAL
+  //SE CLONAN LAS OPCIONES DEL MENÚ LATERAL PARA REUSAR EN MOBILE
   var OptionsMenuLateral = function OptionsMenuLateral() {
     var getAlloptionsOfMenu = document.querySelectorAll('.lateralMenu__container .lateralMenu__item');
     var dinamicOptions = document.querySelector('.header-options');
@@ -15979,12 +15991,6 @@ var Nav = function () {
       var template = "\n                <div>\n                    <img src=\"".concat(getSrcImage, "\">\n                </div>\n                <p>").concat(getTextContent, "</p>\n            ");
       createDiv.innerHTML = template;
       dinamicOptions.append(createDiv);
-      data.addEventListener('click', function () {
-        getAlloptionsOfMenu.forEach(function (data) {
-          data.classList.remove('active');
-        });
-        data.classList.add('active');
-      });
     });
   };
   return {
@@ -16156,6 +16162,81 @@ var getChildsSwiper = function getChildsSwiper() {
 
 /***/ }),
 
+/***/ "./sources/js/components/Tab.js":
+/*!**************************************!*\
+  !*** ./sources/js/components/Tab.js ***!
+  \**************************************/
+/*! exports provided: getChildsTab */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getChildsTab", function() { return getChildsTab; });
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! core-js/modules/es.array.for-each */ "./node_modules/core-js/modules/es.array.for-each.js");
+/* harmony import */ var core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_es_array_for_each__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! core-js/modules/web.dom-collections.for-each */ "./node_modules/core-js/modules/web.dom-collections.for-each.js");
+/* harmony import */ var core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_dom_collections_for_each__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var core_js_modules_web_timers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! core-js/modules/web.timers */ "./node_modules/core-js/modules/web.timers.js");
+/* harmony import */ var core_js_modules_web_timers__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(core_js_modules_web_timers__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+var Tab = function () {
+  var TabHome = function TabHome() {
+    var getAllButtonsTab = document.querySelectorAll('.lateralMenu__container a');
+    var getAllButtonsTabMobile = document.querySelectorAll('.header-options .header-options__item');
+    var getAllContainers = document.querySelectorAll('.filters-block');
+    var getLateralMenu = document.querySelector('.lateralMenu');
+    getAllContainers[0].classList.add('active');
+    //SETEO DE ATRIBUTO A LOS CONTENEDORES
+    getAllContainers.forEach(function (data, indice) {
+      data.setAttribute('data-tabCtn', indice + 1);
+    });
+    //SETEO DE ATRIBUTOS A LOS BOTONES Y EJECUCIÓN DE EVENTOS
+    var reUseFunctionTab = function reUseFunctionTab(className) {
+      className[1].classList.add('active');
+      className.forEach(function (data, indice) {
+        if (indice > 0 && indice < className.length - 1) {
+          data.setAttribute('data-tabBtn', indice);
+          data.addEventListener('click', function () {
+            var getDataAttribute = data.getAttribute('data-tabBtn');
+            //SE AÑADEN CLASES DE MANERA DINAMICA
+            className.forEach(function (data) {
+              data.classList.remove('active');
+            });
+            data.classList.add('active');
+            //SE COMPARAN LOS ATRIBUTOS PARA ACTIVAR EL TAB
+            getAllContainers.forEach(function (data) {
+              var getDataAttributeCtn = data.getAttribute('data-tabCtn');
+              getDataAttribute == getDataAttributeCtn ? data.classList.add('active') : data.classList.remove('active');
+            });
+            //SE DESAHIBILITA MOMENTANEAMENTE EL MENU LATERAL
+            getLateralMenu.classList.add('disable-menu');
+            setTimeout(function () {
+              getLateralMenu.classList.remove('disable-menu');
+            }, 500);
+          });
+        }
+      });
+    };
+    reUseFunctionTab(getAllButtonsTab);
+    reUseFunctionTab(getAllButtonsTabMobile);
+  };
+  return {
+    getChildFunctions: function getChildFunctions() {
+      try {
+        TabHome();
+      } catch (error) {}
+    }
+  };
+}();
+var getChildsTab = function getChildsTab() {
+  Tab.getChildFunctions();
+};
+
+
+/***/ }),
+
 /***/ "./sources/js/front.js":
 /*!*****************************!*\
   !*** ./sources/js/front.js ***!
@@ -16171,7 +16252,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Aos__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Aos */ "./sources/js/components/Aos.js");
 /* harmony import */ var _components_Selects__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Selects */ "./sources/js/components/Selects.js");
 /* harmony import */ var _components_Modal__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Modal */ "./sources/js/components/Modal.js");
-/* harmony import */ var _components_InputNumber__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/InputNumber */ "./sources/js/components/InputNumber.js");
+/* harmony import */ var _components_FilterPassengers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/FilterPassengers */ "./sources/js/components/FilterPassengers.js");
+/* harmony import */ var _components_Tab__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Tab */ "./sources/js/components/Tab.js");
+
 
 
 
@@ -16185,7 +16268,8 @@ window.addEventListener('load', function () {
   Object(_components_Aos__WEBPACK_IMPORTED_MODULE_3__["getChildsAos"])();
   Object(_components_Selects__WEBPACK_IMPORTED_MODULE_4__["getChildsSelect"])();
   Object(_components_Modal__WEBPACK_IMPORTED_MODULE_5__["getChildsModal"])();
-  Object(_components_InputNumber__WEBPACK_IMPORTED_MODULE_6__["getChildsInputNumber"])();
+  Object(_components_FilterPassengers__WEBPACK_IMPORTED_MODULE_6__["getChildsFilterPassengers"])();
+  Object(_components_Tab__WEBPACK_IMPORTED_MODULE_7__["getChildsTab"])();
 });
 window.addEventListener("DOMContentLoaded", function () {
   Object(_components_Acordeon__WEBPACK_IMPORTED_MODULE_2__["getChildsAcordeon"])();
