@@ -1,0 +1,31 @@
+.chip {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2px 9px;
+    gap: 5px;
+    min-width: 50px;
+    height: 28px;
+    background: #B5D3E3;
+    border: 1px solid color('primary');
+    border-radius: 100px;
+    font-size: 1.2rem;
+    color: color('primary');
+    font-weight: 500;
+}
+
+.chip-secondary {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2px 9px;
+    gap: 5px;
+    min-width: 50px;
+    height: 28px;
+    background: transparent;
+    border: 1px solid color('primary');
+    border-radius: 100px;
+    font-size: 1.2rem;
+    color: color('primary');
+    font-weight: 500;
+}
