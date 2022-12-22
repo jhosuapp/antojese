@@ -9,26 +9,23 @@ const swiperExport = (function () {
   const _SwiperCar = () => {
     var SwiperCar = new Swiper(".swiper", {
       slidesPerView: 1,
-      spaceBetween: 60,
+      spaceBetween: 0,
       navigation: {
         nextEl: ".btn-next-car",
         prevEl: ".btn-prev-car",
       },
       breakpoints: {
         640: {
-          slidesPerView: 2,
+          slidesPerView: 1,
           spaceBetween: 20,
-          spaceBetween: 10,
         },
         768: {
-          slidesPerView: 4,
+          slidesPerView: 2,
           spaceBetween: 40,
-          spaceBetween: 10,
         },
         1024: {
-          slidesPerView: 5,
-          spaceBetween: 50,
-          spaceBetween: 10,
+          slidesPerView: 3,
+          spaceBetween: 0,
         },
       },
     });
@@ -36,6 +33,8 @@ const swiperExport = (function () {
 
   const _SwiperHotelImg = () => {
     var SwiperHotelImg = new Swiper(".vipSwiper", {
+      slidesPerView:1,
+      spaceBetween:150,
       navigation: {
         nextEl: ".vipSwiper-next",
         prevEl: ".vipSwiper-prev",

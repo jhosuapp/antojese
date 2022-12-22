@@ -1,5 +1,6 @@
 .vip-search-general {
     @include flex($ai: flex-start);
+    padding-bottom: 30px;
 }
 
 .vip-left {
@@ -51,18 +52,83 @@
 
     &__cont {
         @include flex();
+        flex-direction: column;
+        gap: 10px;
+
         &--card {
-            width: 336px;
+            width: 100%;
+            max-width: 770px;
+            min-width: 650px;
             border: 1px solid #DEF3FF;
             border-radius: 5px;
 
-            hr{
-                background-color:  #cccccc;
+            &_tarifas {
+                @include flex($jc: space-evenly, $ai: flex-start);
+                flex-direction: column;
+                height: 200px;
+            }
+
+            &_acordeon {
+
+                .acordeon {
+
+                    padding: 0px 10px 0px 0px;
+
+                    .panel {
+                        margin-bottom: 0px;
+                    }
+
+                    .data {
+                        padding: 30px 10px;
+
+                        &-desc {
+                            &-btn {
+                                margin-top: 10px;
+                                width: 100%;
+                                @include flex($jc: flex-end);
+
+                                .btn-s {
+                                    min-width: 82px;
+                                    width: 82px;
+                                    height: 32px;
+                                    font-size: 1.2rem;
+                                }
+                            }
+                        }
+
+                        &-service {
+
+                            &__item {
+                                margin-top: 10px;
+                            }
+
+                            ul {
+                                li {
+                                    color: color('primary');
+                                    @include restart_li();
+
+                                    .li-item {
+                                        width: 10px;
+                                        height: 10px;
+                                        background: color('primary');
+                                        border-radius: 50%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            hr {
+                background-color: #cccccc;
                 height: 2px;
                 margin: 10px 0px;
+                display: none;
             }
 
             .vipSwiper {
+
                 width: 100%;
                 border-radius: 5px;
 
@@ -73,7 +139,7 @@
                         @include flex($ai: flex-start);
 
                         img {
-                            object-fit: cover;
+                            height: 100%;
                         }
                     }
                 }
@@ -117,16 +183,10 @@
                 width: 100%;
                 @include flex($jc: flex-start);
                 flex-wrap: wrap;
-                gap: 5px;
+                gap: 2px;
 
-                span {
+                .chip {
                     @include flex();
-                    padding: 2px 9px;
-                    width: 42px;
-                    height: 28px;
-                    background: #B5D3E3;
-                    border: 1px solid #1A4A8C;
-                    border-radius: 100px;
                 }
             }
 
@@ -173,22 +233,33 @@
     }
 }
 
-.vip-card__body{
-    border: solid 1px red;
+.vip-card__body {
+    width: 100%;
+    display: flex;
+    //border: solid 1px red;
 }
 
-.vip-card__header{
-    border: solid 1px yellow;
+.vip-card__header {
+    width: 280px;
+    //border: solid 1px yellow;
 }
 
-.vip-card__cont{   
-    border: solid 1px blue;
+.vip-card__cont {
+    padding: 10px 0px;
+    width: 400px;
+    //border: solid 1px blue;
 }
-.vip-card__footer{
-    border: solid 1px green;
+
+.vip-card__footer {
+    width: 200px;
+    //border: solid 1px green;
 }
 
 @media (max-width: breakpoints('ipad-grande')) {
+
+    .vipSwiper {
+        margin-bottom: 10px;
+    }
 
     .vip-left {
         display: none;
@@ -198,15 +269,50 @@
         width: 100%;
         padding: 0;
     }
-    
-    .vip-result{
+
+    .vip-result {
         display: block;
     }
 
-    .vip-select{
+    .vip-select {
         display: block;
     }
 
-    .vip-card__header{
+    .vip-card__body {
+        flex-direction: column;
+    }
+
+    .vip-card__header {
+        width: 100%;
+    }
+
+    .vip-card__cont {
+        width: 100%;
+    }
+
+    .vip-card__footer {
+        width: 100%;
+    }
+
+
+    .vip-salas {
+        width: 100%;
+
+        hr {
+            display: block;
+        }
+
+        &__cont {
+
+            &--card {
+                min-width: 336px;
+                max-width: 336px;
+                width: 336px;
+
+                &_tarifas {
+                    align-items: flex-start;
+                }
+            }
+        }
     }
 }

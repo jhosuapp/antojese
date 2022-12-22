@@ -11,6 +11,7 @@ const Acordeon = (function () {
         datas.forEach((ans) => {
           if (data !== ans) {
             ans.classList.add("hideData");
+            ans.classList.add("rotate");
           }
         });
         data.classList.toggle("hideData");

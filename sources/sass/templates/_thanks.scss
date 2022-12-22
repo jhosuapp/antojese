@@ -8,7 +8,7 @@
 
     &__txt{
         position: absolute;
-        left: 50px;
+        left: 11vw;
         bottom: 50px;
         color: color('white');
 
@@ -25,12 +25,11 @@
 
 .resume {
     width: 100%;
-    @include flex();
     color: color('primary');
     margin-bottom: 20px;
 
     &-cont {
-        width: 90%;
+        width: 100%;
         padding-top: 20px;
 
         &__data {
@@ -71,10 +70,9 @@
 .more {
     margin-top: 40px;
     width: 100%;
-    @include flex();
 
     &-cont {
-        width: 90%;
+        width: 100%;
         color: color('primary');
         margin-bottom: 50px;
 
