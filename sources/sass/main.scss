@@ -27,8 +27,10 @@
         'components/filters',
         'components/inputs',
         'components/buttons',
-        'components/aos';
+        'components/aos',
+        'components/_inputs-modal';
 
 //ANIMATIONS
 @import 'animations/aos-home',
-        'animations/loader';
+        'animations/loader',
+        'animations/filter';

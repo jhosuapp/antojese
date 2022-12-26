@@ -17,15 +17,15 @@
     }
 }
 //HOME FILTERS
-// .filters-block{
-//     opacity: 0;
-//     transform: translateY(50px);
-//     transition-delay: .5s;
-// }
-// .filters-block.aos-animate{
-//     opacity: 1;
-//     transform: translateY(0);
-// }
+.filters{
+    opacity: 0;
+    transform: translateY(50px);
+    transition-delay: .5s;
+}
+.filters.aos-animate{
+    transform: translateY(0);
+    opacity: 1;
+}
 //HOME OPTIONS MENU
 .header-options{
     .header-options__item{

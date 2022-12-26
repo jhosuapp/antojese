@@ -1,17 +1,14 @@
-// import { create } from "core-js/core/object";
 const Nav = function(){
 
+    //LOADER
     const Loader = () => {
-
         const preloader = document.getElementById("loadScreen");
         setTimeout(()=>{
             preloader.classList.add('hidden');
         },1000);
-
     };
     //HAMBURGUESA
     const Hamburger = ()=>{
-
         const getIconHamburguer = document.querySelectorAll('.header-hamburger');
         const getLateralMenu = document.querySelector('.lateralMenu');
         getIconHamburguer.forEach((data)=>{
@@ -24,17 +21,14 @@ const Nav = function(){
             ;
         });
     }
-    //VALIDAR HOME
+    //VALIDAR SI LA PAGINA ACTUAL ES EL HOME
     const ValidationHome = ()=>{
-
         const getContainerValHome = document.querySelector('.enable-home');
         const getBody = document.querySelector('body');
         getContainerValHome ? getBody.classList.add('enable') : false;
-
     }
-    //ANIMACION SCROLL
+    //ANIMACION SCROLL MOBILE
     const ScrollHeaderMobile = ()=>{
-
         const getHeader = document.querySelector('.header');
         const reUseValidationScroll = () =>{
             window.scrollY > 10 ?  getHeader.classList.add('scroll') : getHeader.classList.remove('scroll');
@@ -43,9 +37,8 @@ const Nav = function(){
         window.addEventListener('scroll', ()=>{
             reUseValidationScroll();
         });
-
     }
-    //OPCION MENU LATERAL
+    //SE CLONAN LAS OPCIONES DEL MENÚ LATERAL PARA REUSAR EN MOBILE
     const OptionsMenuLateral = ()=>{
         const getAlloptionsOfMenu = document.querySelectorAll('.lateralMenu__container .lateralMenu__item');
         const dinamicOptions = document.querySelector('.header-options');
@@ -64,16 +57,9 @@ const Nav = function(){
             createDiv.innerHTML = template;
             dinamicOptions.append(createDiv);
 
-            data.addEventListener('click', ()=>{
-                getAlloptionsOfMenu.forEach((data)=>{
-                    data.classList.remove('active');
-                });
-                data.classList.add('active');
-            });
-
         });
-        
     }
+
     return {
         getChildFunctions : function(){
             try {
@@ -93,6 +79,7 @@ const Nav = function(){
             }catch(error){ }
         }
     }
+    
 }();
 
 const getChildsNav = ()=>{

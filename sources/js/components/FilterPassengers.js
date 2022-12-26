@@ -1,11 +1,21 @@
 import { getChildsSelect } from './Selects';
 
-const InputNumber = function(){
+const FilterPassengers = function(){
+
+    //CAMBIAR DE MANERA DINAMICA EL VALUE DEL INPUT
+    const dinamicValues = ()=>{
+        const getInputChilds = document.querySelector('#niños');
+        const getInputBabys = document.querySelector('#bebes');
+        const getInputPassenger = document.querySelector('#inputPassengers');
+        const getInputAdults = document.querySelector('#adultos');
+        const getSelectClase = document.querySelector('#selectClase');
+        getInputPassenger.value = `${getInputAdults.value} adultos, ${getInputChilds.value} niños, ${getInputBabys.value} bebés, ${getSelectClase.value}`;
+    }
     //FUNCIONALIDAD DE RESTAR Y SUMAR SEGÚN LA CANTIDAD DE ADULTOS, NIÑOS Y BEBÉS
-    const InputNumberConfig = () =>{
+    const FilterPassengersConfig = () =>{
         const getAllMinus = document.querySelectorAll('.minus');
         const getAllPlus = document.querySelectorAll('.plus');
-        const getInputAdults = document.querySelector('#adultos');
+        const getInputAdultsForValues = document.querySelector('#adultos');
 
         getAllMinus.forEach((data)=>{
             data.addEventListener('click', ()=>{
@@ -13,7 +23,8 @@ const InputNumber = function(){
                 const valueElement = parseInt(nextElemement.value);
                 nextElemement.value = valueElement - 1;
                 nextElemement.value < 0 ? nextElemement.value = 0 : false;
-                getInputAdults.value < 1 ? getInputAdults.value = 1: false;
+                getInputAdultsForValues.value < 1 ? getInputAdultsForValues.value = 1 : false;
+                dinamicValues();
             });
         });
 
@@ -22,6 +33,7 @@ const InputNumber = function(){
                 const prevElement = data.previousElementSibling;
                 const valueElement = parseInt(prevElement.value);
                 prevElement.value = valueElement + 1;
+                dinamicValues();
             });
         });
 
@@ -86,13 +98,14 @@ const InputNumber = function(){
             }else{
                 getSelectClase.classList.add('hidden');
             }
+            dinamicValues();
         });
     }
 
     return {
         getChildFunctions:  function(){
             try{
-                InputNumberConfig();
+                FilterPassengersConfig();
             }catch(error){ }
             try{
                 CustomsDinamics();
@@ -105,10 +118,10 @@ const InputNumber = function(){
 
 }();
 
-const getChildsInputNumber = ()=>{
-    InputNumber.getChildFunctions();
+const getChildsFilterPassengers = ()=>{
+    FilterPassengers.getChildFunctions();
 }
 
 export {
-    getChildsInputNumber
+    getChildsFilterPassengers
 }
