@@ -1,7 +1,10 @@
 <?php include './template-part/header.php' ?>
 <?php include './template-part/menu-lateral.php' ?>
 
+<!-- BUSQUEDA MOBILE-->
 <section class="cars-search ctm-block"></section>
+
+<!-- BTN FILTER MOBILE -->
 <section class="cars-filter-btn ctm-block">
   <div class="cars-filter-btn__cont">
     <a href="">
@@ -16,12 +19,21 @@
   </div>
 </section>
 
+<!-- CTN PRINCIPAL -->
 <section class="cars-search-general ctn">
+
+  <!-- BUSQUEDA DESK -->
   <section class="cars-search-desk ctm-block"></section>
+
+  <!-- CTN IZQUIERDO -->
   <div class="cars-left">
     <div class="cars-left__cont">
       <h2>Filtros activos</h2>
+
+      <!-- FILTROS -->
       <div class="cars-left__cont--filter">
+
+        <!-- filtro -->
         <span class="filter chip">
           <p>Convertibles</p>
           <button>
@@ -29,6 +41,7 @@
           </button>
         </span>
 
+        <!-- filtro -->
         <span class="filter chip">
           <p>Convertibles</p>
           <button>
@@ -41,46 +54,62 @@
 
       <h3>Categoria</h3>
 
+      <!-- CHECKS -->
       <div class="cars-left__cont--checks">
-        <div
-          class="cars-left__cont--checks--item input-custom input-custom__checkbox--blue"
-        >
+
+        <!--check-->
+        <div class="cars-left__cont--checks--item input-custom input-custom__checkbox--blue">
           <input class="" type="checkbox" name="" id="premium" />
           <img src="./assets-temporal/car/car1-filter.png" alt="" />
           <label for="premium">Premium</label>
         </div>
+
+        <!--check-->
+        <div class="cars-left__cont--checks--item input-custom input-custom__checkbox--blue">
+          <input class="" type="checkbox" name="" id="premium" />
+          <img src="./assets-temporal/car/car1-filter.png" alt="" />
+          <label for="premium">Premium</label>
+        </div>
+
       </div>
     </div>
   </div>
 
+  <!-- CTN DERECHO -->
   <div class="cars-right">
+
+    <!-- CONVENCIONES -->
     <section class="convenciones">
       <div class="convenciones-cont ctn ctm-block">
         <h5>Convenciones</h5>
         <div class="convenciones-cont__data">
+          <!--chip-->
           <span class="chip">
-            <img src="./assets/icons/Pasajero.svg" alt="" /> Pasajeros</span
-          >
+            <img src="./assets/icons/Pasajero.svg" alt="" /> Pasajeros</span>
+          <!--chip-->
           <span class="chip">
-            <img src="./assets/icons/Puertas_auto.svg" alt="" /> Puertas</span
-          >
+            <img src="./assets/icons/Puertas_auto.svg" alt="" /> Puertas</span>
+          <!--chip-->
           <span class="chip">
-            <img src="./assets/icons/Equipaje_auto.svg" alt="" /> Equipaje</span
-          >
+            <img src="./assets/icons/Equipaje_auto.svg" alt="" /> Equipaje</span>
+          <!--chip-->
           <span class="chip">
             <img src="./assets/icons/Caja_cambios.svg" alt="" /> Caja de
-            cambios</span
-          >
+            cambios</span>
+          <!--chip-->
           <span class="chip">
             <img src="./assets/icons/Aire_auto.svg" alt="" /> Aire
-            Acondicionado</span
-          >
+            Acondicionado</span>
         </div>
       </div>
     </section>
 
+    <!-- CATEGORIA -->
     <section class="cars-filter ctm-block">
+      <!--desplegable-->
       <div class="acordeon">
+
+        <!--despegable title-->
         <div class="panel ctn">
           <div class="cars-filter__left">
             <img src="./assets/icons/car.svg" alt="" />
@@ -90,13 +119,16 @@
             <img src="./assets/icons/arrowDown.svg" alt="" />
           </button>
         </div>
+
+        <!--despegable cont-->
         <div class="data">
           <div class="cars-filter__data">
-            <!--//swiper-->
+            <!--swiper-->
             <div class="swiper mySwiper swiperCar">
               <div class="swiper-wrapper swiperCar-wrapper">
                 <!--slide1-->
                 <div class="swiper-slide swiperCar-wrapper__slide">
+                  <!--card mobile-->
                   <div class="card-car">
                     <div class="card-car__img">
                       <img src="./assets-temporal/car/car-card.png" alt="" />
@@ -107,32 +139,15 @@
                     </div>
                     <div class="card-car__items">
                       <span class="chip">
-                        <img src="./assets/icons/Pasajero.svg" alt="" />5</span
-                      >
+                        <img src="./assets/icons/Pasajero.svg" alt="" />5</span>
                       <span class="chip">
-                        <img
-                          src="./assets/icons/Puertas_auto.svg"
-                          alt=""
-                        />4</span
-                      >
+                        <img src="./assets/icons/Puertas_auto.svg" alt="" />4</span>
                       <span class="chip">
-                        <img
-                          src="./assets/icons/Equipaje_auto.svg"
-                          alt=""
-                        />3</span
-                      >
+                        <img src="./assets/icons/Equipaje_auto.svg" alt="" />3</span>
                       <span class="chip">
-                        <img
-                          src="./assets/icons/Caja_cambios.svg"
-                          alt=""
-                        />Auto.</span
-                      >
+                        <img src="./assets/icons/Caja_cambios.svg" alt="" />Auto.</span>
                       <span class="chip">
-                        <img
-                          src="./assets/icons/Aire_auto.svg"
-                          alt=""
-                        />Sí</span
-                      >
+                        <img src="./assets/icons/Aire_auto.svg" alt="" />Sí</span>
                     </div>
                     <div class="card-car__data">
                       <h4>Precio Total</h4>
@@ -168,35 +183,15 @@
                       </div>
                       <div class="card-car-mobile__hover--icons">
                         <span>
-                          <img
-                            src="./assets/icons/Pasajero.svg"
-                            alt=""
-                          />5</span
-                        >
+                          <img src="./assets/icons/Pasajero.svg" alt="" />5</span>
                         <span>
-                          <img
-                            src="./assets/icons/Puertas_auto.svg"
-                            alt=""
-                          />4</span
-                        >
+                          <img src="./assets/icons/Puertas_auto.svg" alt="" />4</span>
                         <span>
-                          <img
-                            src="./assets/icons/Equipaje_auto.svg"
-                            alt=""
-                          />3</span
-                        >
+                          <img src="./assets/icons/Equipaje_auto.svg" alt="" />3</span>
                         <span>
-                          <img
-                            src="./assets/icons/Caja_cambios.svg"
-                            alt=""
-                          />Auto.</span
-                        >
+                          <img src="./assets/icons/Caja_cambios.svg" alt="" />Auto.</span>
                         <span>
-                          <img
-                            src="./assets/icons/Aire_auto.svg"
-                            alt=""
-                          />Sí</span
-                        >
+                          <img src="./assets/icons/Aire_auto.svg" alt="" />Sí</span>
                       </div>
                       <div class="card-car-mobile__hover--actions">
                         <button class="btn">Selecionar</button>
@@ -218,5 +213,6 @@
       </div>
     </section>
   </div>
+
 </section>
 <?php include './template-part/footer.php' ?>
