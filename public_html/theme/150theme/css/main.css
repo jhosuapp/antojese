@@ -1184,11 +1184,11 @@ hr {
 }
 .cars-filter:nth-child(2) {
   position: relative;
-  z-index: 9;
+  z-index: 8;
 }
 .cars-filter:nth-child(3) {
   position: relative;
-  z-index: 8;
+  z-index: 7;
 }
 .cars-filter .acordeon {
   background-color: #F7F7F7;
