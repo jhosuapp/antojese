@@ -803,6 +803,7 @@ body.enable .header .ctm-block {
   gap: 10px;
 }
 .vip-salas__cont--card {
+  min-height: 280px;
   width: 100%;
   max-width: 770px;
   min-width: 650px;
@@ -814,7 +815,7 @@ body.enable .header .ctm-block {
   justify-content: space-evenly;
   align-items: flex-start;
   flex-direction: column;
-  height: 200px;
+  height: 100%;
 }
 .vip-salas__cont--card_acordeon .acordeon {
   padding: 0px 10px 0px 0px;
@@ -858,6 +859,7 @@ body.enable .header .ctm-block {
   display: none;
 }
 .vip-salas__cont--card .vipSwiper {
+  height: 280px;
   width: 100%;
   border-radius: 5px;
 }
@@ -962,6 +964,10 @@ body.enable .header .ctm-block {
 }
 
 .vip-card__cont {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-direction: column;
   padding: 10px 0px;
   width: 400px;
 }
@@ -1012,6 +1018,9 @@ body.enable .header .ctm-block {
   }
   .vip-salas__cont--card_tarifas {
     align-items: flex-start;
+  }
+  .vip-salas__cont--card .vipSwiper {
+    height: 180px;
   }
 }
 .filter p {

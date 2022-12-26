@@ -1,26 +1,38 @@
 <?php include './template-part/header.php' ?>
 <?php include './template-part/menu-lateral.php' ?>
 
+<!-- BUSQUEDA -->
 <section class="vip-search ctm-block"></section>
 
+<!-- CONT PRINCIPAL -->
 <section class="vip-search-general ctn">
+
+  <!-- CONT IZQUIERD0 -->
   <div class="vip-left"></div>
 
+  <!-- CONT DERECHO -->
   <div class="vip-right">
+
+    <!-- NUM RESULTADOS MOBILE -->
     <section class="vip-result ctm-block">
       <div class="ctn">
         <h5>2 salas encontradas</h5>
       </div>
     </section>
 
+    <!-- SELECT MOBILE -->
     <section class="vip-select">
       <div class="vip-select__cont"></div>
     </section>
 
+    <!-- CARD CTN -->
     <section class="vip-salas ctm-block">
       <div class="vip-salas__cont">
+
+        <!--CARD COMPONENT-->
         <div class="vip-salas__cont--card">
           <div class="vip-card__body">
+            <!-- card header-->
             <div class="vip-card__header">
               <!--slider-->
               <div class="swiper mySwiper vipSwiper">
@@ -40,7 +52,7 @@
                 </div>
               </div>
             </div>
-
+            <!-- card cont-->
             <div class="vip-card__cont">
               <h5>The House</h5>
               <div class="vip-salas__cont--card_location">
@@ -177,7 +189,7 @@
 
               </div>
             </div>
-
+            <!-- card footer-->
             <div class="vip-card__footer">
               <div class="vip-salas__cont--card_tarifas">
                 <span>Tarifa</span>
@@ -200,9 +212,11 @@
             </div>
           </div>
         </div>
+      
       </div>
     </section>
   </div>
+
 </section>
 
 <?php include './template-part/footer.php' ?>
