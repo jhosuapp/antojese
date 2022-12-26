@@ -1,0 +1,55 @@
+.input-custom{
+    &__calendar{
+        transition: .3s  ease;
+        transition-property: opacity, width;
+        &.enableExit{
+            width: 25%;
+        }
+        &.disableComeBack{
+            opacity: 0;
+            width: 0;
+        }
+    }
+
+
+
+    
+    //error
+    &__block.error{
+        input{
+            border-color: color('error');
+        }
+        label{
+            color: color('error');
+        }
+        .error-message{
+            display: block;
+        }
+        .input-custom__item::before{
+            opacity: 1;
+        }
+    }
+}
+
+@media(max-width: breakpoints('ipad-grande')){
+    .input-custom{
+        &__calendar{
+            &.enableExit{
+                width: calc(50% - 2.5px);
+            }
+            &.disableComeBack{
+                display: none;
+            }
+        }
+    }
+}
+
+@media(max-width: breakpoints('celular')){
+    .input-custom{
+        &__calendar{
+            &.enableExit{
+                width: calc(100%);
+            }
+        }
+    }
+}

@@ -1,19 +1,19 @@
 
 <!-- FILTROS VUELOS -->
-<form class="filters-block input-custom">
+<form class="filters-block input-custom" id="datosDinamicos">
     <!--OPCIONES RADIO BUTTONS -->
-    <div class="input-custom__ctn">
+    <div class="input-custom__ctn" id="ctnRadio">
         <div class="input-custom__radio">
-            <input type="radio" name="destino" id="idaVuelta" checked>
+            <input type="radio" name="destino" id="idaVuelta" value="idaVuelta" checked>
             <label for="idaVuelta">Ida y vuelta</label>
         </div>
         <div class="input-custom__radio">
-            <input type="radio" name="destino" id="soloIda">
+            <input type="radio" name="destino" id="soloIda" value="soloIda">
             <label for="soloIda">Solo ida</label>
         </div>
         <div class="input-custom__radio">
-            <input type="radio" name="destino" id="Multidestino">
-            <label for="Multidestino">Multidestino</label>
+            <input type="radio" name="destino" id="multiDestino" value="multiDestino">
+            <label for="multiDestino">Multidestino</label>
         </div>
     </div>
     <div class="input-custom__options">
@@ -52,7 +52,7 @@
             </div>
         </div>
         <!-- OPCIONES SALIDA -->
-        <div class="input-custom__block input-custom__calendar">
+        <div class="input-custom__block input-custom__calendar" id="opcionesSalida">
             <div class="input-custom__item input-custom__no-write">
                 <label for="salida">Salida</label>
                 <input type="text" id="salida" name="salida" placeholder="Fecha de ida">
@@ -61,7 +61,7 @@
             <p class="error-message">Texto de ayuda</p>
         </div>
         <!-- OPCIONES REGRESO -->
-        <div class="input-custom__block input-custom__calendar">
+        <div class="input-custom__block input-custom__calendar" id="opcionesRegreso">
             <div class="input-custom__item input-custom__no-write">
                 <label for="regreso">Regreso</label>
                 <input type="text" id="regreso" name="regreso" placeholder="Fecha de regreso">
@@ -74,7 +74,7 @@
         <div class="input-custom__block input-modal__container" data-input="pasajeros">
             <div class="input-custom__item input-custom__no-write open-modal">
                 <label for="pasajeros">Pasajeros y clase</label>
-                <input id="inputPassengers" type="text" value="1 adulto, economica" id="pasajeros" name="pasajeros" placeholder="Fecha de regreso">
+                <input id="inputPasajeros" type="text" value="1 adulto, economica" name="pasajeros" placeholder="Fecha de regreso">
                 <img src="./assets/icons/icon-user.svg" alt="icon">
             </div>
             <!-- MODAL PASAJEROS CON TODAS LAS OPCIONES -->
@@ -94,9 +94,9 @@
                         <p><i>2 a 17 años</i></p>
                     </span>
                     <div>
-                        <span class="minus" id="niñosMinus"></span>
+                        <span class="minus" id="niñosMenos"></span>
                         <input name="niños" type="number" id="niños" value="0">
-                        <span class="plus" id="niñosPlus"></span>
+                        <span class="plus" id="niñosMas"></span>
                     </div>
                 </div>
                 <div class="input-childs" id="dinamiChilds">
@@ -143,7 +143,7 @@
     </div>
     <!-- BUSCAR -->
     <div class="input-custom__submit">
-        <a class="btn">Buscar</a>
+        <a class="btn" id="buscar">Buscar</a>
     </div>
 </form>
 

@@ -6,6 +6,7 @@ import { getChildsSelect } from './components/Selects';
 import { getChildsModal } from './components/Modal';
 import { getChildsFilterPassengers } from './components/FilterPassengers';
 import { getChildsTab } from './components/Tab';
+import { getChildsRadioBtn } from './components/FilterRadioBtn';
  
 window.addEventListener('load', ()=>{
   getChildsNav();
@@ -15,6 +16,7 @@ window.addEventListener('load', ()=>{
   getChildsModal();
   getChildsFilterPassengers();
   getChildsTab();
+  getChildsRadioBtn();
 });
 
 window.addEventListener("DOMContentLoaded", () => {

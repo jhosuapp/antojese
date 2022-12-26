@@ -13,18 +13,18 @@ const aos = function(){
         }, 1000);
     }
 
-
     return {
-        rturnFunctions : function(){
+        returnFunctions : function(){
             try{
                 InitAos();
             }catch(error){ }
         }
     }
+    
 }();
 
 const getChildsAos = ()=>{
-    aos.rturnFunctions();
+    aos.returnFunctions();
 }
 
 export{

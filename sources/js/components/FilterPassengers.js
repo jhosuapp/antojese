@@ -6,7 +6,7 @@ const FilterPassengers = function(){
     const dinamicValues = ()=>{
         const getInputChilds = document.querySelector('#niños');
         const getInputBabys = document.querySelector('#bebes');
-        const getInputPassenger = document.querySelector('#inputPassengers');
+        const getInputPassenger = document.querySelector('#inputPasajeros');
         const getInputAdults = document.querySelector('#adultos');
         const getSelectClase = document.querySelector('#selectClase');
         getInputPassenger.value = `${getInputAdults.value} adultos, ${getInputChilds.value} niños, ${getInputBabys.value} bebés, ${getSelectClase.value}`;
@@ -41,8 +41,8 @@ const FilterPassengers = function(){
     //CREAR OPCIONES DINAMICAS SEGÚN LA CANTIDAD DE NIÑOS
     const CustomsDinamics = ()=>{
 
-        const getMinus = document.querySelector('#niñosMinus');
-        const getPlus = document.querySelector('#niñosPlus');
+        const getMinus = document.querySelector('#niñosMenos');
+        const getPlus = document.querySelector('#niñosMas');
         const createCustomsDinamics = ()=>{
             const getAllChilds = document.querySelectorAll('.childs-select');
             const getInputChilds = document.querySelector('#niños');

@@ -282,22 +282,6 @@
             z-index: 99;
         }
     }
-
-    //error
-    &__block.error{
-        input{
-            border-color: color('error');
-        }
-        label{
-            color: color('error');
-        }
-        .error-message{
-            display: block;
-        }
-        .input-custom__item::before{
-            opacity: 1;
-        }
-    }
 }
 //OPCIONES DE AÑADIR NIÑOS
 .input-childs{
