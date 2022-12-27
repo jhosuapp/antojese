@@ -11,55 +11,55 @@
             </div>
             <p>Iniciar sesión</p>
         </a>
-        <a href="#" class="lateralMenu__item" data-link="./">
+        <a href="#" class="lateralMenu__item" data-link="./" data-img="./assets/menu/bg-header.jpg">
             <div>
                 <img src="./assets/menu/plane-white.svg" alt="vuelos">
             </div>
             <p>Vuelos</p>
         </a>
-        <a href="#" class="lateralMenu__item" data-link="./">
+        <a href="#" class="lateralMenu__item" data-link="./" data-img="./assets-temporal/bg-home-hoteles.jpg">
             <div>
                 <img src="./assets/menu/bed-white.svg" alt="hoteles">
             </div>
             <p>Hoteles</p>
         </a>
-        <a href="#" class="lateralMenu__item" data-link="./">
+        <a href="#" class="lateralMenu__item" data-link="./" data-img="./assets/menu/bg-header.jpg">
             <div>
                 <img src="./assets/menu/car-white.svg" alt="autos">
             </div>
             <p>Autos</p>
         </a>
-        <a href="#" class="lateralMenu__item" data-link="./">
+        <a href="#" class="lateralMenu__item" data-link="./" data-img="./assets-temporal/bg-home-hoteles.jpg">
             <div>
                 <img src="./assets/menu/vip-white.svg" alt="salas vip">
             </div>
             <p>Salas VIP</p>
         </a>
-        <a href="#" class="lateralMenu__item" data-link="./">
+        <a href="#" class="lateralMenu__item" data-link="./" data-img="./assets/menu/bg-header.jpg">
             <div>
                 <img src="./assets/menu/tour-white.svg" alt="turisemana">
             </div>
             <p>Turisemana</p>
         </a>
-        <a href="#" class="lateralMenu__item" data-link="./">
+        <a href="#" class="lateralMenu__item" data-link="./" data-img="./assets-temporal/bg-home-hoteles.jpg">
             <div>
                 <img src="./assets/menu/espec-white.svg" alt="espectaculos">
             </div>
             <p>Espectáculos</p>
         </a>
-        <a href="#" class="lateralMenu__item" data-link="./">
+        <a href="#" class="lateralMenu__item" data-link="./" data-img="./assets/menu/bg-header.jpg">
             <div>
                 <img src="./assets/menu/play-white.svg" alt="parques">
             </div>
             <p>Parques</p>
         </a>
-        <a href="#" class="lateralMenu__item" data-link="./">
+        <a href="#" class="lateralMenu__item" data-link="./" data-img="./assets/menu/bg-header.jpg">
             <div>
                 <img src="./assets/menu/transport-white.svg" alt="buses">
             </div>
             <p>Buses</p>
         </a>
-        <a href="#" class="lateralMenu__item" data-link="./">
+        <a href="#" class="lateralMenu__item" data-link="./" data-img="./assets/menu/bg-header.jpg">
             <div>
                 <img src="./assets/menu/assist-white.svg" alt="assist card">
             </div>

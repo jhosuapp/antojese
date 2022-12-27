@@ -11,8 +11,25 @@
     cursor: pointer;
     transition: .3s background-color ease;
     @include flex;
+    outline: inherit;
+    border: none;
     &:hover{
         background-color: color('grayBlue');
+    }
+    &--icon{
+        position: relative;
+        padding: 12.5px 40px 12.5px 20px;
+        justify-content: flex-start;
+        &::before{
+            content: "";
+            position: absolute;
+            right: 15px;
+            background: url('../assets/icons/icon-down.svg') no-repeat;
+            background-size: contain;
+            width: 12.5px;
+            height: 8px;
+            top: calc(50% - 4px);
+        }
     }
 }
 

@@ -28,7 +28,7 @@ const Nav = function(){
         getContainerValHome ? getBody.classList.add('enable') : false;
     }
     //ANIMACION SCROLL MOBILE
-    const ScrollHeaderMobile = ()=>{
+    const ScrollMobileAndBgImg = ()=>{
         const getHeader = document.querySelector('.header');
         const reUseValidationScroll = () =>{
             window.scrollY > 10 ?  getHeader.classList.add('scroll') : getHeader.classList.remove('scroll');
@@ -37,6 +37,9 @@ const Nav = function(){
         window.addEventListener('scroll', ()=>{
             reUseValidationScroll();
         });
+        //VALIDACIÓN DE IMAGEN
+        const getImgLocalStorage = localStorage.getItem('data-img');
+        getImgLocalStorage ? getHeader.style.background = `url(${getImgLocalStorage}) center` : false;
     }
     //SE CLONAN LAS OPCIONES DEL MENÚ LATERAL PARA REUSAR EN MOBILE
     const OptionsMenuLateral = ()=>{
@@ -48,6 +51,7 @@ const Nav = function(){
             const getSrcImage = data.firstElementChild.firstElementChild.src;
             const createDiv = document.createElement('div');
             createDiv.classList.add('header-options__item');
+            createDiv.setAttribute('data-img', data.getAttribute('data-img'));
             const template = `
                 <div>
                     <img src="${getSrcImage}">
@@ -69,7 +73,7 @@ const Nav = function(){
                 ValidationHome();
             }catch(error){ }
             try{
-                ScrollHeaderMobile();
+                ScrollMobileAndBgImg();
             }catch(error){  }
             try{
                 OptionsMenuLateral();

@@ -143,11 +143,39 @@
     </div>
     <!-- BUSCAR -->
     <div class="input-custom__submit">
-        <a class="btn" id="buscar">Buscar</a>
+        <a href="./page-vuelo-filter.php" class="btn" id="buscar">Buscar</a>
     </div>
 </form>
 
 <!-- FILTROS HOTELES -->
+
+<form class="filters-block input-custom">
+    
+</form>
+
+<form class="filters-block input-custom">
+    
+</form>
+
+<form class="filters-block input-custom">
+    
+</form>
+
+<form class="filters-block input-custom">
+    
+</form>
+
+<form class="filters-block input-custom">
+    
+</form>
+
+<form class="filters-block input-custom">
+    
+</form>
+
+<form class="filters-block input-custom">
+    
+</form>
 
 <form class="filters-block input-custom">
     

@@ -5,57 +5,49 @@ import "swiper/swiper.min.css";
 // Configuramos los módulos a usar
 Swiper.use([Navigation, Pagination]);
 
-const swiperExport = (function () {
-  const _SwiperCar = () => {
-    var SwiperCar = new Swiper(".swiper", {
-      slidesPerView: 1,
-      spaceBetween: 0,
-      navigation: {
-        nextEl: ".btn-next-car",
-        prevEl: ".btn-prev-car",
+const SwiperExport = (function () {
+
+  const SwiperPlanes = ()=>{
+    const SwiperPlanesConfig = new Swiper(".swiper-baggage", {
+      slidesPerView: 1.2,
+      spaceBetween: 10,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
       },
       breakpoints: {
-        640: {
-          slidesPerView: 1,
-          spaceBetween: 20,
+        576: {
+            slidesPerView: 1.2,
+            spaceBetween: 20,
+            allowTouchMove: true,
         },
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 40,
+        992: {
+            slidesPerView: 2.2,
+            spaceBetween: 20,
+            allowTouchMove: true,
         },
-        1024: {
-          slidesPerView: 3,
-          spaceBetween: 0,
+        1281: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+            allowTouchMove: true,
         },
-      },
+      }
     });
-  };
-
-  const _SwiperHotelImg = () => {
-    var SwiperHotelImg = new Swiper(".vipSwiper", {
-      slidesPerView:1,
-      spaceBetween:150,
-      navigation: {
-        nextEl: ".vipSwiper-next",
-        prevEl: ".vipSwiper-prev",
-      },
-    });
-  };
+  }
 
   return {
     getChildFunctions: function () {
       try {
-        _SwiperCar();
-      } catch (error) {}
-      try {
-        _SwiperHotelImg();
-      } catch (error) {}
-    },
-  };
+        SwiperPlanes();
+      } catch (error) {console.log(error)}
+    }
+  }
 })();
 
 const getChildsSwiper = () => {
-  swiperExport.getChildFunctions();
+  SwiperExport.getChildFunctions();
 };
 
-export { getChildsSwiper };
+export { 
+  getChildsSwiper 
+};

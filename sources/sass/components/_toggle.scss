@@ -1,0 +1,40 @@
+.toggle{
+    overflow: hidden;
+    position: relative;
+    margin-top: 20px;
+    &__show{
+        position: relative;
+        @include flex($jc: space-between);
+        padding-bottom: 20px;
+        &::after{
+            position: relative;
+            content: "";
+            width: 20px;
+            height: 15px;
+            background: url('../assets/icons/icon-down-blue.svg') no-repeat;
+            background-position: 50%;
+            transition: .3s ease transform;
+        }
+        &.active{
+            &::after{
+                transform: rotateX(180deg);
+            }
+        }
+    }
+    &__hidden{
+        height: 0;
+        transition: 1s ease;
+        transition-property: height, opacity;
+        .input-custom__checkbox--blue{
+            justify-content: flex-start;
+            margin-bottom: 20px;
+        }
+        .input-custom__select .options{
+            transition-duration: .1s;
+            margin-bottom: 20px;
+        }
+        .input-custom__select{
+            margin-bottom: 20px;
+        }
+    }
+}

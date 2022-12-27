@@ -19,7 +19,6 @@
 
 //COMPONENTS
 @import 'components/scroll',
-        'components/chips',
         'components/container',
         'components/carousel',
         'components/custom-block',
@@ -29,7 +28,13 @@
         'components/buttons',
         'components/aos',
         'components/_inputs-modal',
-        'components/inputs-validations';
+        'components/inputs-validations',
+        'components/custom-filters',
+        'components/custom-flight',
+        'components/toggle',
+        'components/chips',
+        'components/swiper',
+        'components/custom-flight-modal';
 
 //ANIMATIONS
 @import 'animations/aos-home',

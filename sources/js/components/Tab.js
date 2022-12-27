@@ -5,6 +5,7 @@ const Tab = function(){
         const getAllButtonsTabMobile = document.querySelectorAll('.header-options .header-options__item');
         const getAllContainers = document.querySelectorAll('.filters-block');
         const getLateralMenu = document.querySelector('.lateralMenu');
+        const getHeader = document.querySelector('.header');
         //SETEO DE ATRIBUTO A LOS CONTENEDORES
         getAllContainers.forEach((data, indice)=>{
             data.setAttribute('data-tabctn', indice + 1);
@@ -17,8 +18,11 @@ const Tab = function(){
                     data.setAttribute('data-tabbtn', indice);
                     data.addEventListener('click', ()=>{
                         const getDataAttribute = data.getAttribute('data-tabbtn');
-                        //GUARDADO EN LOCALSTORAGE
+                        const getDataAttributeImg = data.getAttribute('data-img');
+                        //GUARDADO EN LOCALSTORAGE DE POSICIÓN E IMAGEN
                         localStorage.setItem('tab-home', data.getAttribute('data-tabbtn'));
+                        localStorage.setItem('data-img', getDataAttributeImg);
+                        getHeader.style.background = `url(${getDataAttributeImg})`;
                         //SE AÑADEN CLASES DE MANERA DINAMICA
                         className.forEach((data)=>{
                             data.classList.remove('active');
@@ -54,13 +58,24 @@ const Tab = function(){
 
         reUseFunctionTab(getAllButtonsTab);
         reUseFunctionTab(getAllButtonsTabMobile);
+
+        //REDIRECCIÓN AL HOME SI ESTA EN OTRA VISTA
+        const useDataLinks = ()=>{
+            getAllButtonsTab.forEach((data)=>{
+                data.addEventListener('click', ()=>{
+                    data.href = data.getAttribute('data-link');
+                });
+            });
+        }
+        getAllContainers.length <= 0 && useDataLinks();
+
     }
 
     return {
         getChildFunctions:  function(){
             try{
                 TabHome();
-            }catch(error){ console.log(error) }
+            }catch(error){ }
         }
     }
 

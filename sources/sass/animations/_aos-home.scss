@@ -17,15 +17,23 @@
     }
 }
 //HOME FILTERS
-// .filters{
-//     opacity: 0;
-//     transform: translateY(50px);
-//     transition-delay: .5s;
-// }
-// .filters.aos-animate{
-//     transform: translateY(0);
-//     opacity: 1;
-// }
+.filters{
+    animation: fade-up 1s ease 1.75s forwards;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+@keyframes fade-up{
+    from{
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 //HOME OPTIONS MENU
 .header-options{
     .header-options__item{
@@ -119,6 +127,9 @@
 @media(max-width: breakpoints('ipad-grande')){
     .filters-block{
         transition-delay: 1.2s;
+    }
+    .filters{
+        animation-delay: 2.5s;
     }
 }
 

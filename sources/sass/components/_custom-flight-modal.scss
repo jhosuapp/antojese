@@ -1,0 +1,30 @@
+
+@media(max-width: breakpoints('ipad-grande')){
+    .filters-modal-mobile{
+        position: fixed;
+        height: 100vh;
+        overflow: auto;
+        background-color: color('white');
+        left: 0;
+        top: 0;
+        z-index: 999;
+        display: none;
+        .ctm-flight__filters{
+            width: 90%;
+            margin: auto;
+        }
+        .toggle__hidden{
+            height: auto !important;
+            margin-bottom: 25px;
+        }
+        .toggle{
+            overflow: initial;
+        }
+        .toggle__show{
+            margin-top: 25px;
+            &::after{
+                display: none;
+            }
+        }
+    }
+}

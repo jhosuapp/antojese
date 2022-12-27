@@ -63,10 +63,10 @@ const Modal = function(){
         getChildFunctions:  function(){
             try{
                 ModalHomeMobile();
-            }catch(error){ }
+            }catch(error){  }
             try{
                 ModalHomeDesktop();
-            }catch(error){ }
+            }catch(error){  }
         }
     }
 
