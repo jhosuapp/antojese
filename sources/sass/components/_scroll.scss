@@ -11,7 +11,8 @@ body{
         height: 5px;
     }
 }
-.lateralMenu__container{
+.lateralMenu__container,
+.flight-modal__detail .container{
     &::-webkit-scrollbar-thumb {
         background-color: transparent;
         border-radius: 100px;

@@ -22,7 +22,7 @@ const Tab = function(){
                         //GUARDADO EN LOCALSTORAGE DE POSICIÓN E IMAGEN
                         localStorage.setItem('tab-home', data.getAttribute('data-tabbtn'));
                         localStorage.setItem('data-img', getDataAttributeImg);
-                        getHeader.style.background = `url(${getDataAttributeImg})`;
+                        getHeader.style.backgroundImage = `url(${getDataAttributeImg})`;
                         //SE AÑADEN CLASES DE MANERA DINAMICA
                         className.forEach((data)=>{
                             data.classList.remove('active');
@@ -71,10 +71,61 @@ const Tab = function(){
 
     }
 
+    const TabConfigGeneral = ()=>{
+        const getAllBtnTab = document.querySelectorAll('.tab-general .tab-general-btn');
+        const getAllCtnTab = document.querySelectorAll('.tab-general .tab-general-ctn');
+
+        const reUseSetAtr = (cls, atr)=>{
+            cls[0].classList.add('active');
+            cls.forEach((data, indice)=>{
+                data.setAttribute(`data-${atr}`, indice);
+            });
+        }
+
+        reUseSetAtr(getAllBtnTab, 'tabGeneralBtn');
+        reUseSetAtr(getAllCtnTab, 'tabGeneralCtn');
+
+        getAllBtnTab.forEach((data)=>{
+            data.addEventListener('click', ()=>{
+                const getDataAtr = data.getAttribute('data-tabGeneralBtn');
+                getAllBtnTab.forEach((data)=>{
+                    data.classList.remove('active');
+                    if(getDataAtr == data.getAttribute('data-tabGeneralBtn')){
+                        data.classList.add('active');
+                    }else{
+                        data.classList.remove('active');
+                    }
+                });
+                data.classList.add('active');
+                getAllCtnTab.forEach((data)=>{
+                    const getDataAtrCtn = data.getAttribute('data-tabGeneralCtn');
+                    getDataAtrCtn == getDataAtr 
+                    ? data.classList.add('active') 
+                    : data.classList.remove('active');
+                });
+                //VALIDACION PARA OCULTAR ELEMENTOS DE MANERA DINAMICA
+                const getAllHiddenOptions = document.querySelectorAll('.hidden-options-tab');
+                if(data.classList.contains('hidden-options')){
+                    getAllHiddenOptions.forEach((data)=>{
+                        data.classList.add('hidden');
+                    });
+                }else{
+                    getAllHiddenOptions.forEach((data)=>{
+                        data.classList.remove('hidden');
+                    });
+                }
+            });
+        });
+
+    }
+
     return {
         getChildFunctions:  function(){
             try{
                 TabHome();
+            }catch(error){ }
+            try{
+                TabConfigGeneral();
             }catch(error){ }
         }
     }

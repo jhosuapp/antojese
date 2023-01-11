@@ -23,7 +23,7 @@
             </div>
             <p>Hoteles</p>
         </a>
-        <a href="#" class="lateralMenu__item" data-link="./" data-img="./assets/menu/bg-header.jpg">
+        <a href="#" class="lateralMenu__item" data-link="./" data-img="./assets-temporal/bg-home-carros.jpg">
             <div>
                 <img src="./assets/menu/car-white.svg" alt="autos">
             </div>

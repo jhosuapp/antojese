@@ -106,6 +106,7 @@
 
 @media (max-width: breakpoints('ipad-grande')) {
     .footer{
+            
         &__logos{
             
             &-1{
@@ -135,6 +136,11 @@
 
 @media (max-width: breakpoints('celular')) {
     .footer{
+
+        &__container{
+            flex-direction: column;
+        }
+
         &__logos{
             padding: 30px 0px;
             flex-direction: column;

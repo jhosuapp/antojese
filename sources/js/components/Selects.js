@@ -16,10 +16,18 @@ const Select = function(){
                     data.classList.add('index');
                 });
                 if(data.classList.contains('active')){
+                    // Ajuste Jose
+                    // data.closest('.toggle') && (data.closest('.toggle').style.height = 'auto');
+                    // data.closest('.toggle__hidden') && (data.closest('.toggle__hidden').style.height = 'auto');
+                    // End Ajuste Jose
                     reUseRemoveClasses();
                 }else{
                     reUseRemoveClasses();
                     data.classList.add('active');
+                    // Ajuste Jose
+                    // data.closest('.toggle').classList.add('removeOverFlow');
+                    // data.closest('.toggle') && (data.closest('.toggle').style.height = '260px');
+                    // End Ajuste Jose
                 }
                 data.classList.remove('index');
                 

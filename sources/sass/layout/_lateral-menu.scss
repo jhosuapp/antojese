@@ -117,6 +117,7 @@
         &__container{
             overflow: auto;
             background-color: color('secondary-light');
+            gap: 10px;
             &::-webkit-scrollbar-thumb {
                 background-color: transparent !important;
             }

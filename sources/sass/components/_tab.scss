@@ -1,0 +1,61 @@
+.tab-general{
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 10px;
+    &-ctn{
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+        left: 0;
+        top: 0;
+        &.active{
+            pointer-events: all;
+            animation: opacity-to-absolute 1s ease forwards;
+        }
+    }
+    &-btn{
+        cursor: pointer;
+    }
+}
+
+.hidden-options-tab{
+    transition: 1s ease all;
+    &.width.hidden{
+        animation: opacity .25s ease forwards 1;
+        width: 0 !important;
+        min-width: 0 !important;
+    }
+    &.height{
+        transition-duration: .5s;
+        opacity: 1;
+        overflow: hidden;
+    }
+    &.height.hidden{
+        opacity: 0;
+        height: 0;
+    }
+}
+
+@keyframes opacity-to-absolute {
+    from{
+        position: relative;
+        opacity: 0;
+    }
+    50%{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+        position: relative;
+    }
+}
+
+
+@keyframes opacity {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}

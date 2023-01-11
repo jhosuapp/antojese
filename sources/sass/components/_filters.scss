@@ -23,6 +23,68 @@
     }   
 }
 
+
+.filters-fixed{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 9;
+    background-color: color('white');
+    padding: 25px 0;
+    box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.2), 0px 1px 5px rgba(0, 0, 0, 0.25);
+    @include flex;
+    transition: 1s ease bottom;
+    display: none;
+    &.disable{
+        bottom: -75px;
+        .btn img{
+            transform: rotate(180deg);
+        }
+    }
+    .btn{
+        position: absolute;
+        top: -40px;
+        transition-property: transform;
+    }
+    article{
+        width: 90%;
+        max-width: 400px;
+        @include flex;
+        margin: auto;
+        gap: 10px;
+        p{
+            font-size: 1.7rem;
+            font-weight: 700;
+        }
+        img{
+            width: 25px;
+        }
+        span{
+            margin-left: 15px;
+            color: color('primary');
+            font-size: 1.4rem;
+            min-width: 25px;
+            min-height: 25px;
+            border: 1px solid color('primary');
+            border-radius: 100px;
+            background-color: color('primary-light');
+            font-weight: 500;
+            @include flex;
+        }   
+    }
+}
+
+@media(max-width: breakpoints('ipad-grande')){
+    .filters{
+        &-block{
+            padding: 35px 15px;
+        }
+    }  
+    .filters-fixed{
+        display: flex;
+    }
+}
 @media(max-width: breakpoints('celular')){
     .filters{
         &-block{

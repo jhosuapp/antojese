@@ -4,6 +4,8 @@
     position: relative;
     padding: 20px 0 120px 0;
     background-position: center;
+    background-size: cover !important;
+    background-repeat: no-repeat;
     &::after{
         content: "";
         position: absolute;
@@ -11,7 +13,7 @@
         height: 100%;
         left: 0;
         top: 0;
-        background: linear-gradient(180deg, #1A4A8C -3.27%, rgba(0, 189, 214, 0.33) 100%);
+        background: linear-gradient(180deg, #1A4A8C -10.27%, rgba(0, 189, 214, 0.2) 100%);
     }
     &-logo{
         transition: .3s opacity ease;
@@ -106,8 +108,9 @@
 
 body.enable{
     .header{
-        background-size: 100% 100%;
         height: 500px;
+        background-repeat: no-repeat;
+        background-size: cover;
         .ctm-block{
             display: flex;
         }

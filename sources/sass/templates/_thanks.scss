@@ -6,17 +6,18 @@
     //background-image: url('./assets-temporal/thanks/bg-thanks-desk.png');
     margin-bottom: 30px;
 
-    &__txt{
+    &__txt {
+        width: 100%;
         position: absolute;
-        left: 11vw;
         bottom: 50px;
         color: color('white');
 
-        h1{
+        h1 {
             font-weight: 800;
             font-size: 3.6rem;
         }
-        p{
+
+        p {
             font-weight: 800;
             font-size: 1.6rem;
         }
@@ -36,7 +37,7 @@
             width: 100%;
             @include flex($jc: flex-start);
             flex-wrap: wrap;
-            gap: 15vw;
+            gap: 6vw;
 
             &--item {
                 width: 240px;
@@ -72,16 +73,19 @@
     width: 100%;
 
     &-cont {
+        @include flex($ai:flex-start);
+        flex-direction: column;
         width: 100%;
         color: color('primary');
         margin-bottom: 50px;
 
 
         &__cards {
+            max-width: 1100px;
+            margin: 20px 0px;
             width: 100%;
-            @include flex($jc: space-between, $ai:flex-start);
+            @include flex($jc: space-between, $ai: flex-start);
             flex-wrap: wrap;
-            margin-top: 20px;
             text-align: left;
 
             &--item {
@@ -169,7 +173,7 @@
         &-cont {
             &__data {
                 justify-content: flex-start;
-                gap: 50px;
+                gap: 30px;
             }
         }
     }

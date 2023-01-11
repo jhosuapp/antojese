@@ -39,7 +39,7 @@ const Nav = function(){
         });
         //VALIDACIÓN DE IMAGEN
         const getImgLocalStorage = localStorage.getItem('data-img');
-        getImgLocalStorage ? getHeader.style.background = `url(${getImgLocalStorage}) center` : false;
+        getImgLocalStorage ? getHeader.style.backgroundImage = `url(${getImgLocalStorage})` : false;
     }
     //SE CLONAN LAS OPCIONES DEL MENÚ LATERAL PARA REUSAR EN MOBILE
     const OptionsMenuLateral = ()=>{
@@ -63,6 +63,22 @@ const Nav = function(){
 
         });
     }
+    //CHAT
+    const Chat = ()=>{
+        const getBtnChat = document.querySelector('.chat__btn');
+        const getAllItemsChat = document.querySelectorAll('.chat__item');
+
+        getBtnChat.addEventListener('click', ()=>{
+            getBtnChat.parentNode.classList.toggle('active');
+        });
+
+        getAllItemsChat.forEach((data)=>{
+            data.addEventListener('click', ()=>{
+                data.closest('.chat').classList.remove('active');
+            }); 
+        });
+
+    }
 
     return {
         getChildFunctions : function(){
@@ -80,6 +96,9 @@ const Nav = function(){
             }catch(error){ }
             try{
                 Loader();
+            }catch(error){ }
+            try{
+                Chat();
             }catch(error){ }
         }
     }

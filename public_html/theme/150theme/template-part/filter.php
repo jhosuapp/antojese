@@ -1,6 +1,6 @@
 
-<!-- FILTROS VUELOS -->
-<form class="filters-block input-custom" id="datosDinamicos">
+<!-- ======= FILTROS VUELOS ======== -->
+<form class="filters-block input-custom">
     <!--OPCIONES RADIO BUTTONS -->
     <div class="input-custom__ctn" id="ctnRadio">
         <div class="input-custom__radio">
@@ -16,7 +16,7 @@
             <label for="multiDestino">Multidestino</label>
         </div>
     </div>
-    <div class="input-custom__options">
+    <div class="input-custom__options showIcon">
         <!-- OPCIONES ORIGEN -->
         <div class="input-modalMobile" id="input-modalMobile-origen"></div>
         <div class="input-custom__block input-modal__container" data-input="origen">
@@ -53,7 +53,7 @@
         </div>
         <!-- OPCIONES SALIDA -->
         <div class="input-custom__block input-custom__calendar" id="opcionesSalida">
-            <div class="input-custom__item input-custom__no-write">
+            <div class="input-custom__item">
                 <label for="salida">Salida</label>
                 <input type="text" id="salida" name="salida" placeholder="Fecha de ida">
                 <img src="./assets/icons/icon-calendar.svg" alt="icon">
@@ -62,7 +62,7 @@
         </div>
         <!-- OPCIONES REGRESO -->
         <div class="input-custom__block input-custom__calendar" id="opcionesRegreso">
-            <div class="input-custom__item input-custom__no-write">
+            <div class="input-custom__item">
                 <label for="regreso">Regreso</label>
                 <input type="text" id="regreso" name="regreso" placeholder="Fecha de regreso">
                 <img src="./assets/icons/icon-calendar.svg" alt="icon">
@@ -123,6 +123,7 @@
                         <option data-value="primeraClase">Primera clase</option>
                     </div>
                 </div>
+                <a class="btn" id="close-filterPassenger">Aplicar</a>
             </div>
         </div>
     </div>
@@ -142,12 +143,57 @@
         </div>
     </div>
     <!-- BUSCAR -->
-    <div class="input-custom__submit">
-        <a href="./page-vuelo-filter.php" class="btn" id="buscar">Buscar</a>
+    <button type="submit" data-link="page-vuelo-filter.php" class="btn btn--auto" id="buscar">Buscar</button>
+</form>
+
+
+<!-- ============== FILTROS HOTELES =============== -->
+<form class="filters-block input-custom">
+    <div class="input-custom__options">
+        <!--DESTINO-->
+        <div class="input-modalMobile" id="input-modalMobile-destinoHotel"></div>
+        <div class="input-custom__block input-modal__container" data-input="destinoHotel">
+            <div class="input-custom__item open-modal">
+                <label for="destino">Destino</label>
+                <input type="text" id="destino" name="destino" placeholder="Ciudad o aeropouerto">
+                <img src="./assets/icons/position.svg" alt="icon">
+            </div>
+            <p class="error-message">Texto de ayuda</p>
+            <!-- OPCIONES AUTOFILL DESTINO -->
+            <div class="input-custom__modal input-custom__modal--place">
+                <p><i>Ciudad</i></p>
+                <h5>Medellin, Antioquía, Colombia</h5>
+                <p><i>Aeropuerto</i></p>
+                <h5>Medellin, Antioquía, Colombia Medellin, Antioquía, Colombia</h5>
+            </div>
+        </div>
+        <!-- OPCIONES SALIDA -->
+        <div class="input-custom__block input-custom__calendar" id="opcionesSalida">
+            <div class="input-custom__item">
+                <label for="salida">Salida</label>
+                <input type="text" id="salida" name="salida" placeholder="Fecha de ida">
+                <img src="./assets/icons/icon-calendar.svg" alt="icon">
+            </div>
+            <p class="error-message">Texto de ayuda</p>
+        </div>
+        <!-- OPCIONES REGRESO -->
+        <div class="input-custom__block input-custom__calendar" id="opcionesRegreso">
+            <div class="input-custom__item">
+                <label for="regreso">Regreso</label>
+                <input type="text" id="regreso" name="regreso" placeholder="Fecha de regreso">
+                <img src="./assets/icons/icon-calendar.svg" alt="icon">
+            </div>
+            <p class="error-message">Texto de ayuda</p>
+        </div>
     </div>
+    <button type="submit" data-link="thanks.php" class="btn btn--auto" id="buscar">Buscar</button>
 </form>
 
-<!-- FILTROS HOTELES -->
+
+
+
+
+
 
 <form class="filters-block input-custom">
     
@@ -157,11 +203,61 @@
     
 </form>
 
-<form class="filters-block input-custom">
-    
-</form>
-
-<form class="filters-block input-custom">
+<form class="filters-block input-custom ctm-block ctm-block-white">
+    <p>
+        Outlet de Semanas Vacacionales, donde podrá reservar sus vacaciones a bajo costo en más de 4.000 complejos hoteleros y en 100 países alrededor del mundo. Alójate durante 8 días y 7 noches hasta para 8 personas en una misma reserva.
+    </p>
+    <!-- SELECT -->
+    <div class="input-custom__options">
+        <div class="input-modalMobile" id="input-modalMobile-origen"></div>
+        <div class="input-custom__block input-modal__container">
+            <div class="input-custom__select input-custom__no-write open-modal">
+                <input type="text" id="" name="" value="Semana premium" data-value="semanaPremium">
+                <div class="options">
+                    <option data-value="semanaPremium">Semana premium</option>
+                    <option data-value="nombreCategoria">Nombre categoría</option>
+                    <option data-value="nombreCategoria">Nombre categoría</option>
+                </div>
+            </div>
+        </div>
+        <div class="input-custom__block">
+            <div class="input-custom__select input-custom__no-write">
+                <input type="text" id="" name="" value="Estados Unidos" data-value="estadosUnidos">
+                <div class="options">
+                    <option data-value="estadosUnidos">Estados Unidos</option>
+                    <option data-value="canada">Canadá</option>
+                    <option data-value="mexico">México</option>
+                    <option data-value="caribe">Caribe</option>
+                    <option data-value="europ">Europa</option>
+                    <option data-value="centroamericaSudamerica">Centroamérica / Sudamérica</option>
+                    <option data-value="asia">Asia</option>
+                    <option data-value="australiaOceania">Australia / Ocanía</option>
+                </div>
+            </div>
+        </div>
+        <div class="input-custom__block">
+            <div class="input-custom__select input-custom__no-write">
+                <input type="text" id="" name="" value="Semana premium" data-value="economica">
+                <div class="options">
+                    <option data-value="semanaPremium">Semana premium</option>
+                    <option data-value="nombreCategoria">Nombre categoría</option>
+                    <option data-value="nombreCategoria">Nombre categoría</option>
+                </div>
+            </div>
+        </div>
+        <div class="input-custom__block">
+            <div class="input-custom__select input-custom__no-write">
+                <input type="text" id="" name="" value="Semana premium" data-value="economica">
+                <div class="options">
+                    <option data-value="semanaPremium">Semana premium</option>
+                    <option data-value="nombreCategoria">Nombre categoría</option>
+                    <option data-value="nombreCategoria">Nombre categoría</option>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- BUSCAR -->
+    <button type="submit" data-link="page-vuelo-filter.php" class="btn btn--auto" id="buscar">Buscar</button>
     
 </form>
 

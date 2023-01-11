@@ -1,7 +1,12 @@
-.toggle{
+.toggle,
+.toggleTurisemana,
+.toggle-mobile{
     overflow: hidden;
     position: relative;
     margin-top: 20px;
+    &.removeOverFlow {
+        overflow: visible;
+    }
     &__show{
         position: relative;
         @include flex($jc: space-between);
@@ -19,6 +24,9 @@
             &::after{
                 transform: rotateX(180deg);
             }
+        }
+        &.disabled {
+            pointer-events: none;
         }
     }
     &__hidden{

@@ -1,14 +1,18 @@
-.cars-search {
-    position: fixed;
-    top: 65px;
-    z-index: 10;
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background: color('primary');
-    border-radius: 0px 0px 20px 20px;
-    display: none;
+.filter-car {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0px !important;
 }
+
+.filter-des-car {
+    justify-content: center;
+    align-items: flex-start;
+
+    span {
+        margin-left: 30px;
+    }
+}
+
 
 .cars-filter-btn {
     position: fixed;
@@ -24,6 +28,7 @@
     &__cont {
         gap: 30px;
         @include flex();
+
         &--btn {
             @include flex();
             gap: 10px;
@@ -52,7 +57,7 @@
 }
 
 .cars-search-general {
-    padding-top: 60px;
+    padding-top: 19px;
     @include flex($ai: flex-start);
 }
 
@@ -127,7 +132,7 @@ hr {
     margin-bottom: 10px;
 
     &-cont {
-        padding: 10px 0px;
+        padding: 15px 15px;
 
         h5 {
             margin-bottom: 7px;
@@ -152,37 +157,36 @@ hr {
 .cars-filter {
     margin: 30px 0px;
 
-    &:nth-child(2) {
-        position: relative;
-        z-index: 8;
-    }
+    .toggle {
 
-    &:nth-child(3) {
         position: relative;
         z-index: 7;
+
+        &:nth-child(2) {
+            position: relative;
+            z-index: 6;
+        }
+
+        &:nth-child(3) {
+            position: relative;
+            z-index: 5;
+        }
+
     }
 
-    .acordeon {
-        background-color: color('gray00');
+    .toggle__show.active {
+        pointer-events: none;
+    }
 
-        .panel {
-            padding: 10px 0px;
+    .toggle.active {
+        overflow: initial;
 
-            h5 {
-                font-weight: 500;
-            }
-
-            button {
-                @include restart_button();
-                background-color: transparent;
-                transition: all 0.5s ease;
-            }
-
-            .rotate {
-                transform: rotate(180deg)
-            }
+        .toggle__show.active {
+            pointer-events: all;
         }
     }
+
+
 
     &__left {
         @include flex();
@@ -243,6 +247,12 @@ hr {
     &__name {
         @include flex($jc: space-between);
         padding: 0px 10px;
+
+        h5 {
+            font-weight: 500;
+            font-size: 1.6rem !important;
+        }
+
     }
 
     &__items {
@@ -262,6 +272,10 @@ hr {
         padding: 15px 10px;
         margin-top: 16px;
         background: color('secondary-light');
+
+        h6 {
+            opacity: 0.6;
+        }
 
         h4 {
             opacity: 0.6;
@@ -326,7 +340,6 @@ hr {
     border: 1px solid #DEF3FF;
     border-radius: 5px;
     z-index: 5;
-    @include transition();
 
     &__img {
         margin-bottom: 8px;
@@ -338,10 +351,8 @@ hr {
         width: 100%;
         @include flex();
 
-        h4 {
-            font-size: 1.2rem;
-            color: color('primary');
-            font-weight: 400;
+        h6 {
+            font-weight: 500;
         }
     }
 
@@ -349,6 +360,7 @@ hr {
         height: 2px;
         background-color: color('gray00');
         border: none;
+        margin: 10px 0px;
     }
 
     span {
@@ -360,6 +372,8 @@ hr {
 
     h5 {
         font-weight: 800;
+        font-size: 1.6rem;
+        color: color("primary");
     }
 
     .price-txt {
@@ -371,7 +385,7 @@ hr {
 
     &__select {
         width: 100%;
-        padding: 10px;
+        padding-top: 20px;
         @include flex();
 
         h5 {
@@ -381,19 +395,14 @@ hr {
     }
 
     &__hover {
-        z-index: 100;
         top: 100%;
         width: 340px;
         position: absolute;
-        left: 4vw;
         padding: 20px 15px;
         box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.2), 0px 1px 5px rgba(0, 0, 0, 0.25);
         border-radius: 0px 5px 5px 5px;
         background: color('white');
         display: none;
-        @include transition();
-
-
 
         &--img {
             @include flex();
@@ -437,7 +446,12 @@ hr {
 
     &:hover {
         border: 1px solid #1A4A8C;
+    }
+}
 
+.card-ctn {
+    transition: all 10s ease-in;
+    &:hover {
         .card-car-mobile__hover {
             border: 1px solid #1A4A8C;
             display: block;
@@ -445,7 +459,29 @@ hr {
     }
 }
 
+.toggle__show--car {
+    padding: 7px 20px !important;
+    background: color("gray00");
+    @include flex();
+}
+
+.toggle__show--title {
+    h5 {
+        font-weight: 500;
+        margin-left: 3px;
+    }
+}
+
+
 @media (max-width: breakpoints('ipad-grande')) {
+
+    .filter-des-car {
+        font-size: 1.2rem !important;
+
+        span {
+            margin: 0px;
+        }
+    }
 
     .cars-search-desk {
         display: none;
@@ -455,7 +491,7 @@ hr {
         display: block;
     }
 
-    .cars-filter-btn{
+    .cars-filter-btn {
         display: flex;
     }
 

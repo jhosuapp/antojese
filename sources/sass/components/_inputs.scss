@@ -126,7 +126,7 @@
             }
         }
         input[type="text"]{
-            background-color: transparent;
+            // background-color: transparent;
             padding: 15px 10px 15px 10px;
             border-color: color('primary');
         }
@@ -142,7 +142,7 @@
             pointer-events: none;
             overflow: auto;
             padding: 10px 0;
-            transition: 1s ease;
+            transition: .5s ease;
             transition-property: opacity, height;
         }
         .options option{
@@ -239,26 +239,6 @@
             position: absolute;
             bottom: -20px;
         }
-        &:nth-child(4){
-            &::before{
-                content: "";
-                width: 12px;
-                height: 12px;
-                @include flex;
-                position: absolute;
-                left: -25px;
-                top: calc(50% - 14px);
-                background-image: url('../assets/icons/icon-repeat.svg');
-                background-size: 60%;
-                background-repeat: no-repeat;
-                background-position: center;
-                background-color: color('white');
-                border: 1px solid color('primary');
-                z-index: 99;
-                border-radius: 5px;
-                padding: 7.5px;
-            }
-        }
     }
     &__calendar{
         width: 15%;
@@ -299,6 +279,26 @@
         display: flex;
         gap: 5px;
         width: 100%;
+        &.showIcon .input-custom__block:nth-child(4){
+            &::before{
+                content: "";
+                width: 12px;
+                height: 12px;
+                @include flex;
+                position: absolute;
+                left: -25px;
+                top: calc(50% - 14px);
+                background-image: url('../assets/icons/icon-repeat.svg');
+                background-size: 60%;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: color('white');
+                border: 1px solid color('primary');
+                z-index: 99;
+                border-radius: 5px;
+                padding: 7.5px;
+            }
+        }
     }
     &__no-write{
         position: relative;
@@ -332,6 +332,81 @@
         z-index: 8;
     }
 }
+//INPUT RANGE CON DOS DIMENSIONES
+.rangePrice,
+.rangetime {
+    color: color('primary');
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    &__slider{
+        width: 100%;
+
+        .slider {
+            position: relative;
+            width: 100%;
+            height: 5px;
+            background: rgba(72, 110, 163, 0.3);
+            border-radius: 90px;
+            margin: 18px 0px 10px 0px;
+
+            .progress{
+                height: 5px;
+                position: absolute;
+                left: 5%;
+                right: 5%;
+                border-radius: 90px;
+                background: color('primary');
+            }
+        }
+
+        &--prices,
+        &--times {
+            font-weight: 500;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            span{
+                font-size: 1.4rem;
+                color: color('primary');
+            }
+        }
+    }
+}
+
+.range-input{
+    position: relative;
+    input{
+        position: absolute;
+        top: -15px;
+        height: 5px;
+        width: 100%;
+        background: none;
+        pointer-events: none;
+        -webkit-appearance: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb{
+        height: 20px;
+        width: 20px;
+        -webkit-appearance: none;
+        border-radius: 50%;
+        pointer-events: auto;
+        background-color: color('primary');
+    }
+    input[type="range"]::-moz-range-thumb{
+        height: 20px;
+        width: 20px;
+        -moz-appearance: none;
+        border: none;
+        border-radius: 50%;
+        pointer-events: auto;
+        background-color: color('primary');
+    }
+}
 
 @media(max-width:breakpoints('ipad-grande')){
     .input-custom{
@@ -348,8 +423,8 @@
         }
     }
     .input-custom{
-        &__block{
-            &:nth-child(4){
+        &__options{
+            &.showIcon .input-custom__block:nth-child(4){
                 &::before{
                     display: none;
                 }
@@ -362,7 +437,9 @@
     .input-custom{
         &__block{
             width: 100%;
-            &:nth-child(4){
+        }
+        &__options{
+            &.showIcon .input-custom__block:nth-child(4){
                 &::before{
                     left: unset;
                     top: -20px;

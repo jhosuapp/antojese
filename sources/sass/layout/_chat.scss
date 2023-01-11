@@ -1,0 +1,175 @@
+.chat{
+    position: relative;
+    z-index: 999;
+    &::before{
+        position: fixed;
+        content: "";
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, .90);
+        left: 0;
+        top: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: .3s ease opacity;
+    }
+    &__ctn{
+        position: fixed;
+        right: -100%;
+        top: 0;
+        height: 100vh;
+        background-color: rgb(26, 74, 140, .9);
+        @include flex($jc: flex-end, $ai: flex-end);
+        flex-direction: column;
+        gap: 30px;
+        padding: 40px 35px 140px 40px;
+        transition: 1s all ease;
+        width: 330px;
+        max-width: 330px;
+    }
+    &__item{
+        font-size: 1.6rem;
+        color: color('white');
+    }
+    &__img{
+        width: 50px;
+        height: 50px;
+    }
+    &__item{
+        @include flex;
+        gap: 20px;
+        p{
+            transition: .5s ease all;
+        }
+        &:hover{
+            p{
+                margin-right: 20px
+            }
+        }
+    }
+    &__img,
+    &__btn{
+        @include flex;
+        transition: .5s ease all;
+        border-radius: 100px;
+        box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.2), 0px 1px 5px rgba(0, 0, 0, 0.25);
+        background-color: color('white');
+        border: 2px solid color('primary');
+        cursor: pointer;
+    }
+    &__btn{
+        position: fixed;
+        right: 30px;
+        bottom: 40px;
+        width: 60px;
+        height: 60px;
+        img{
+            width: 27px;
+            transition: .5s ease all;
+            position: absolute;
+            transform: rotate(0deg);
+            &:last-child{
+                width: 30px;
+                opacity: 0;
+            }
+        }
+    }
+    &.active{
+        &::before{
+            pointer-events: all;
+            opacity: 1;
+        }
+        .chat{
+            &__btn img:first-child{
+                opacity: 0;
+                transform: rotate(360deg);
+            }
+            &__btn img:last-child{
+                opacity: 1;
+                transform: rotate(360deg);
+            }
+            &__ctn{
+                right: 0;
+            }
+        }
+    }
+    &-animation{
+        width:50px;
+        height:50px;
+        display:inline-block;
+        padding:0px;
+        text-align:left;
+        &__ctn{
+            position: fixed;
+            transition: 0.3s all ease;
+            opacity: 1;
+            right: 58px;
+            bottom: 65px;
+            z-index: -1;
+            &.active{
+                opacity: 1;
+                transition: .5s all ease;
+            }
+        }
+        span {
+            position:absolute;
+            display:inline-block;
+            width: 95px;
+            height: 95px;
+            border-radius:100%;
+            background: color('secondary');
+            animation: chat 1.5s linear infinite;
+            &:last-child {
+                animation-delay:-0.9s;
+            }
+        }
+    }
+}
+
+@keyframes chat {
+    0% {
+        transform: scale(0, 0);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1, 1);
+        opacity:0;
+    }
+ }
+
+@media(max-width: breakpoints('celular')){
+    .chat{
+        &__ctn{
+            width: 100%;
+            max-width: 100%;
+            padding: 40px 25px 190px 40px;
+        }
+        &__btn{
+            width: 50px;
+            height: 50px;
+            right: 20px;
+            bottom: 100px;
+        }
+        &__img{
+            width: 40px;
+            height: 40px;
+        }
+        &.active{
+            &::before{
+                display: none;
+            }
+        }
+    }
+    .chat-animation{
+        width: 50px;
+        height: 50px;
+        &__ctn{
+            right: 28px;
+            bottom: 106px;
+        }
+        span{
+            width: 65px;
+            height: 65px;
+        }
+    }
+}

@@ -9,13 +9,17 @@
 @import 'layout/header',
         'layout/footer',
         'layout/lateral-menu',
-        'layout/loader';
+        'layout/loader',
+        'layout/chat';
 
 //TEMPLATES
 @import 'templates/thanks',
         'templates/page-vip-filter',
         'templates/page-cars-filter',
-        'templates/page-home';
+        'templates/page-home',
+        'templates/page-turisemana',
+        'templates/page-turiInternal',
+        'templates/page-turisemanaReserva';
 
 //COMPONENTS
 @import 'components/scroll',
@@ -34,7 +38,10 @@
         'components/toggle',
         'components/chips',
         'components/swiper',
-        'components/custom-flight-modal';
+        'components/custom-flight-modal',
+        'components/fligth-selected',
+        'components/tab',
+        'components/form';
 
 //ANIMATIONS
 @import 'animations/aos-home',

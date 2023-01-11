@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Antojese</title>
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/main.css?v=4">
 </head>
 <body>
     <header class="header" style="background-image: url('./assets/menu/bg-header.jpg')">
@@ -49,3 +49,5 @@
         <img src="./assets/logo.svg" alt="">
     </span>
 </div>
+<!-- CHAT -->
+<?php include 'chat.php'?>

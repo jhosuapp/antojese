@@ -1,0 +1,163 @@
+.flight-custom{
+    border-radius: 5px;
+    &.ctm-flight__rst-agency{
+        padding-top: 0;
+    }
+    &__ctn{
+        background-color: color('gray00');
+        padding: 8px 20px;
+        @include flex($jc: space-between);
+        display: none;
+    }
+    &__ctn .item{
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        a{
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: color('primary');
+            text-decoration: underline;
+            cursor: pointer;
+            &:hover{
+                text-decoration: none;
+            }
+        }
+    }
+    .toggle__show{
+        pointer-events: none;
+        border: none;
+        margin-bottom: 0;
+    }
+    &:has(.toggle__show){
+        border: 1px solid color('secondary-light');
+        .flight-custom__ctn{
+            display: flex;
+        }
+        .ctm-flight__rst-plane{
+            display: none;
+        }
+        &.mt{
+            margin-top: 30px;
+        }
+    }
+}
+.flight-selected__ctn{
+    border: 1px solid color('secondary-light');
+    border-radius: 8px;
+}
+
+.flight-selected__detail {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    .flight-modal__detail {
+        position: relative;
+        top: unset;
+        left: unset;
+        height: auto;
+        pointer-events: inherit;
+        opacity: 1;
+    }
+    .container{
+        max-width: 100%;
+        width: 100%;
+        box-shadow: inherit;
+    }
+    .flight-custom__ctn{
+        display: flex;
+        border-radius: 8px 8px 0 0;
+    }
+    .flight-selected__item{
+        &:first-child{
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 70%;
+        }
+        &:last-child{
+            width: 30%;
+        }
+    }
+}
+
+.flight-selected__price{
+    background-color: color('secondary-light');
+    padding:20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 0 8px 8px;
+    h5, p, span{
+        opacity: .7;
+    }
+    p{
+        text-decoration: underline;
+    }
+    span{
+        font-size: 1.4rem;
+        color: color('primary');
+    }
+    h5{
+        margin-bottom: 10px;
+    }
+    .flex{
+        @include flex;
+        gap: 5px;
+    }
+}
+
+.flight-total{
+    .item{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        padding: 0 10px;
+        &--total{
+            padding: 20px 10px;
+            background-color: color('secondary-light');
+            margin-top: 20px;
+        }
+    }
+    .btn{
+        margin-top: 20px;
+    }
+}
+
+@media(max-width: breakpoints('ipad-grande')){
+    .flight-selected__detail {
+        .container{
+            height: auto;
+            max-height: 100%;
+        }
+        .flight-modal__detail .block div:last-child{
+            gap: 10px;
+        }
+        .flight-selected__item{
+            &:first-child{
+                width: 100%;
+            }
+            &:last-child{
+                width: 100%;
+                position: absolute;
+                opacity: 0;
+                pointer-events: none;
+            }
+        }
+    }
+    .flight-selected__price{
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+        .item{
+            width: 100%;
+        }
+        .flex{
+            justify-content: space-between;
+            width: 100%;
+        }
+        .flex--center{
+            justify-content: center;
+        }
+    }
+}

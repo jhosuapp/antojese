@@ -1,0 +1,23 @@
+form {
+    fieldset {
+        border: none;
+        legend {
+            color: color('primary');
+            font-size: 2rem;
+            font-weight: 800;
+        }
+        .form__container {
+            .input-custom__item {
+                &::before {
+                    display: none;
+                }
+                input {
+                    padding: 25px 10px 10px 10px;
+                }
+                label {
+                    left: 10px;
+                }
+            }
+        }
+    }
+}

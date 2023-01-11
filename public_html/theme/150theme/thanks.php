@@ -3,8 +3,12 @@
 
 <section class="header-thanks">
     <div class="header-thanks__txt">
-        <h1>¡Felicidades!</h1> <br>
-        <p>Tu compra se realizo de manera exitosa</p>
+
+        <div class="ctn">
+            <h1>¡Felicidades!</h1> <br>
+            <p>Tu compra se realizo de manera exitosa</p>
+        </div>
+
     </div>
 </section>
 
